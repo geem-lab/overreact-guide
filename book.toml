@@ -7,3 +7,8 @@ title = "Overreact Documentation"
 
 [output.html]
 site-url = "/overreact-docs"
+additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+[preprocessor]
+[preprocessor.mermaid]
+command = "mdbook-mermaid"
