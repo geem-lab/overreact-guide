@@ -197,7 +197,35 @@ and solvent properties:</p>
 and thermo is used to calculate the dynamic viscosity of solvents in the
 context of the :doc:`tutorials/collins-kimball` for diffusion-limited
 reactions. -->
-<div style="break-before: page; page-break-before: always;"></div><h1 id="notes-about-thermodynamics"><a class="header" href="#notes-about-thermodynamics">Notes about thermodynamics</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h1>
+<p><strong>overreact</strong> takes computational chemistry outputs as <strong>data sources</strong> and uses them to calculate thermodynamic and kinetic properties as shown in the following diagram.</p>
+<!-- Currently, overreact only supports quantum chemistry outputs.
+In the future we might get data from actual experiments, databases or using machine learning. -->
+<pre class="mermaid">graph TD;
+    A[Data sources] --&gt; B[Free energy data for all species];
+    X[Reaction hypotheses] --&gt; Y[Reaction network]
+    Y --&gt; D[Reaction rate equations];
+    B --&gt; C[Free energy data for reactions];
+    Y --&gt; C;
+    Z[Initial concentrations] --&gt; E;
+    D --&gt; E{ODE solver};
+    C --&gt; J[Reaction rates];
+    I[Conditions] --&gt; J;
+    J --&gt; E;
+    E --&gt; F[Concentrations for all species as a function of time];
+    F --&gt; G[Kinetic predictions];
+</pre>
+<!-- G -> X; -->
+<p><strong>Conditions</strong> include temperature.</p>
+<!-- , pressure, and any other conditions that might be used in a simulation -->
+<p>Free energy data for reactions allow us to calculate reaction rates as <code>k(T, p)</code>.</p>
+<p>Reaction rate equation laws are calculated using the <strong>reaction rate equations</strong> and are of the form <code>dy/dt(y)</code>.</p>
+<p>Initial concentrations are given by the user as <code>y0[i]</code>.</p>
+<p><strong>Concentrations for all species</strong> are calculated using the <strong>ODE solver</strong> and are of the form <code>y[i, t]</code>.</p>
+<p>The dictionary is then used to generate a plot.</p>
+<p>The goal is to provide a tool for calculating thermodynamic properties of chemical systems.</p>
+<p>By comparing calculated properties and kinetic predictions with actual experimental data, we refine our <strong>hypotheses</strong>.</p>
+<h2 id="notes-about-thermodynamics"><a class="header" href="#notes-about-thermodynamics">Notes about thermodynamics</a></h2>
 <p>overreact employs standard statistical thermodynamical partition functions (the
 Rigid Rotor Harmonic Oscillator), but also two Quasi-Rigid Rotor Harmonic
 Oscillator approximations, one for entropy and one for enthalpy, for when
@@ -320,6 +348,8 @@ The following notebooks are available:</p>
         <script src="book.js" type="text/javascript" charset="utf-8"></script>
 
         <!-- Custom JS scripts -->
+                <script type="text/javascript" src="mermaid.min.js"></script>
+                <script type="text/javascript" src="mermaid-init.js"></script>
         
                         <script type="text/javascript">
         window.addEventListener('load', function() {
