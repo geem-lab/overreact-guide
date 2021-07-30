@@ -7,21 +7,47 @@ In the future we might get data from actual experiments, databases or using mach
 
 ```mermaid
 graph TD;
-    A[Data sources] --> B[Free energy data for all species];
-    X[Reaction hypotheses] --> Y[Reaction network]
-    Y --> D[Reaction rate equations];
-    B --> C[Free energy data for reactions];
-    Y --> C;
-    Z[Initial concentrations] --> E;
-    D --> E{ODE solver};
-    C --> J[Reaction rates];
-    I[Conditions] --> J;
-    J --> E;
-    E --> F[Concentrations for all species as a function of time];
-    F --> G[Kinetic predictions];
+    classDef normal font-variant:small-caps;
+    classDef valuable font-variant:small-caps,fill:#9AC4F8;
+    class A,B,C,D,E,F,G,H,data,cond,hypo,init,pred normal;
+
+    data[/Data sources/]:::normal -.-> A[Free energy data <br> for all species]:::normal;
+    cond[/Conditions/]:::normal -.-> E;
+    hypo[/Reaction hypotheses/]:::normal -.-> G[Reaction network]:::normal;
+    init[/Initial concentrations/]:::normal -.-> D;
+    cond -.-> A;
+
+    subgraph inputs
+        data
+        cond
+        hypo
+        init
+    end
+
+    G --> F[Reaction rate laws]:::normal --> C[Reaction rate equations]:::normal;
+    A --> B[Free energy data <br> for reactions]:::valuable;
+    B --> E[Reaction rate constants]:::valuable --> C --> D((ODE solver)):::normal;
+    G --> B;
+
+    subgraph overreact
+        A
+        B
+        C
+        D
+        E
+        F
+        G
+    end
+
+    D -.-> pred[\Concentrations for all species <br> as a function of time\]:::normal;
+    pred ==> H[Kinetic predictions]:::normal;
+
+    subgraph outputs
+        pred
+    end
 ```
 
-<!-- G -> X; -->
+<!-- H -> hypo; -->
 
 **Conditions** include temperature.
 
