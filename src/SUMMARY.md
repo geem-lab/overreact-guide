@@ -3,11 +3,11 @@
 [Introduction](./intro.md)
 
 -   [Installation](./install.md)
--   [Thermodynamics](./thermodynamics.md)
+-   [Design](./thermodynamics.md)
 
 # Quickstart
 
--   [As a tool](./quickstart.md)
+-   [In the command-line](./quickstart.md)
 -   [As a library](./quickstart-library.md)
 
 # Examples
