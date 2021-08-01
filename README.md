@@ -2,6 +2,8 @@
 
 Construct precise chemical microkinetic models from first principles and solve them with numerical methods.
 
+![overreact](logo.png)
+
 **overreact** is a library for creating and analyzing microkinetic models.
 Data is parsed directly from computational chemistry output files thanks to
 [`cclib`](https://cclib.github.io/) (see the [list of supported programs](https://cclib.github.io/#summary)).
