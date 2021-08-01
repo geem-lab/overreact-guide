@@ -25,7 +25,7 @@ jobs:
                   path: |
                       ~/.cargo
                       target
-                  key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+                  key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}-${{ hashFiles('**/*.toml') }}
 
             - run: cargo install mdbook-linkcheck mdbook-mermaid
             - run: mdbook build
