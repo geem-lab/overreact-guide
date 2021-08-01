@@ -2,16 +2,9 @@
 
 **overreact** is a library for creating and analyzing microkinetic models.
 Data is parsed directly from computational chemistry output files thanks to
-[`cclib`](https://cclib.github.io/).
+[`cclib`](https://cclib.github.io/) (see the [list of supported programs](https://cclib.github.io/#summary)).
 
-Free energies are calculated using the quasi-rigid rotor harmonic oscillator
-method and the resulting data used in the automatic prediction of reaction
-rate constants.
-Quantum tunneling effects are taken into account using either the
-Eckart or Wigner models.
-Chemical reaction networks are subsequently simulated over time.
-
-This project is licensed under the MIT license.
+This project is licensed under the [MIT license](https://github.com/geem-lab/overreact-docs/blob/master/LICENSE).
 
 <!-- ## _Ab initio_ thermochemistry
 

@@ -14,9 +14,9 @@ Scheme(compounds=('S', 'E‡'),
        ...)
 ```
 
-The "‡" symbol is used to indicate transition states (but the "#" symbol is
+The `‡` symbol is used to indicate transition states (but the `#` symbol is
 also accepted). Many different reactions can be specified at the same time by
-properly giving a list. Equilibria are recognized as having "<=>". Reactions
+properly giving a list. Equilibria are recognized as having `<=>`. Reactions
 preserve the order they appeared in the input.
 
 Similarly, compound data is retrieved from logfiles using `parse_compounds`:
@@ -44,7 +44,7 @@ array([8.16e+10])
 
 Even with a rather simple level of theory (B97-3c :cite:`Brandenburg_2018`),
 this result compares well with the experimentally determined value
-(:math:`8.3 \times 10^{10} \text{s}^{-1}` :cite:`Zheng_2006`).
+(\\( 8.3 \times 10^{10} \text{s}^{-1} \\) :cite:`Zheng_2006`).
 This small error of is due to the very accurate thermochemical and tunneling
 corrections employed.
 
@@ -82,3 +82,6 @@ array([0. , 2.63129486])
 ```
 
 In the above, we calculated free energies relative to the minimum.
+
+Other examples of using overreact as a library are given in the [examples](examples) folder.
+A more detailed description of the available examples is given [next](notebooks).
