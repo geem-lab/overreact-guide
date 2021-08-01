@@ -83,5 +83,8 @@ array([0. , 2.63129486])
 
 In the above, we calculated free energies relative to the minimum.
 
-Other examples of using overreact as a library are given in the [examples](examples) folder.
-A more detailed description of the available examples is given [next](notebooks).
+Other examples of using overreact as a library are given in the
+[examples](https://github.com/geem-lab/overreact-docs/tree/master/examples)
+folder.
+A more detailed description of the available examples is given
+[next](notebooks.md).

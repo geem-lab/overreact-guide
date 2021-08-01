@@ -3,12 +3,14 @@ authors = ["Felipe S. S. Schneider"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Overreact Documentation"
+title = "overreact documentation"
 
 [output.html]
 site-url = "/overreact-docs"
 mathjax-support = true
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
+
+[output.linkcheck]
 
 [preprocessor]
 [preprocessor.mermaid]
