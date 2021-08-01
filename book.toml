@@ -1,14 +1,16 @@
 [book]
 authors = ["Felipe S. S. Schneider"]
+description = "Construct precise chemical microkinetic models from first principles and solve them with numerical methods."
 language = "en"
 multilingual = false
 src = "src"
 title = "overreact documentation"
 
 [output.html]
-site-url = "/overreact-docs"
-mathjax-support = true
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
+git-repository-url = "https://github.com/geem-lab/overreact-docs"
+mathjax-support = true
+site-url = "/overreact-docs"
 
 [output.linkcheck]
 
