@@ -11,7 +11,7 @@ $ pip install overreact
 
 ## Dependencies
 
-overreact depends on:
+**overreact** depends on:
 
 -   [`cclib`](https://github.com/cclib/cclib/) (parser for computational
     chemistry logfiles).
@@ -19,7 +19,7 @@ overreact depends on:
     optimization, unit conversion and others).
 
 (Don't worry, these dependencies are automatically installed when you install
-overreact using `pip` as indicated above.)
+**overreact** using `pip` as indicated above.)
 
 Optionally, extra functionality is provided such as a command-line interface
 and solvent properties:

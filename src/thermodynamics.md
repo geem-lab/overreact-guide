@@ -2,7 +2,7 @@
 
 **overreact** takes computational chemistry outputs as **data sources** and uses them to calculate thermodynamic and kinetic properties as shown in the following diagram.
 
-<!-- Currently, overreact only supports quantum chemistry outputs.
+<!-- Currently, **overreact** only supports quantum chemistry outputs.
 In the future we might get data from actual experiments, databases or using machine learning. -->
 
 ```mermaid
@@ -76,7 +76,7 @@ By comparing calculated properties and kinetic predictions with actual experimen
 
 <!-- ## Notes about thermodynamics -->
 
-overreact employs standard statistical thermodynamical partition functions (the
+**overreact** employs standard statistical thermodynamical partition functions (the
 Rigid Rotor Harmonic Oscillator), but also two Quasi-Rigid Rotor Harmonic
 Oscillator approximations, one for entropy and one for enthalpy, for when
 vibrational frequencies are too small.
