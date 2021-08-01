@@ -149,14 +149,8 @@
                         <h1 id="introduction"><a class="header" href="#introduction">Introduction</a></h1>
 <p><strong>overreact</strong> is a library for creating and analyzing microkinetic models.
 Data is parsed directly from computational chemistry output files thanks to
-<a href="https://cclib.github.io/"><code>cclib</code></a>.</p>
-<p>Free energies are calculated using the quasi-rigid rotor harmonic oscillator
-method and the resulting data used in the automatic prediction of reaction
-rate constants.
-Quantum tunneling effects are taken into account using either the
-Eckart or Wigner models.
-Chemical reaction networks are subsequently simulated over time.</p>
-<p>This project is licensed under the MIT license.</p>
+<a href="https://cclib.github.io/"><code>cclib</code></a> (see the <a href="https://cclib.github.io/#summary">list of supported programs</a>).</p>
+<p>This project is licensed under the <a href="https://github.com/geem-lab/overreact-docs/blob/master/LICENSE">MIT license</a>.</p>
 <!-- ## _Ab initio_ thermochemistry
 
 -   Concentration corrections
@@ -244,6 +238,12 @@ In the future we might get data from actual experiments, databases or using mach
     end
 </pre>
 <!-- H -> hypo; -->
+<p>Free energies are calculated using the quasi-rigid rotor harmonic oscillator
+method and the resulting data used in the automatic prediction of reaction
+rate constants.
+Quantum tunneling effects are taken into account using either the
+Eckart or Wigner models.
+Chemical reaction networks are subsequently simulated over time.</p>
 <p><strong>Conditions</strong> include temperature.</p>
 <!-- , pressure, and any other conditions that might be used in a simulation -->
 <p>Free energy data for reactions allow us to calculate reaction rates as <code>k(T, p)</code>.</p>
@@ -253,14 +253,14 @@ In the future we might get data from actual experiments, databases or using mach
 <p>The dictionary is then used to generate a plot.</p>
 <p>The goal is to provide a tool for calculating thermodynamic properties of chemical systems.</p>
 <p>By comparing calculated properties and kinetic predictions with actual experimental data, we refine our <strong>hypotheses</strong>.</p>
-<h2 id="notes-about-thermodynamics"><a class="header" href="#notes-about-thermodynamics">Notes about thermodynamics</a></h2>
+<!-- ## Notes about thermodynamics -->
 <p>overreact employs standard statistical thermodynamical partition functions (the
 Rigid Rotor Harmonic Oscillator), but also two Quasi-Rigid Rotor Harmonic
 Oscillator approximations, one for entropy and one for enthalpy, for when
 vibrational frequencies are too small.</p>
 <p>A Head-Gordon damping is used for the treatment of QRRHO, which ensures the
 standard procedure is used for frequencies well above
-:math:<code>100 \text{cm}^{-1}</code>.</p>
+\( 100 \text{cm}^{-1} \).</p>
 <p>See the treatments for entropy and enthalpy in the Jupyter Notebook about
 QRRHO (TODO(schneiderfelipe): add link).%</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quickstart-command-line-tool"><a class="header" href="#quickstart-command-line-tool">Quickstart (command-line tool)</a></h1>
@@ -278,9 +278,9 @@ Scheme(compounds=('S', 'E‡'),
        is_half_equilibrium=(False,),
        ...)
 </code></pre>
-<p>The &quot;‡&quot; symbol is used to indicate transition states (but the &quot;#&quot; symbol is
+<p>The <code>‡</code> symbol is used to indicate transition states (but the <code>#</code> symbol is
 also accepted). Many different reactions can be specified at the same time by
-properly giving a list. Equilibria are recognized as having &quot;&lt;=&gt;&quot;. Reactions
+properly giving a list. Equilibria are recognized as having <code>&lt;=&gt;</code>. Reactions
 preserve the order they appeared in the input.</p>
 <p>Similarly, compound data is retrieved from logfiles using <code>parse_compounds</code>:</p>
 <pre><code class="language-python">&gt;&gt;&gt; compounds = rx.parse_compounds({
@@ -301,7 +301,7 @@ array([8.16e+10])
 </code></pre>
 <p>Even with a rather simple level of theory (B97-3c :cite:<code>Brandenburg_2018</code>),
 this result compares well with the experimentally determined value
-(:math:<code>8.3 \times 10^{10} \text{s}^{-1}</code> :cite:<code>Zheng_2006</code>).
+(\( 8.3 \times 10^{10} \text{s}^{-1} \) :cite:<code>Zheng_2006</code>).
 This small error of is due to the very accurate thermochemical and tunneling
 corrections employed.</p>
 <p>The line above works by calculating internal energies, enthalpies and entropies
@@ -329,12 +329,14 @@ array([227.9, 221.9])
 array([0. , 2.63129486])
 </code></pre>
 <p>In the above, we calculated free energies relative to the minimum.</p>
+<p>Other examples of using overreact as a library are given in the <a href="examples">examples</a> folder.
+A more detailed description of the available examples is given <a href="notebooks">next</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="basic-examples"><a class="header" href="#basic-examples">Basic examples</a></h1>
 <p>Some basic examples of how to use the command-line interface to solve simple
 problems.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jupyter-notebooks"><a class="header" href="#jupyter-notebooks">Jupyter notebooks</a></h1>
 <p>Examples on how to use the library are available as
-<a href="https://jupyter.org/">Jupyter notebooks</a> in the <code>examples</code> directory.
+<a href="https://jupyter.org/">Jupyter notebooks</a> in the <code>examples</code> folder.
 The following notebooks are available:</p>
 <ul>
 <li><a href=""><code>examples/basic.ipynb</code></a></li>

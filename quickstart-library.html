@@ -157,9 +157,9 @@ Scheme(compounds=('S', 'E‡'),
        is_half_equilibrium=(False,),
        ...)
 </code></pre>
-<p>The &quot;‡&quot; symbol is used to indicate transition states (but the &quot;#&quot; symbol is
+<p>The <code>‡</code> symbol is used to indicate transition states (but the <code>#</code> symbol is
 also accepted). Many different reactions can be specified at the same time by
-properly giving a list. Equilibria are recognized as having &quot;&lt;=&gt;&quot;. Reactions
+properly giving a list. Equilibria are recognized as having <code>&lt;=&gt;</code>. Reactions
 preserve the order they appeared in the input.</p>
 <p>Similarly, compound data is retrieved from logfiles using <code>parse_compounds</code>:</p>
 <pre><code class="language-python">&gt;&gt;&gt; compounds = rx.parse_compounds({
@@ -180,7 +180,7 @@ array([8.16e+10])
 </code></pre>
 <p>Even with a rather simple level of theory (B97-3c :cite:<code>Brandenburg_2018</code>),
 this result compares well with the experimentally determined value
-(:math:<code>8.3 \times 10^{10} \text{s}^{-1}</code> :cite:<code>Zheng_2006</code>).
+(\( 8.3 \times 10^{10} \text{s}^{-1} \) :cite:<code>Zheng_2006</code>).
 This small error of is due to the very accurate thermochemical and tunneling
 corrections employed.</p>
 <p>The line above works by calculating internal energies, enthalpies and entropies
@@ -208,6 +208,8 @@ array([227.9, 221.9])
 array([0. , 2.63129486])
 </code></pre>
 <p>In the above, we calculated free energies relative to the minimum.</p>
+<p>Other examples of using overreact as a library are given in the <a href="examples">examples</a> folder.
+A more detailed description of the available examples is given <a href="notebooks">next</a>.</p>
 
                     </main>
 

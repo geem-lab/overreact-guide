@@ -190,6 +190,12 @@ In the future we might get data from actual experiments, databases or using mach
     end
 </pre>
 <!-- H -> hypo; -->
+<p>Free energies are calculated using the quasi-rigid rotor harmonic oscillator
+method and the resulting data used in the automatic prediction of reaction
+rate constants.
+Quantum tunneling effects are taken into account using either the
+Eckart or Wigner models.
+Chemical reaction networks are subsequently simulated over time.</p>
 <p><strong>Conditions</strong> include temperature.</p>
 <!-- , pressure, and any other conditions that might be used in a simulation -->
 <p>Free energy data for reactions allow us to calculate reaction rates as <code>k(T, p)</code>.</p>
@@ -199,14 +205,14 @@ In the future we might get data from actual experiments, databases or using mach
 <p>The dictionary is then used to generate a plot.</p>
 <p>The goal is to provide a tool for calculating thermodynamic properties of chemical systems.</p>
 <p>By comparing calculated properties and kinetic predictions with actual experimental data, we refine our <strong>hypotheses</strong>.</p>
-<h2 id="notes-about-thermodynamics"><a class="header" href="#notes-about-thermodynamics">Notes about thermodynamics</a></h2>
+<!-- ## Notes about thermodynamics -->
 <p>overreact employs standard statistical thermodynamical partition functions (the
 Rigid Rotor Harmonic Oscillator), but also two Quasi-Rigid Rotor Harmonic
 Oscillator approximations, one for entropy and one for enthalpy, for when
 vibrational frequencies are too small.</p>
 <p>A Head-Gordon damping is used for the treatment of QRRHO, which ensures the
 standard procedure is used for frequencies well above
-:math:<code>100 \text{cm}^{-1}</code>.</p>
+\( 100 \text{cm}^{-1} \).</p>
 <p>See the treatments for entropy and enthalpy in the Jupyter Notebook about
 QRRHO (TODO(schneiderfelipe): add link).%</p>
 
