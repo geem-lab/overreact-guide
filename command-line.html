@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Design - overreact documentation</title>
+        <title>In the command-line - overreact documentation</title>
                 
 
         <!-- Custom HTML head -->
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="thermodynamics.html" class="active"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Quickstart</li><li class="chapter-item expanded "><a href="quickstart.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li class="chapter-item expanded "><a href="quickstart-library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Basic examples</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">6.</strong> Jupyter notebooks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="command-line.html" class="active"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Basic usage examples</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">6.</strong> Tutorials</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">7.</strong> Jupyter notebooks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -148,86 +148,19 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h1>
-<p><strong>overreact</strong> takes computational chemistry outputs as <strong>data sources</strong> and uses them to calculate thermodynamic and kinetic properties as shown in the following diagram.</p>
-<!-- Currently, **overreact** only supports quantum chemistry outputs.
-In the future we might get data from actual experiments, databases or using machine learning. -->
-<pre class="mermaid">graph TD;
-    classDef normal font-variant:small-caps;
-    classDef valuable font-variant:small-caps,fill:#9AC4F8;
-    class A,B,C,D,E,F,G,H,data,cond,hypo,init,pred normal;
-
-    data[/Data sources/]:::normal -.-&gt; A[Free energy data &lt;br&gt; for all species]:::normal;
-    cond[/Conditions/]:::normal -.-&gt; E;
-    hypo[/Reaction hypotheses/]:::normal -.-&gt; G[Reaction network]:::normal;
-    init[/Initial concentrations/]:::normal -.-&gt; D;
-    cond -.-&gt; A;
-
-    subgraph inputs
-        data
-        cond
-        hypo
-        init
-    end
-
-    G --&gt; F[Reaction rate laws]:::normal --&gt; C[Reaction rate equations]:::normal;
-    A --&gt; B[Free energy data &lt;br&gt; for reactions]:::valuable;
-    B --&gt; E[Reaction rate constants]:::valuable --&gt; C --&gt; D((ODE solver)):::normal;
-    G --&gt; B;
-
-    subgraph overreact
-        A
-        B
-        C
-        D
-        E
-        F
-        G
-    end
-
-    D -.-&gt; pred[\Concentrations for all species &lt;br&gt; as a function of time\]:::normal;
-    pred ==&gt; H[Kinetic predictions]:::normal;
-
-    subgraph outputs
-        pred
-    end
-</pre>
-<!-- H -> hypo; -->
-<p>Free energies are calculated using the quasi-rigid rotor harmonic oscillator
-method and the resulting data used in the automatic prediction of reaction
-rate constants.
-Quantum tunneling effects are taken into account using either the
-Eckart or Wigner models.
-Chemical reaction networks are subsequently simulated over time.</p>
-<p><strong>Conditions</strong> include temperature.</p>
-<!-- , pressure, and any other conditions that might be used in a simulation -->
-<p>Free energy data for reactions allow us to calculate reaction rates as <code>k(T, p)</code>.</p>
-<p>Reaction rate equation laws are calculated using the <strong>reaction rate equations</strong> and are of the form <code>dy/dt(y)</code>.</p>
-<p>Initial concentrations are given by the user as <code>y0[i]</code>.</p>
-<p><strong>Concentrations for all species</strong> are calculated using the <strong>ODE solver</strong> and are of the form <code>y[i, t]</code>.</p>
-<p>The dictionary is then used to generate a plot.</p>
-<p>The goal is to provide a tool for calculating thermodynamic properties of chemical systems.</p>
-<p>By comparing calculated properties and kinetic predictions with actual experimental data, we refine our <strong>hypotheses</strong>.</p>
-<!-- ## Notes about thermodynamics -->
-<p><strong>overreact</strong> employs standard statistical thermodynamical partition functions (the
-Rigid Rotor Harmonic Oscillator), but also two Quasi-Rigid Rotor Harmonic
-Oscillator approximations, one for entropy and one for enthalpy, for when
-vibrational frequencies are too small.</p>
-<p>A Head-Gordon damping is used for the treatment of QRRHO, which ensures the
-standard procedure is used for frequencies well above
-\( 100 \text{cm}^{-1} \).</p>
-<p>See the treatments for entropy and enthalpy in the Jupyter Notebook about
-QRRHO (TODO(schneiderfelipe): add link).%</p>
+                        <h1 id="quickstart-command-line-tool"><a class="header" href="#quickstart-command-line-tool">Quickstart (command-line tool)</a></h1>
+<p>Most commonly, you'll want to use the command-line tool to generate a
+project.</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="install.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="howitworks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="quickstart.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="library.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -237,11 +170,11 @@ QRRHO (TODO(schneiderfelipe): add link).%</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="install.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="howitworks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="quickstart.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="library.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>
