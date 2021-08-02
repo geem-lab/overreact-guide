@@ -3,14 +3,15 @@
 [Introduction](./intro.md)
 
 -   [Installation](./install.md)
--   [Design](./thermodynamics.md)
+-   [Design](./howitworks.md)
 
-# Quickstart
+# Getting started
 
--   [In the command-line](./quickstart.md)
--   [As a library](./quickstart-library.md)
+-   [In the command-line](./command-line.md)
+-   [As a library](./library.md)
 
 # Examples
 
--   [Basic examples](./examples.md)
+-   [Basic usage examples](./examples.md)
+-   [Tutorials](./tutorials.md)
 -   [Jupyter notebooks](./notebooks.md)
