@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="command-line.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Basic usage examples</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">6.</strong> Tutorials</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">7.</strong> Jupyter notebooks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Basic usage examples</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">6.</strong> Tutorials</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">7.</strong> Jupyter notebooks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -157,6 +157,53 @@
 analyzing microkinetic models<sup class="footnote-reference"><a href="#microkinetic">1</a></sup>.
 Data is parsed directly from computational chemistry output files thanks to
 <a href="https://cclib.github.io/"><code>cclib</code></a> (see the <a href="https://cclib.github.io/#summary">list of supported programs</a>).</p>
+<div class="footnote-definition" id="microkinetic"><sup class="footnote-definition-label">1</sup>
+<p>Microkinetic modeling is a techinque used to predict the
+outcome of complex chemical reactions.
+It can be used to investigate the catalytic transformations of
+molecules.
+<strong>overreact</strong> makes it easy to create and analyze microkinetic models built
+from computational chemistry data.</p>
+</div>
+<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
+<p><strong>overreact</strong> is a Python package, so you can easily install it with <code>pip</code>.
+See the <a href="https://geem-lab.github.io/overreact-docs/install.html">installation instructions</a>.</p>
+<h2 id="license"><a class="header" href="#license">License</a></h2>
+<p><strong>overreact</strong> is open-source, released under the permissive <strong>MIT license</strong>.
+See <a href="https://github.com/geem-lab/overreact-docs/blob/master/LICENSE">our LICENSE file</a>.</p>
+<h2 id="citing-overreact"><a class="header" href="#citing-overreact">Citing <strong>overreact</strong></a></h2>
+<p>If you use <strong>overreact</strong> in your research, please cite:</p>
+<blockquote>
+<p>F. S. S. Schneider and G. F. Caramori. <em><strong>overreact</strong>: a tool for creating and analyzing microkinetic models built from computational chemistry data</em>. <strong>2021</strong>.
+Available at: <a href="https://github.com/geem-lab/overreact">https://github.com/geem-lab/overreact</a>.</p>
+</blockquote>
+<p>Here's the reference in <a href="http://www.bibtex.org/">BibTeX</a> format:</p>
+<!-- @article{overreact,
+  title = \textbf{overreact}: a tool for creating and analyzing microkinetic models built from computational chemistry data},
+  author = {Schneider, F. S. S. and Caramori, G. F.},
+  journal={J. Chem. Phys.},
+  volume={155},
+  number={1},
+  pages={0},
+  year = {2021},
+  publisher={American Chemical Society (ACS)},
+  doi={10.1063/1.5058983},
+  url={https://doi.org/10.1063/1.5058983}
+} -->
+<pre><code class="language-bibtex">@misc{overreact2021,
+  title        = {
+    \textbf{overreact}: a tool for creating and analyzing microkinetic models
+    built from computational chemistry data, ver. 1.0
+  },
+  author       = {Schneider, F. S. S. and Caramori, G. F.},
+  year         = 2021,
+  howpublished = {\url{https://github.com/geem-lab/overreact}}
+}
+</code></pre>
+<p>A paper describing <strong>overreact</strong> is currently being prepared.
+When it is published, the above BibTeX entry will be updated.</p>
+<h2 id="funding"><a class="header" href="#funding">Funding</a></h2>
+<p>This project was supported by CNPq (<a href="https://www.gov.br/cnpq/pt-br">Brazilian National Council for Scientific and Technological Development</a>) grant number 140485/2017-1.</p>
 <!-- ## _Ab initio_ thermochemistry
 
 -   Concentration corrections
@@ -170,68 +217,32 @@ Data is parsed directly from computational chemistry output files thanks to
 
 -   Degree of rate control
 -   Degree of selectivity control -->
-<div class="footnote-definition" id="microkinetic"><sup class="footnote-definition-label">1</sup>
-<p>Microkinetic modeling is a techinque used to predict the
-outcome of complex chemical reactions.
-It can be used to investigate the catalytic transformations of
-molecules.
-<strong>overreact</strong> makes it easy to create and analyze microkinetic models built
-from computational chemistry data.</p>
-</div>
-<h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
-<p><strong>overreact</strong> is a Python package, so you can easily install it with <code>pip</code>.
-See the <a href="https://geem-lab.github.io/overreact-docs/install.html">installation instructions</a>.</p>
-<h2 id="documentation"><a class="header" href="#documentation">Documentation</a></h2>
-<p>Full documentation is hosted on Read the Docs.</p>
-<p>Take a look in the side bar for background information, step-by-step usage instructions and tutorials.</p>
-<p>Add links above (no sidebar stuff, etc.).</p>
-<p>On how to use <strong>overreact</strong> as a command-line tool.</p>
-<p>Take a look at the <a href="https://geem-lab.github.io/overreact-docs/command-line.html">command-line tool documentation</a>.</p>
-<p>Take a look at the <a href="https://geem-lab.github.io/overreact-docs/library.html">library documentation</a>.</p>
-<p>Take a look at the <a href="https://geem-lab.github.io/overreact-docs/tutorials.html">tutorials</a>.</p>
-<p>Learn about <a href="https://geem-lab.github.io/overreact-docs/howitworks.html">how it works</a>.</p>
-<h3 id="code-examples-as-jupyter-notebooks"><a class="header" href="#code-examples-as-jupyter-notebooks">Code examples as Jupyter notebooks</a></h3>
-<p>Guide the user to Jupyter notebooks.</p>
-<p>On how to use <strong>overreact</strong> as a Python library.</p>
-<p>Take a look at the <a href="https://geem-lab.github.io/overreact-docs/notebooks.html">example notebooks</a>.</p>
-<h2 id="license"><a class="header" href="#license">License</a></h2>
-<p><strong>overreact</strong> is open-source, released under the permissive <strong>MIT license</strong>.
-See <a href="https://github.com/geem-lab/overreact-docs/blob/master/LICENSE">LICENSE</a>.</p>
-<h2 id="citing-overreact"><a class="header" href="#citing-overreact">Citing <strong>overreact</strong></a></h2>
-<p>If you use <strong>overreact</strong> in your research, please cite:</p>
-<blockquote>
-<p>F. S. S. Schneider and G. F. Caramori. <strong>overreact</strong>: a tool for creating and analyzing microkinetic models built from computational chemistry data. 2021.
-Available at: <a href="https://github.com/geem-lab/overreact">https://github.com/geem-lab/overreact</a>.</p>
-</blockquote>
-<p>Here's the reference in <a href="http://www.bibtex.org/">BibTeX</a> format:</p>
-<pre><code>&lt;!-- @article{overreact,
-  title = \textbf{overreact}: a tool for creating and analyzing microkinetic models built from computational chemistry data},
-  author = {Schneider, F. S. S. and Caramori, G. F.},
-  journal={J. Chem. Phys.},
-  volume={155},
-  number={1},
-  pages={0},
-  year = {2021},
-  publisher={American Chemical Society (ACS)},
-  doi={10.1063/1.5058983},
-  url={https://doi.org/10.1063/1.5058983}
-} --&gt;
-
-@misc{overreact2021,
-  author = {Schneider, F. S. S. and Caramori, G. F.},
-  title = \textbf{overreact}: a tool for creating and analyzing microkinetic models built from computational chemistry data, ver. 1.0},
-  howpublished = {\url{https://github.com/geem-lab/overreact}},
-  year = {2021},
-}
-</code></pre>
-<h2 id="funding"><a class="header" href="#funding">Funding</a></h2>
-<p>This project was supported by CNPq (<a href="https://www.gov.br/cnpq/pt-br">Brazilian National Council for Scientific and Technological Development</a>) grant number 140485/2017-1.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="installation-1"><a class="header" href="#installation-1">Installation</a></h1>
+<h2 id="how-to-read-this-documentation"><a class="header" href="#how-to-read-this-documentation">How to read this documentation</a></h2>
+<p>If you want to...</p>
+<ul>
+<li>...<strong>install</strong> the software ➡️ read the <a href="install.html">installation instructions</a>.</li>
+<li>...use it as a <strong>command-line tool</strong> to model a reaction ➡️ read the <a href="cli.html">command-line reference</a>.</li>
+<li>...learn about the command-line <strong>input format</strong> ➡️ read the <a href="input.html">input format reference</a>.</li>
+<li>...use it as a <strong>library</strong> ➡️ take a look at the available <a href="notebooks.html">example Jupyter notebooks</a>.</li>
+<li>...read about <strong>how it works</strong> ➡️ read <a href="howitworks.html">our simple description</a>.</li>
+</ul>
+<!-- Take a look at the [tutorials](https://geem-lab.github.io/overreact-docs/tutorials.html). -->
+<div style="break-before: page; page-break-before: always;"></div><h1 id="installing-overreact"><a class="header" href="#installing-overreact">Installing <strong>overreact</strong></a></h1>
 <p>You can install the package from the command line using
 <a href="https://pip.pypa.io/en/stable/">pip</a>:</p>
 <pre><code class="language-bash">$ pip install overreact
 </code></pre>
 <p>(You may require calling <code>pip3</code> instead of <code>pip</code>.)</p>
+<p>The above command will install a minimal set of features.
+If you plan to use the command-line interface, you have to specify
+the <code>cli</code> extra feature:</p>
+<pre><code class="language-bash">$ pip install overreact[cli]
+</code></pre>
+<p>If you would like to use automatic differentiation (through Google's <a href="https://github.com/google/jax">JAX library</a>) instead of
+the default numerical differentiation, you have to specify the
+<code>fast</code> extra feature as well:</p>
+<pre><code class="language-bash">$ pip install overreact[cli,fast]
+</code></pre>
 <h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
 <p><strong>overreact</strong> depends on:</p>
 <ul>
@@ -243,11 +254,12 @@ optimization, unit conversion and others).</li>
 <p>(Don't worry, these dependencies are automatically installed when you install
 <strong>overreact</strong> using <code>pip</code> as indicated above.)</p>
 <p>Optionally, extra functionality is provided such as a command-line interface
-and solvent properties:</p>
-<pre><code class="language-bash">$ pip install 'overreact[cli,fast,solvents]'
+and solvent properties (<strong>warning</strong>: solvent properties are not yet fully integrated into the package).
+If you would like to install the full set of features, you can specify all extra flags:</p>
+<pre><code class="language-bash">$ pip install overreact[cli,fast,solvents]
 </code></pre>
 <p>This line installs <a href="https://github.com/willmcgugan/rich">Rich</a>,
-<a href="https://jax.readthedocs.io/en/latest/index.html">JAX</a> and
+<a href="https://github.com/google/jax">JAX</a> and
 <a href="https://github.com/CalebBell/thermo">thermo</a> as well.</p>
 <!-- Rich is used in the command-line interface, JAX helps speedup calculations,
 and thermo is used to calculate the dynamic viscosity of solvents in the
@@ -324,9 +336,85 @@ standard procedure is used for frequencies well above
 \( 100 \text{cm}^{-1} \).</p>
 <p>See the treatments for entropy and enthalpy in the Jupyter Notebook about
 QRRHO (TODO(schneiderfelipe): add link).%</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="quickstart-command-line-tool"><a class="header" href="#quickstart-command-line-tool">Quickstart (command-line tool)</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started-with-overreact-as-a-command-line-tool"><a class="header" href="#getting-started-with-overreact-as-a-command-line-tool">Getting started with <strong>overreact</strong> as a command-line tool</a></h1>
 <p>Most commonly, you'll want to use the command-line tool to generate a
 project.</p>
+<p>This is a brief overview of the command-line tool.
+You can access the full documentation by running <code>overreact --help</code>.
+Here's its output (as of v1.0):</p>
+<pre><code class="language-bash">$ overreact --help
+usage: overreact [-h] [-v] [-c] [--plot PLOT] [-b BIAS]
+                 [--tunneling {eckart,wigner,none}] [--no-qrrho]
+                 [-T TEMPERATURE] [-p PRESSURE] [--method {Radau,BDF,LSODA}]
+                 [--max-time MAX_TIME] [--rtol RTOL] [--atol ATOL]
+                 path [concentrations ...]
+
+Construct precise chemical microkinetic models from first principles.
+Interface for building and modifying models. Read the documentation at
+https://geem-lab.github.io/overreact for more information and usage examples.
+Licensed under the terms of the MIT License. If you publish work using this
+software, please cite https://doi.org/10.1021/acs.jctc.XXXXXX:
+
+positional arguments:
+  path                  path to a source (.k) or compiled (.jk) model file (if
+                        a source file is given, but there is a compiled file
+                        available, the compiled file will be used; use
+                        --compile|-c to force recompilation of the source file
+                        instead)
+  concentrations        (optional) initial compound concentrations (in moles
+                        per liter) in the form 'name:quantity' (if present, a
+                        microkinetic simulation will be performed; more than
+                        one entry can be given) (default: None)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         increase output verbosity (can be given many times,
+                        each time the amount of logged data is increased)
+                        (default: 0)
+  -c, --compile         force recompile a source (.k) into a compiled (.jk)
+                        model file (default: False)
+  --plot PLOT           plot the concentrations as a function of time from the
+                        performed microkinetics simulation: can be either
+                        'none', 'all', 'active' species only (i.e., the ones
+                        that actually change concentration during the
+                        simulation) or a single compound name (e.g. 'NH3(w)')
+                        (default: none)
+  -b BIAS, --bias BIAS  an energy value (in kilocalories per mole) to be added
+                        to each indiviual compound in order to mitigate
+                        eventual systematic errors (default: 0.0)
+  --tunneling {eckart,wigner,none}
+                        specify the tunneling method employed (use
+                        --tunneling=none for no tunneling correction)
+                        (default: eckart)
+  --no-qrrho            disable the quasi-rigid rotor harmonic oscilator
+                        (QRRHO) approximations to both enthalpies and
+                        entropies (see [doi:10.1021/jp509921r] and
+                        [doi:10.1002/chem.201200497]) (default: True)
+  -T TEMPERATURE, --temperature TEMPERATURE
+                        set working temperature (in kelvins) to be used in
+                        thermochemistry and microkinetics (default: 298.15)
+  -p PRESSURE, --pressure PRESSURE
+                        set working pressure (in pascals) to be used in
+                        thermochemistry (default: 101325.0)
+  --method {Radau,BDF,LSODA}
+                        integrator used in solving the ODE system of the
+                        microkinetic simulation (default: Radau)
+  --max-time MAX_TIME   maximum microkinetic simulation time (in s) allowed
+                        (default: 86400)
+  --rtol RTOL           relative local error of the ODE system integrator
+                        (default: 1e-05)
+  --atol ATOL           absolute local error of the ODE system integrator
+                        (default: 1e-11)
+</code></pre>
+<p>Basically, the command-line tool receives the path to a model source file (<code>.k</code>) or
+a compiled one (<code>.jk</code>).
+It then compiles the model and calculates all the thermodynamic and kinetic
+quantities of interest:</p>
+<p>...</p>
+<p>Optionally, you can specify initial concentrations of compounds (in moles per liter),
+which will be used to perform a microkinetic simulation.</p>
+<p>...</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="command-line-input-format-reference"><a class="header" href="#command-line-input-format-reference">Command-line input format reference</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="quickstart-library"><a class="header" href="#quickstart-library">Quickstart (Library)</a></h1>
 <p>Here is an overview of <strong>overreact</strong>'s capabilities as a Python library.
 <strong>overreact</strong> allows you to build any thinkable reaction model:</p>

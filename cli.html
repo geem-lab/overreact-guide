@@ -3,7 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>Basic usage examples - overreact documentation</title>
+        <title>In the command-line - overreact documentation</title>
                 
 
         <!-- Custom HTML head -->
@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html" class="active"><strong aria-hidden="true">5.</strong> Basic usage examples</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">6.</strong> Tutorials</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">7.</strong> Jupyter notebooks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html" class="active"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Basic usage examples</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">6.</strong> Tutorials</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">7.</strong> Jupyter notebooks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -148,19 +148,94 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="usage-examples"><a class="header" href="#usage-examples">Usage examples</a></h1>
-<p>Some basic examples on how to use the command-line interface to solve simple
-problems.</p>
+                        <h1 id="getting-started-with-overreact-as-a-command-line-tool"><a class="header" href="#getting-started-with-overreact-as-a-command-line-tool">Getting started with <strong>overreact</strong> as a command-line tool</a></h1>
+<p>Most commonly, you'll want to use the command-line tool to generate a
+project.</p>
+<p>This is a brief overview of the command-line tool.
+You can access the full documentation by running <code>overreact --help</code>.
+Here's its output (as of v1.0):</p>
+<pre><code class="language-bash">$ overreact --help
+usage: overreact [-h] [-v] [-c] [--plot PLOT] [-b BIAS]
+                 [--tunneling {eckart,wigner,none}] [--no-qrrho]
+                 [-T TEMPERATURE] [-p PRESSURE] [--method {Radau,BDF,LSODA}]
+                 [--max-time MAX_TIME] [--rtol RTOL] [--atol ATOL]
+                 path [concentrations ...]
+
+Construct precise chemical microkinetic models from first principles.
+Interface for building and modifying models. Read the documentation at
+https://geem-lab.github.io/overreact for more information and usage examples.
+Licensed under the terms of the MIT License. If you publish work using this
+software, please cite https://doi.org/10.1021/acs.jctc.XXXXXX:
+
+positional arguments:
+  path                  path to a source (.k) or compiled (.jk) model file (if
+                        a source file is given, but there is a compiled file
+                        available, the compiled file will be used; use
+                        --compile|-c to force recompilation of the source file
+                        instead)
+  concentrations        (optional) initial compound concentrations (in moles
+                        per liter) in the form 'name:quantity' (if present, a
+                        microkinetic simulation will be performed; more than
+                        one entry can be given) (default: None)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --verbose         increase output verbosity (can be given many times,
+                        each time the amount of logged data is increased)
+                        (default: 0)
+  -c, --compile         force recompile a source (.k) into a compiled (.jk)
+                        model file (default: False)
+  --plot PLOT           plot the concentrations as a function of time from the
+                        performed microkinetics simulation: can be either
+                        'none', 'all', 'active' species only (i.e., the ones
+                        that actually change concentration during the
+                        simulation) or a single compound name (e.g. 'NH3(w)')
+                        (default: none)
+  -b BIAS, --bias BIAS  an energy value (in kilocalories per mole) to be added
+                        to each indiviual compound in order to mitigate
+                        eventual systematic errors (default: 0.0)
+  --tunneling {eckart,wigner,none}
+                        specify the tunneling method employed (use
+                        --tunneling=none for no tunneling correction)
+                        (default: eckart)
+  --no-qrrho            disable the quasi-rigid rotor harmonic oscilator
+                        (QRRHO) approximations to both enthalpies and
+                        entropies (see [doi:10.1021/jp509921r] and
+                        [doi:10.1002/chem.201200497]) (default: True)
+  -T TEMPERATURE, --temperature TEMPERATURE
+                        set working temperature (in kelvins) to be used in
+                        thermochemistry and microkinetics (default: 298.15)
+  -p PRESSURE, --pressure PRESSURE
+                        set working pressure (in pascals) to be used in
+                        thermochemistry (default: 101325.0)
+  --method {Radau,BDF,LSODA}
+                        integrator used in solving the ODE system of the
+                        microkinetic simulation (default: Radau)
+  --max-time MAX_TIME   maximum microkinetic simulation time (in s) allowed
+                        (default: 86400)
+  --rtol RTOL           relative local error of the ODE system integrator
+                        (default: 1e-05)
+  --atol ATOL           absolute local error of the ODE system integrator
+                        (default: 1e-11)
+</code></pre>
+<p>Basically, the command-line tool receives the path to a model source file (<code>.k</code>) or
+a compiled one (<code>.jk</code>).
+It then compiles the model and calculates all the thermodynamic and kinetic
+quantities of interest:</p>
+<p>...</p>
+<p>Optionally, you can specify initial concentrations of compounds (in moles per liter),
+which will be used to perform a microkinetic simulation.</p>
+<p>...</p>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
-                                                    <a rel="prev" href="library.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                                    <a rel="prev" href="howitworks.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="tutorials.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="input.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -170,11 +245,11 @@ problems.</p>
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
-                                    <a rel="prev" href="library.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                    <a rel="prev" href="howitworks.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="tutorials.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="input.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>
