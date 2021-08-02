@@ -7,7 +7,8 @@
 
 # Getting started
 
--   [In the command-line](./command-line.md)
+-   [In the command-line](./cli.md)
+    -   [Input format reference](./input.md)
 -   [As a library](./library.md)
 
 # Examples
