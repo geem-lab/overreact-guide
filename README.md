@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/214332027.svg)](https://zenodo.org/badge/latestdoi/214332027)
+
 # Welcome to **overreact**!
 
 <div style="text-align:center;">
@@ -69,4 +71,7 @@ When it is published, the above BibTeX entry will be updated.
 
 ## Funding
 
-This project was supported by CNPq ([Brazilian National Council for Scientific and Technological Development](https://www.gov.br/cnpq/pt-br)) grant number 140485/2017-1.
+This project was developed at the [GEEM lab](https://geem-ufsc.org/) ([Federal University of Santa
+Catarina](https://en.ufsc.br/), Brazil), and was partially funded by the
+[Brazilian National Council for Scientific and Technological Development (CNPq)](https://cnpq.br/),
+grant number 140485/2017-1.
