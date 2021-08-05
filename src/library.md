@@ -1,6 +1,6 @@
-# Quickstart (Library)
+# Getting started with **overreact** as a library
 
-Here is an overview of **overreact**'s capabilities as a Python library.
+Here is an overview of **overreact**'s capabilities as a [Python](https://www.python.org/) library.
 **overreact** allows you to build any thinkable reaction model:
 
 ```python

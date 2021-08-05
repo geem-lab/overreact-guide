@@ -1,5 +1,9 @@
 # How it works
 
+**WARNIG**: This page greatly simplifies things. It is not a complete
+description of the system and in no way substitutes the full read of
+the upcoming paper.
+
 **overreact** takes computational chemistry outputs as **data sources** and uses them to calculate thermodynamic and kinetic properties as shown in the following diagram.
 
 \\[ \mu = \frac{1}{N} \sum_{i=0} x_i \\]

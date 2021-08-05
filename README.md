@@ -15,7 +15,7 @@ Data is parsed directly from computational chemistry output files thanks to
 
 [^microkinetic]:
 
-Microkinetic modeling is a techinque used to predict the
+Microkinetic modeling is a technique used to predict the
 outcome of complex chemical reactions.
 It can be used to investigate the catalytic transformations of
 molecules.
