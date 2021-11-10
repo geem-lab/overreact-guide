@@ -1,7 +1,11 @@
 # Getting started with **overreact** as a library
 
-Here is an overview of **overreact**'s capabilities as a [Python](https://www.python.org/) library.
-**overreact** allows you to build any thinkable reaction model:
+🎯 **overreact also has a detailed API documentation**, which you can read
+[here](https://geem-lab.github.io/overreact/overreact.html).
+
+Here is an overview of **overreact**'s capabilities as a
+[Python](https://www.python.org/) library. **overreact** allows you to build any
+thinkable reaction model:
 
 ```python
 >>> import overreact as rx
@@ -14,8 +18,8 @@ Scheme(compounds=('S', 'E‡'),
        ...)
 ```
 
-The `‡` symbol is used to indicate transition states (but the `#` symbol is
-also accepted). Many different reactions can be specified at the same time by
+The `‡` symbol is used to indicate transition states (but the `#` symbol is also
+accepted). Many different reactions can be specified at the same time by
 properly giving a list. Equilibria are recognized as having `<=>`. Reactions
 preserve the order they appeared in the input.
 
@@ -42,11 +46,13 @@ After both two line above, we can start analyzing our complete model:
 array([8.16e+10])
 ```
 
-Even with a rather simple level of theory (B97-3c :cite:`Brandenburg_2018`),
-this result compares well with the experimentally determined value
-(\\( 8.3 \times 10^{10} \text{s}^{-1} \\) :cite:`Zheng_2006`).
-This small error of is due to the very accurate thermochemical and tunneling
-corrections employed.
+Even with a rather simple level of theory
+([B97-3c](https://doi.org/10.1088/1361-648X/aabcfb)), this result compares well
+with the
+[experimentally determined value (\\( 8.3 \times 10^{10} \text{s}^{-1} \\))](https://doi.org/10.1126/science.1132178).
+
+<!-- This small error of is due to the very accurate
+thermochemical and tunneling corrections employed. -->
 
 The line above works by calculating internal energies, enthalpies and entropies
 for each compound, but you can do this in separate lines as well. In fact, in
@@ -73,7 +79,7 @@ array([-2.092778e+08, -2.092686e+08])
 array([227.9, 221.9])
 ```
 
-Now free energies are easy, we just use full power of Numpy arrays:
+Now free energies are easy, we just use full power of NumPy arrays:
 
 ```python
 >>> freeenergies = enthalpies - temperature \* entropies
@@ -85,6 +91,5 @@ In the above, we calculated free energies relative to the minimum.
 
 More code examples of using **overreact** as a library are given in the
 [`notebooks`](https://github.com/geem-lab/overreact-docs/tree/master/notebooks)
-folder.
-A more detailed description of the available code examples is given
+folder. A more detailed description of the available code examples is given
 [next](notebooks.md).

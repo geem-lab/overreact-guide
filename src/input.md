@@ -129,14 +129,14 @@ $scheme
 $end
 
 $compounds
- C(aq):  c.out
- S(aq):  s.out
- CS(aq): cs.out
+ C(aq):   c.out
+ S(aq):   s.out
+ CS(aq):  cs.out
  CS‡(aq): cs_ts.out
- P(aq):  p.out
+ P(aq):   p.out
 
  // Inactivation
- I(aq):  i.out
- CI(aq): ci.out
+ I(aq):   i.out
+ CI(aq):  ci.out
 $end
 ```

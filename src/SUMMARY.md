@@ -13,6 +13,7 @@
 
 # Examples
 
--   [Basic usage examples](./examples.md)
--   [Tutorials](./tutorials.md)
+<!-- -   [Basic usage examples](./examples.md) -->
+
+-   [Command-line tutorial](./tutorials.md)
 -   [Jupyter notebooks](./notebooks.md)
