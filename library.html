@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html" class="active"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Basic usage examples</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">6.</strong> Tutorials</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">7.</strong> Jupyter notebooks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html" class="active"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">5.</strong> Command-line tutorial</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">6.</strong> Jupyter notebooks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -149,8 +149,11 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="getting-started-with-overreact-as-a-library"><a class="header" href="#getting-started-with-overreact-as-a-library">Getting started with <strong>overreact</strong> as a library</a></h1>
-<p>Here is an overview of <strong>overreact</strong>'s capabilities as a <a href="https://www.python.org/">Python</a> library.
-<strong>overreact</strong> allows you to build any thinkable reaction model:</p>
+<p>🎯 <strong>overreact also has a detailed API documentation</strong>, which you can read
+<a href="https://geem-lab.github.io/overreact/overreact.html">here</a>.</p>
+<p>Here is an overview of <strong>overreact</strong>'s capabilities as a
+<a href="https://www.python.org/">Python</a> library. <strong>overreact</strong> allows you to build any
+thinkable reaction model:</p>
 <pre><code class="language-python">&gt;&gt;&gt; import overreact as rx
 &gt;&gt;&gt; from overreact import constants
 &gt;&gt;&gt; scheme = rx.parse_reactions(&quot;S -&gt; E‡ -&gt; S&quot;)
@@ -160,8 +163,8 @@ Scheme(compounds=('S', 'E‡'),
        is_half_equilibrium=(False,),
        ...)
 </code></pre>
-<p>The <code>‡</code> symbol is used to indicate transition states (but the <code>#</code> symbol is
-also accepted). Many different reactions can be specified at the same time by
+<p>The <code>‡</code> symbol is used to indicate transition states (but the <code>#</code> symbol is also
+accepted). Many different reactions can be specified at the same time by
 properly giving a list. Equilibria are recognized as having <code>&lt;=&gt;</code>. Reactions
 preserve the order they appeared in the input.</p>
 <p>Similarly, compound data is retrieved from logfiles using <code>parse_compounds</code>:</p>
@@ -181,11 +184,12 @@ preserve the order they appeared in the input.</p>
 <pre><code class="language-python">&gt;&gt;&gt; rx.get_k(scheme, compounds)
 array([8.16e+10])
 </code></pre>
-<p>Even with a rather simple level of theory (B97-3c :cite:<code>Brandenburg_2018</code>),
-this result compares well with the experimentally determined value
-(\( 8.3 \times 10^{10} \text{s}^{-1} \) :cite:<code>Zheng_2006</code>).
-This small error of is due to the very accurate thermochemical and tunneling
-corrections employed.</p>
+<p>Even with a rather simple level of theory
+(<a href="https://doi.org/10.1088/1361-648X/aabcfb">B97-3c</a>), this result compares well
+with the
+<a href="https://doi.org/10.1126/science.1132178">experimentally determined value (\( 8.3 \times 10^{10} \text{s}^{-1} \))</a>.</p>
+<!-- This small error of is due to the very accurate
+thermochemical and tunneling corrections employed. -->
 <p>The line above works by calculating internal energies, enthalpies and entropies
 for each compound, but you can do this in separate lines as well. In fact, in
 any temperature:</p>
@@ -205,7 +209,7 @@ array([-2.092778e+08, -2.092686e+08])
 &gt;&gt;&gt; entropies
 array([227.9, 221.9])
 </code></pre>
-<p>Now free energies are easy, we just use full power of Numpy arrays:</p>
+<p>Now free energies are easy, we just use full power of NumPy arrays:</p>
 <pre><code class="language-python">&gt;&gt;&gt; freeenergies = enthalpies - temperature \* entropies
 &gt;&gt;&gt; (freeenergies - freeenergies.min()) / constants.kcal
 array([0. , 2.63129486])
@@ -213,8 +217,7 @@ array([0. , 2.63129486])
 <p>In the above, we calculated free energies relative to the minimum.</p>
 <p>More code examples of using <strong>overreact</strong> as a library are given in the
 <a href="https://github.com/geem-lab/overreact-docs/tree/master/notebooks"><code>notebooks</code></a>
-folder.
-A more detailed description of the available code examples is given
+folder. A more detailed description of the available code examples is given
 <a href="notebooks.html">next</a>.</p>
 
                     </main>
@@ -225,7 +228,7 @@ A more detailed description of the available code examples is given
                                 <i class="fa fa-angle-left"></i>
                             </a>
                         
-                                                    <a rel="next" href="examples.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                                    <a rel="next" href="tutorials.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                                 <i class="fa fa-angle-right"></i>
                             </a>
                         
@@ -239,7 +242,7 @@ A more detailed description of the available code examples is given
                         <i class="fa fa-angle-left"></i>
                     </a>
                 
-                                    <a rel="next" href="examples.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                    <a rel="next" href="tutorials.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
                         <i class="fa fa-angle-right"></i>
                     </a>
                             </nav>

@@ -85,7 +85,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Basic usage examples</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">6.</strong> Tutorials</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">7.</strong> Jupyter notebooks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">5.</strong> Command-line tutorial</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">6.</strong> Jupyter notebooks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -237,14 +237,13 @@ grant number 140485/2017-1.</p>
 <pre><code class="language-bash">$ pip install overreact
 </code></pre>
 <p>(You may require calling <code>pip3</code> instead of <code>pip</code>.)</p>
-<p>The above command will install a minimal set of features.
-If you plan to use the command-line interface, you have to specify
-the <code>cli</code> extra feature:</p>
+<p>The above command will install a minimal set of features. If you plan to use the
+command-line interface, you have to specify the <code>cli</code> extra feature:</p>
 <pre><code class="language-bash">$ pip install overreact[cli]
 </code></pre>
-<p>If you would like to use automatic differentiation (through Google's <a href="https://github.com/google/jax">JAX library</a>) instead of
-the default numerical differentiation, you have to specify the
-<code>fast</code> extra feature as well:</p>
+<p>If you would like to use automatic differentiation (through Google's
+<a href="https://github.com/google/jax">JAX library</a>) instead of the default numerical
+differentiation, you have to specify the <code>fast</code> extra feature as well:</p>
 <pre><code class="language-bash">$ pip install overreact[cli,fast]
 </code></pre>
 <h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
@@ -257,9 +256,10 @@ optimization, unit conversion and others).</li>
 </ul>
 <p>(Don't worry, these dependencies are automatically installed when you install
 <strong>overreact</strong> using <code>pip</code> as indicated above.)</p>
-<p>Optionally, extra functionality is provided such as a command-line interface
-and solvent properties (<strong>warning</strong>: solvent properties are not yet fully integrated into the package).
-If you would like to install the full set of features, you can specify all extra flags:</p>
+<p>Optionally, extra functionality is provided such as a command-line interface and
+solvent properties (<strong>warning</strong>: solvent properties are not yet fully integrated
+into the package). If you would like to install the full set of features, you
+can specify all extra flags:</p>
 <pre><code class="language-bash">$ pip install overreact[cli,fast,solvents]
 </code></pre>
 <p>This line installs <a href="https://github.com/willmcgugan/rich">Rich</a>,
@@ -271,10 +271,12 @@ context of the :doc:`tutorials/collins-kimball` for diffusion-limited
 reactions. -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h1>
 <p><strong>WARNIG</strong>: This page greatly simplifies things. It is not a complete
-description of the system and in no way substitutes the full read of
-the upcoming paper.</p>
-<p><strong>overreact</strong> takes computational chemistry outputs as <strong>data sources</strong> and uses them to calculate thermodynamic and kinetic properties as shown in the following diagram.</p>
-<p>\[ \mu = \frac{1}{N} \sum_{i=0} x_i \]</p>
+description of the system and in no way substitutes the full read of the
+upcoming paper.</p>
+<p><strong>overreact</strong> takes computational chemistry outputs as <strong>data sources</strong> and uses
+them to calculate thermodynamic and kinetic properties as shown in the following
+diagram.</p>
+<!-- \\[ \mu = \frac{1}{N} \sum_{i=0} x_i \\] -->
 <!-- Currently, **overreact** only supports quantum chemistry outputs.
 In the future we might get data from actual experiments, databases or using machine learning. -->
 <pre class="mermaid">graph TD;
@@ -317,57 +319,31 @@ In the future we might get data from actual experiments, databases or using mach
         pred
     end
 </pre>
-<!-- H -> hypo; -->
-<p>Free energies are calculated using the quasi-rigid rotor harmonic oscillator
-method and the resulting data used in the automatic prediction of reaction
-rate constants.
-Quantum tunneling effects are taken into account using either the
-Eckart or Wigner models.
-Chemical reaction networks are subsequently simulated over time.</p>
-<p><strong>Conditions</strong> include temperature.</p>
-<!-- , pressure, and any other conditions that might be used in a simulation -->
-<p>Free energy data for reactions allow us to calculate reaction rates as <code>k(T, p)</code>.</p>
-<p>Reaction rate equation laws are calculated using the <strong>reaction rate equations</strong> and are of the form <code>dy/dt(y)</code>.</p>
-<p>Initial concentrations are given by the user as <code>y0[i]</code>.</p>
-<p><strong>Concentrations for all species</strong> are calculated using the <strong>ODE solver</strong> and are of the form <code>y[i, t]</code>.</p>
-<p>The dictionary is then used to generate a plot.</p>
-<p>The goal is to provide a tool for calculating thermodynamic properties of chemical systems.</p>
-<p>By comparing calculated properties and kinetic predictions with actual experimental data, we refine our <strong>hypotheses</strong>.</p>
-<!-- ## Notes about thermodynamics -->
-<p><strong>overreact</strong> employs standard statistical thermodynamical partition functions (the
-Rigid Rotor Harmonic Oscillator), but also two Quasi-Rigid Rotor Harmonic
-Oscillator approximations, one for entropy and one for enthalpy, for when
-vibrational frequencies are too small.</p>
-<p>A Head-Gordon damping is used for the treatment of QRRHO, which ensures the
-standard procedure is used for frequencies well above
-\( 100 \text{cm}^{-1} \).</p>
-<p>See the treatments for entropy and enthalpy in the Jupyter Notebook about
-QRRHO (TODO(schneiderfelipe): add link).%</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-overreact-as-a-command-line-tool"><a class="header" href="#using-overreact-as-a-command-line-tool">Using <strong>overreact</strong> as a command-line tool</a></h1>
-<p>Most commonly, you'll want to use the command-line tool to generate a
-project.</p>
-<p>This is a brief overview of the command-line tool.
-You can access the full documentation by running <code>overreact --help</code>.
-Here's its output (as of v1.0):</p>
+<p>Most commonly, you'll want to use the command-line tool to generate a project.</p>
+<p>This is a brief overview of the command-line tool. You can access the full help
+page by running <code>overreact --help</code>. Here's its output (as of
+<a href="https://github.com/geem-lab/overreact/releases/tag/v1.0.1">v1.0.1</a>):</p>
 <pre><code class="language-bash">$ overreact --help
-usage: overreact [-h] [-v] [-c] [--plot PLOT] [-b BIAS]
-                 [--tunneling {eckart,wigner,none}] [--no-qrrho]
-                 [-T TEMPERATURE] [-p PRESSURE] [--method {Radau,BDF,LSODA}]
+usage: overreact [-h] [--version] [-v] [-c] [--plot PLOT] [-b BIAS]
+                 [--tunneling {eckart,wigner,none}]
+                 [--no-qrrho {both,enthalpy,entropy,none}] [-T TEMPERATURE]
+                 [-p PRESSURE] [--method {Radau,BDF,LSODA}]
                  [--max-time MAX_TIME] [--rtol RTOL] [--atol ATOL]
-                 path [concentrations ...]
+                 path [concentrations [concentrations ...]]
 
 Construct precise chemical microkinetic models from first principles.
 Interface for building and modifying models. Read the documentation at
-https://geem-lab.github.io/overreact for more information and usage examples.
-Licensed under the terms of the MIT License. If you publish work using this
-software, please cite https://doi.org/10.1021/acs.jctc.XXXXXX:
+https://geem-lab.github.io/overreact-guide for more information and usage
+examples. Licensed under the terms of the MIT License. If you publish work
+using this software, please cite https://doi.org/10.5281/zenodo.5154060:
 
 positional arguments:
-  path                  path to a source (.k) or compiled (.jk) model file (if
-                        a source file is given, but there is a compiled file
-                        available, the compiled file will be used; use
-                        --compile|-c to force recompilation of the source file
-                        instead)
+  path                  path to a source (`.k`) or compiled (.jk) model input
+                        file (if a source input file is given, but there is a
+                        compiled file available, the compiled file will be
+                        used; use --compile|-c to force recompilation of the
+                        source input file instead)
   concentrations        (optional) initial compound concentrations (in moles
                         per liter) in the form 'name:quantity' (if present, a
                         microkinetic simulation will be performed; more than
@@ -375,11 +351,12 @@ positional arguments:
 
 optional arguments:
   -h, --help            show this help message and exit
+  --version             show program's version number and exit
   -v, --verbose         increase output verbosity (can be given many times,
                         each time the amount of logged data is increased)
                         (default: 0)
-  -c, --compile         force recompile a source (.k) into a compiled (.jk)
-                        model file (default: False)
+  -c, --compile         force recompile a source (`.k`) into a compiled (.jk)
+                        model input file (default: False)
   --plot PLOT           plot the concentrations as a function of time from the
                         performed microkinetics simulation: can be either
                         'none', 'all', 'active' species only (i.e., the ones
@@ -387,16 +364,17 @@ optional arguments:
                         simulation) or a single compound name (e.g. 'NH3(w)')
                         (default: none)
   -b BIAS, --bias BIAS  an energy value (in kilocalories per mole) to be added
-                        to each indiviual compound in order to mitigate
+                        to each individual compound in order to mitigate
                         eventual systematic errors (default: 0.0)
   --tunneling {eckart,wigner,none}
                         specify the tunneling method employed (use
                         --tunneling=none for no tunneling correction)
                         (default: eckart)
-  --no-qrrho            disable the quasi-rigid rotor harmonic oscilator
+  --no-qrrho {both,enthalpy,entropy,none}
+                        disable the quasi-rigid rotor harmonic oscillator
                         (QRRHO) approximations to both enthalpies and
                         entropies (see [doi:10.1021/jp509921r] and
-                        [doi:10.1002/chem.201200497]) (default: True)
+                        [doi:10.1002/chem.201200497]) (default: both)
   -T TEMPERATURE, --temperature TEMPERATURE
                         set working temperature (in kelvins) to be used in
                         thermochemistry and microkinetics (default: 298.15)
@@ -413,14 +391,66 @@ optional arguments:
   --atol ATOL           absolute local error of the ODE system integrator
                         (default: 1e-11)
 </code></pre>
-<p>Basically, the command-line tool receives the path to a model source file (<code>.k</code>) or
-a compiled one (<code>.jk</code>).
-It then compiles the model and calculates all the thermodynamic and kinetic
-quantities of interest:</p>
-<p>...</p>
-<p>Optionally, you can specify initial concentrations of compounds (in moles per liter),
-which will be used to perform a microkinetic simulation.</p>
-<p>...</p>
+<p>Basically, the command-line tool receives the path to a model source file (<code>.k</code>)
+or a compiled one (<code>.jk</code>). It then compiles the model and calculates all the
+thermodynamic and kinetic quantities of interest. Head over to the
+<a href="./tutorials.html">tutorial</a> to learn more about how to use the command-line tool.
+Or continue to learn about the <a href="./input.html">input file format</a>.</p>
+<!-- ...
+
+Optionally, you can specify initial concentrations of compounds (in moles per
+liter), which will be used to perform a microkinetic simulation.
+
+...
+
+\textcolor{red}{EXAMPLE NOT COOL! MAYBE THIS SHOULD BE GIVEN IN THE SUPPORTING
+INFORMATION OR SIMPLIFIED. IN ANY CASE, CLEARLY PUT THE NAME AND EXTENSION OF
+THE INPUT FILE. MENTION HOW TO ENTER EACH AVAILABLE OPTION: SOLVATION,
+TUNNELING, TEMPERATURE, ETC...}
+
+Naturally, all outputs should already be optimized in solution.
+
+The paths to logfiles are relative to the path of the input file. As such, it is
+very simple to run **overreact** when in the same directory as
+\texttt{curtin_hammett.k}~(\cref{lst:run-example}). % \begin{lstlisting}[
+caption={Example of running the command-line application of **overreact**.},
+label={lst:run-example}, language={bash}, ]
+
+# only thermodynamics and kinetic data:
+
+$ overreact curtin_hammett.k
+
+# data above plus microkinetics simulation:
+
+$ overreact curtin_hammett.k "A(w):0.1" "B(w):0.05" --plot=active
+\end{lstlisting}
+
+The second line in~\cref{lst:run-example} performs all calculations and also
+propagates a microkinetic simulation with the specified initial concentrations
+given ($[\ce{A(w)}]$ = 0.1~M, $[\ce{B(w)}]$ = 0.05~M and zero for all other
+species).
+
+% Excerpts from the output for the example given above are available (NOT
+REALLY!) in the supporting information. As such, the user specifies a set of
+elementary reactions that are believed to be relevant for the overall chemical
+phenomena. **overreact** offers a hopefully complete but simple environment for
+hypothesis testing in first-principles chemical kinetics. The example above was
+only illustrative. The next section shows example usage and comparisons.
+
+\textcolor{red}{I recognise that this methodology section mixes both parts of
+the theory and how to use it. It is written as if it is a bit theory and a bit
+tutorial. I believe that by having a manual or a HOW-TO list in the SI that
+shows all the options and how to use them in the code, this section should focus
+on the theory and how it was implemented. I believe part of that is already
+covered here, but not everything! I believe that this tutorial information could
+be in another file (Manual or SI) Also, the results discussion section should go
+beyond the "we tested so-and-so's reaction and our results were very close to
+the experimental ones" . We should show the details, and the fact that if
+certain corrections (like tunnelling) are omitted, the result can be worse or
+better, that is, show the real capacity of the code, highlighting its potential,
+and this can only be done with a detailed discussion of the cases studied.}
+
+TODO: add pieces of the output -->
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command-line-input-format-specification"><a class="header" href="#command-line-input-format-specification">Command-line input format specification</a></h1>
 <p><strong>overreact</strong> is both a library and a command-line application.
 In this subsection, we briefly describe the minimal input specification for the command-line application for doing first-principles microkinetic simulations.
@@ -537,20 +567,23 @@ scheme (with <a href="https://en.wikipedia.org/wiki/Competitive_inhibition">comp
 $end
 
 $compounds
- C(aq):  c.out
- S(aq):  s.out
- CS(aq): cs.out
+ C(aq):   c.out
+ S(aq):   s.out
+ CS(aq):  cs.out
  CS‡(aq): cs_ts.out
- P(aq):  p.out
+ P(aq):   p.out
 
  // Inactivation
- I(aq):  i.out
- CI(aq): ci.out
+ I(aq):   i.out
+ CI(aq):  ci.out
 $end
 </code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started-with-overreact-as-a-library"><a class="header" href="#getting-started-with-overreact-as-a-library">Getting started with <strong>overreact</strong> as a library</a></h1>
-<p>Here is an overview of <strong>overreact</strong>'s capabilities as a <a href="https://www.python.org/">Python</a> library.
-<strong>overreact</strong> allows you to build any thinkable reaction model:</p>
+<p>🎯 <strong>overreact also has a detailed API documentation</strong>, which you can read
+<a href="https://geem-lab.github.io/overreact/overreact.html">here</a>.</p>
+<p>Here is an overview of <strong>overreact</strong>'s capabilities as a
+<a href="https://www.python.org/">Python</a> library. <strong>overreact</strong> allows you to build any
+thinkable reaction model:</p>
 <pre><code class="language-python">&gt;&gt;&gt; import overreact as rx
 &gt;&gt;&gt; from overreact import constants
 &gt;&gt;&gt; scheme = rx.parse_reactions(&quot;S -&gt; E‡ -&gt; S&quot;)
@@ -560,8 +593,8 @@ Scheme(compounds=('S', 'E‡'),
        is_half_equilibrium=(False,),
        ...)
 </code></pre>
-<p>The <code>‡</code> symbol is used to indicate transition states (but the <code>#</code> symbol is
-also accepted). Many different reactions can be specified at the same time by
+<p>The <code>‡</code> symbol is used to indicate transition states (but the <code>#</code> symbol is also
+accepted). Many different reactions can be specified at the same time by
 properly giving a list. Equilibria are recognized as having <code>&lt;=&gt;</code>. Reactions
 preserve the order they appeared in the input.</p>
 <p>Similarly, compound data is retrieved from logfiles using <code>parse_compounds</code>:</p>
@@ -581,11 +614,12 @@ preserve the order they appeared in the input.</p>
 <pre><code class="language-python">&gt;&gt;&gt; rx.get_k(scheme, compounds)
 array([8.16e+10])
 </code></pre>
-<p>Even with a rather simple level of theory (B97-3c :cite:<code>Brandenburg_2018</code>),
-this result compares well with the experimentally determined value
-(\( 8.3 \times 10^{10} \text{s}^{-1} \) :cite:<code>Zheng_2006</code>).
-This small error of is due to the very accurate thermochemical and tunneling
-corrections employed.</p>
+<p>Even with a rather simple level of theory
+(<a href="https://doi.org/10.1088/1361-648X/aabcfb">B97-3c</a>), this result compares well
+with the
+<a href="https://doi.org/10.1126/science.1132178">experimentally determined value (\( 8.3 \times 10^{10} \text{s}^{-1} \))</a>.</p>
+<!-- This small error of is due to the very accurate
+thermochemical and tunneling corrections employed. -->
 <p>The line above works by calculating internal energies, enthalpies and entropies
 for each compound, but you can do this in separate lines as well. In fact, in
 any temperature:</p>
@@ -605,7 +639,7 @@ array([-2.092778e+08, -2.092686e+08])
 &gt;&gt;&gt; entropies
 array([227.9, 221.9])
 </code></pre>
-<p>Now free energies are easy, we just use full power of Numpy arrays:</p>
+<p>Now free energies are easy, we just use full power of NumPy arrays:</p>
 <pre><code class="language-python">&gt;&gt;&gt; freeenergies = enthalpies - temperature \* entropies
 &gt;&gt;&gt; (freeenergies - freeenergies.min()) / constants.kcal
 array([0. , 2.63129486])
@@ -613,21 +647,299 @@ array([0. , 2.63129486])
 <p>In the above, we calculated free energies relative to the minimum.</p>
 <p>More code examples of using <strong>overreact</strong> as a library are given in the
 <a href="https://github.com/geem-lab/overreact-docs/tree/master/notebooks"><code>notebooks</code></a>
-folder.
-A more detailed description of the available code examples is given
+folder. A more detailed description of the available code examples is given
 <a href="notebooks.html">next</a>.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="usage-examples"><a class="header" href="#usage-examples">Usage examples</a></h1>
-<p>Some basic examples on how to use the command-line interface to solve simple
-problems.</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="tutorials"><a class="header" href="#tutorials">Tutorials</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="tutorial"><a class="header" href="#tutorial">Tutorial</a></h1>
+<p>This is a step-by-step guide on using overreact as a command-line tool. It will
+teach you all the basics of overreact through a guided use-case.</p>
+<p>\[\require{mhchem}\]</p>
+<h2 id="a-curtin-hammett-system"><a class="header" href="#a-curtin-hammett-system">A Curtin-Hammett system</a></h2>
+<p>We're going to explore a system that is simple enough to be a tutorial, but also
+interesting enough to show off the capabilities of overreact. The reaction is a
+classical SN\(_2\) reaction on a substituted cyclohexane:</p>
+<p><img src="reaction-tutorial.png" alt="Bromocyclohexane" /></p>
+<p>The steps above were calculated using GFN2-xTB by calling the
+<a href="https://github.com/grimme-lab/xtb">Semiempirical Extended Tight-Binding Program Package</a>
+(XTB) from within <a href="https://orcaforum.kofo.mpg.de/app.php/portal">ORCA 4.2.1</a>.
+Methanol was considered as an implicit solvent. <strong>You can
+<a href="reaction-tutorial.zip">download a zip file of this tutorial</a> to run everything
+yourself.</strong></p>
+<h2 id="step-1-create-the-input-file"><a class="header" href="#step-1-create-the-input-file">Step 1: Create the input file</a></h2>
+<p>After downloading the tutorial, you'll find a file called <code>methoxylation.k</code> in
+the root of the zip file. This is the input file and it contains the following:</p>
+<pre><code>// methoxylation.k
+
+// This is a comment.
+
+$scheme
+ // Here we define our reactions.
+ R1(MeOH) &lt;=&gt; R2(MeOH)
+ P1(MeOH) &lt;=&gt; P2(MeOH)
+ R1(MeOH) + MeO-(MeOH) -&gt; TS1#(MeOH) -&gt; P1(MeOH) + Br-(MeOH)
+ R2(MeOH) + MeO-(MeOH) -&gt; TS2#(MeOH) -&gt; P2(MeOH) + Br-(MeOH)
+$end
+
+$compounds
+ R1(MeOH):   R1@MeOH/opt+numfreq.out
+ R2(MeOH):   R2@MeOH/opt+numfreq.out
+ P1(MeOH):   P1@MeOH/opt+numfreq.out
+ P2(MeOH):   P2@MeOH/opt+numfreq.out
+ MeO-(MeOH): MeO-@MeOH/opt+numfreq.out
+ TS1#(MeOH): TS1@MeOH/b/optts+numfreq.out
+ Br-(MeOH):  Br-@MeOH/singlepoint.out
+ TS2#(MeOH): TS2@MeOH/b/optts+numfreq.out
+$end
+</code></pre>
+<p>It describes the reactions and the compounds in the system (take a look at a
+<a href="input.html">more detailed description of the input format here</a>). The reactions
+are almost an exact translation of the diagram above (<strong>the labels in the figure
+are the same ones as in the input file</strong>). After performing the calculations and
+writing the input file, it's time to run overreact.</p>
+<h2 id="step-2-run-overreact-a-tour-over-a-typical-output"><a class="header" href="#step-2-run-overreact-a-tour-over-a-typical-output">Step 2: Run overreact (a tour over a typical output)</a></h2>
+<p>A first run of overreact would look like this:</p>
+<pre><code class="language-bash">$ overreact methoxylation.k
+</code></pre>
+<p>This will produce a lot of output, but let's walk through it one step at a time.</p>
+<h3 id="21-the-header"><a class="header" href="#21-the-header">2.1: The header</a></h3>
+<p>The current version v1.0.1 produces a header like this:</p>
+<pre><code>╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║                                            overreact 1.0.1                                            ║
+╚═══════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+Construct precise chemical microkinetic models from first principles.
+
+Licensed under the terms of the MIT License. If you publish work using this software, please cite
+doi:10.5281/zenodo.5154060:
+
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                                                                                       │
+│ @misc{overreact2021,                                                                                  │
+│   title        = {                                                                                    │
+│     \textbf{overreact}: a tool for creating and analyzing microkinetic models                         │
+│     built from computational chemistry data, v1.0alpha                                                │
+│   },                                                                                                  │
+│   author       = {Schneider, Felipe S. S. and Caramori, Giovanni F.},                                 │
+│   year         = 2021,                                                                                │
+│   publisher    = {Zenodo},                                                                            │
+│   doi          = {10.5281/zenodo.5154060},                                                            │
+│   url          = {https://zenodo.org/record/5154060},                                                 │
+│   copyright    = {Open Access},                                                                       │
+│   howpublished = {\url{https://github.com/geem-lab/overreact}}                                        │
+│ }                                                                                                     │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+Read the documentation at https://geem-lab.github.io/overreact-guide for more information and usage
+examples.
+
+Inputs:
+
+ • Path           = methoxylation.k
+ • Concentrations = []
+ • Verbose level  = 0
+ • Compile?       = False
+ • Plot?          = none
+ • QRRHO?         = both
+ • Temperature    = 298.15 K
+ • Pressure       = 101325.0 Pa
+ • Integrator     = Radau
+ • Max. Time      = 86400
+ • Rel. Tol.      = 1e-05
+ • Abs. Tol.      = 1e-11
+ • Bias           = 0.0 kcal/mol
+ • Tunneling      = eckart
+</code></pre>
+<p>The important for us at the moment is the <code>Inputs</code> section. It contains all the
+information that overreact needs to run the calculations, so that you can check
+if it's doing what you want.</p>
+<p>Then, after some logging, the program prints information on the parsed reactions
+and compounds.</p>
+<h3 id="22-the-reactions-and-compounds"><a class="header" href="#22-the-reactions-and-compounds">2.2: The reactions and compounds</a></h3>
+<p>For our example, the reactions are:</p>
+<pre><code>╭─────────────────────────────────────────────────────────────────╮
+│                        (read) reactions                         │
+│                                                                 │
+│   R1(MeOH) &lt;=&gt; R2(MeOH)                                         │
+│   P1(MeOH) &lt;=&gt; P2(MeOH)                                         │
+│   R1(MeOH) + MeO-(MeOH) -&gt; TS1#(MeOH) -&gt; P1(MeOH) + Br-(MeOH)   │
+│   R2(MeOH) + MeO-(MeOH) -&gt; TS2#(MeOH) -&gt; P2(MeOH) + Br-(MeOH)   │
+│                                                                 │
+╰─────────────────────────────────────────────────────────────────╯
+                                (parsed) reactions
+
+  no   reactant(s)             via‡         product(s)             half equilib.?
+ ─────────────────────────────────────────────────────────────────────────────────
+   0   R1(MeOH)                             R2(MeOH)                    Yes
+   1   R2(MeOH)                             R1(MeOH)                    Yes
+   2   P1(MeOH)                             P2(MeOH)                    Yes
+   3   P2(MeOH)                             P1(MeOH)                    Yes
+   4   R1(MeOH) + MeO-(MeOH)   TS1#(MeOH)   P1(MeOH) + Br-(MeOH)         No
+   5   R2(MeOH) + MeO-(MeOH)   TS2#(MeOH)   P2(MeOH) + Br-(MeOH)         No
+
+                     logfiles
+
+  no   compound     path
+ ────────────────────────────────────────────────
+   0   R1(MeOH)     R1@MeOH/opt+numfreq.out
+   1   R2(MeOH)     R2@MeOH/opt+numfreq.out
+   2   P1(MeOH)     P1@MeOH/opt+numfreq.out
+   3   P2(MeOH)     P2@MeOH/opt+numfreq.out
+   4   MeO-(MeOH)   MeO-@MeOH/opt+numfreq.out
+   5   TS1#(MeOH)   TS1@MeOH/b/optts+numfreq.out
+   6   Br-(MeOH)    Br-@MeOH/singlepoint.out
+   7   TS2#(MeOH)   TS2@MeOH/b/optts+numfreq.out
+</code></pre>
+<p>Here we have an opportunity to see the reactions disassembled and the species
+classified into reactants, products, and transition states. We also classify
+reactions as being part of an equilibrium reaction or not.</p>
+<p>The next data involves the compounds.</p>
+<h3 id="23-the-species"><a class="header" href="#23-the-species">2.3: The species</a></h3>
+<pre><code>                                          compounds
+
+  no   compound       elec. energy      spin mult.       smallest vibfreqs       point group
+                         〈Eₕ〉                              〈cm⁻¹〉
+ ────────────────────────────────────────────────────────────────────────────────────────────
+   0   R1(MeOH)      -22.576340550900       1         +121.5,  +207.0,  +228.3       Cs
+   1   R2(MeOH)      -22.575218880620       1         +111.9,  +174.2,  +238.2       Cs
+   2   P1(MeOH)      -26.215281987160       1          +64.1,  +121.7,  +167.1       C1
+   3   P2(MeOH)      -26.216556401840       1          +73.0,  +119.6,  +190.9       C1
+   4   MeO-(MeOH)     -7.985271579600       1        +1133.7, +1177.9, +1179.5       C3v
+   5   TS1#(MeOH)    -30.552250438240       1         -404.8,   +22.4,   +93.7       C1
+   6   Br-(MeOH)      -4.435371316770       1                                         K
+   7   TS2#(MeOH)    -30.558417149310       1         -451.8,   +55.7,   +86.2       C1
+
+                             estimated thermochemistry (compounds)
+
+  no   compound      mass         Gᶜᵒʳʳ            Uᶜᵒʳʳ            Hᶜᵒʳʳ              S
+                    〈amu〉    〈kcal/mol〉     〈kcal/mol〉     〈kcal/mol〉    〈cal/mol·K〉
+ ──────────────────────────────────────────────────────────────────────────────────────────────
+   0   R1(MeOH)     163.06             80.57           103.35           103.94         78.38
+   1   R2(MeOH)     163.06             80.63           103.21           103.80         77.73
+   2   P1(MeOH)     114.19            105.68           129.35           129.95         81.39
+   3   P2(MeOH)     114.19            105.63           129.38           129.98         81.64
+   4   MeO-(MeOH)    31.03              9.96            23.18            23.77         46.33
+   5   TS1#(MeOH)   194.09             99.20           127.78           128.37         97.85
+   6   Br-(MeOH)     79.90             -8.27             0.89             1.48         32.70
+   7   TS2#(MeOH)   194.09             99.77           127.83           128.42         96.11
+</code></pre>
+<p>Here we have the information about the compounds. overreact uses the electronic
+energy, geometry, atomic masses,vibrational frequencies, charge and spin
+multiplicity to obtain all it needs to run the calculations. In particular, the
+point groups are obtained from the geometries and atomic masses. We see that the
+\(\ce{MeO-}\) ion gets classified as \(C_{3v}\) and both reactants are
+\(C_s\). Then the next table shows the estimated thermochemistry for the
+compounds.</p>
+<p>Then comes the data about the reactions.</p>
+<h3 id="24-the-reactions"><a class="header" href="#24-the-reactions">2.4: The reactions</a></h3>
+<p>The next two tables show the reaction thermochemistry.</p>
+<pre><code>                                                   estimated (reaction°) thermochemistry
+
+  no   reaction                                        Δmass°        ΔG°            ΔE°            ΔU°            ΔH°             ΔS°
+                                                       〈amu〉   〈kcal/mol〉   〈kcal/mol〉   〈kcal/mol〉   〈kcal/mol〉   〈cal/mol·K〉
+ ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   0   R1(MeOH) -&gt; R2(MeOH)                              0.00           0.76           0.70           0.57           0.57           -0.66
+   1   R2(MeOH) -&gt; R1(MeOH)                              0.00          -0.76          -0.70          -0.57          -0.57            0.66
+   2   P1(MeOH) -&gt; P2(MeOH)                              0.00          -0.85          -0.80          -0.77          -0.77            0.25
+   3   P2(MeOH) -&gt; P1(MeOH)                              0.00           0.85           0.80           0.77           0.77           -0.25
+   4   R1(MeOH) + MeO-(MeOH) -&gt; P1(MeOH) + Br-(MeOH)    -0.00         -48.99         -55.87         -52.16         -52.16          -10.62
+   5   R2(MeOH) + MeO-(MeOH) -&gt; P2(MeOH) + Br-(MeOH)    -0.00         -50.60         -57.38         -53.50         -53.50           -9.71
+
+                                                  estimated (activation‡) thermochemistry
+
+  no   reaction                                        Δmass‡        ΔG‡            ΔE‡            ΔU‡            ΔH‡             ΔS‡
+                                                       〈amu〉   〈kcal/mol〉   〈kcal/mol〉   〈kcal/mol〉   〈kcal/mol〉   〈cal/mol·K〉
+ ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   0   R1(MeOH) -&gt; R2(MeOH)
+   1   R2(MeOH) -&gt; R1(MeOH)
+   2   P1(MeOH) -&gt; P2(MeOH)
+   3   P2(MeOH) -&gt; P1(MeOH)
+   4   R1(MeOH) + MeO-(MeOH) -&gt; P1(MeOH) + Br-(MeOH)     0.00          14.55           5.87           7.13           6.54          -26.86
+   5   R2(MeOH) + MeO-(MeOH) -&gt; P2(MeOH) + Br-(MeOH)     0.00          10.48           1.30           2.74           2.15          -27.94
+</code></pre>
+<p>The first table shows reaction free energies and its components. The second
+table shows the activation energies and its components. Equilibria appear as
+empty lines in the second table.</p>
+<p>Also observe that we show the mass variation in each reaction: this column
+should always be zero. It is a sanity check to make sure that the mass balance
+is satisfied and is very useful for catching common mistakes.</p>
+<p>Last, we have the kinetic data.</p>
+<h3 id="25-the-kinetic-data"><a class="header" href="#25-the-kinetic-data">2.5: The kinetic data</a></h3>
+<pre><code>                                                     estimated reaction rate constants
+
+  no   reaction                                        half equilib.?         k                     k                      k           κ
+                                                                        〈M⁻ⁿ⁺¹·s⁻¹〉   〈(cm³/particle)ⁿ⁻¹·s⁻¹〉   〈atm⁻ⁿ⁺¹·s⁻¹〉
+ ──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+   0   R1(MeOH) -&gt; R2(MeOH)                                 Yes               1                     1                      1
+   1   R2(MeOH) -&gt; R1(MeOH)                                 Yes             3.63                  3.63                   3.63
+   2   P1(MeOH) -&gt; P2(MeOH)                                 Yes             4.16                  4.16                   4.16
+   3   P2(MeOH) -&gt; P1(MeOH)                                 Yes               1                     1                      1
+   4   R1(MeOH) + MeO-(MeOH) -&gt; P1(MeOH) + Br-(MeOH)         No              159                2.64e-19                  6.5         1.18
+   5   R2(MeOH) + MeO-(MeOH) -&gt; P2(MeOH) + Br-(MeOH)         No           1.56e+05              2.59e-16               6.38e+03       1.21
+
+Only in the table above, all Gibbs free energies were biased by 0.0 J/mol.
+For half-equilibria, only ratios make sense.
+</code></pre>
+<p>The last table shows the reaction rate constants in three different units. We
+also have tunneling coefficients for convenience, but they are already included
+in the kinetic data.</p>
+<p>Bear in mind that the reaction rate constants for equilibrium reactions are not
+&quot;genuine&quot; rate constants. They are calculated such that the equilibrium constant
+is satisfied. This is used during the microkinetic simulations.</p>
+<h2 id="section-3-microkinetic-simulations"><a class="header" href="#section-3-microkinetic-simulations">Section 3: Microkinetic simulations</a></h2>
+<p>In order to perform a microkinetic simulation, all we have to do is add an
+initial condition to the command line:</p>
+<pre><code>$ overreact methoxylation.k &quot;R1(MeOH):0.5&quot; &quot;MeO-(MeOH):0.5&quot;
+</code></pre>
+<p>Initial conditions are given as a list of species and their concentrations
+separated by a colon. The names are the same as in the input file and the
+concentrations are all in molar units.</p>
+<p>A new section at the end of the output then appears:</p>
+<pre><code>    initial and final concentrations
+                  〈M〉
+
+  no   compound     t = 0 s   t = 0.2 s
+ ───────────────────────────────────────
+   0   R1(MeOH)       0.500       0.030
+   1   R2(MeOH)       0.000       0.000
+   2   P1(MeOH)       0.000       0.257
+   3   P2(MeOH)       0.000       0.212
+   4   MeO-(MeOH)     0.500       0.030
+   5   TS1#(MeOH)     0.000       0.000
+   6   Br-(MeOH)      0.000       0.470
+   7   TS2#(MeOH)     0.000       0.000
+
+Simulation data was saved to methoxylation.csv
+</code></pre>
+<p>Here we see a sketch of the initial and final concentrations of the species and
+the approximate time when the reactions reach completion. A CSV file is created
+with the simulation data automatically as well, with concentrations as function
+of time. You can either analyze the data yourself or ask overreact to do a
+simple plot of the data for you.</p>
+<h3 id="31-plot-of-active-species"><a class="header" href="#31-plot-of-active-species">3.1: Plot of &quot;active&quot; species</a></h3>
+<p>The active species are the ones that actually change their concentration during
+the simulation. You can ask overreact to plot them for you with the following
+command:</p>
+<pre><code>$ overreact methoxylation.k &quot;R1(MeOH):0.5&quot; &quot;MeO-(MeOH):0.5&quot; --plot=active
+</code></pre>
+<p>(You can also request a plot of all species with the <code>--plot=all</code> option, or of
+a specific species with something like <code>--plot=&quot;P1(MeOH)&quot;</code>.) The plot is shown
+immediately in a new window.</p>
+<p><img src="reaction-tutorial-active.png" alt="Active species" /></p>
+<p>The customizations you can do in the command line are necessarily limited and
+serve mostly to help you through the exploration of the data. Full control over
+the plot, simulation parameters, and other factors can be done by using the
+<a href="https://geem-lab.github.io/overreact/overreact.html">overreact API directly</a>.
+Take a look at some of the <a href="notebooks.html">notebooks</a>.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="jupyter-notebooks"><a class="header" href="#jupyter-notebooks">Jupyter notebooks</a></h1>
 <p>Code examples on how to use the library are available as
-<a href="https://jupyter.org/">Jupyter notebooks</a> in the <code>notebooks</code> folder.
-The following notebooks are available:</p>
+<a href="https://jupyter.org/">Jupyter notebooks</a> in the <code>notebooks</code> folder. The
+following notebooks are available:</p>
 <ul>
-<li><a href=""><code>notebooks/basic.ipynb</code></a></li>
-<li><a href=""><code>notebooks/basic.ipynb</code></a></li>
-<li><a href=""><code>notebooks/basic.ipynb</code></a></li>
+<li><a href="https://github.com/geem-lab/overreact-guide/blob/master/notebooks/simulation/1%20basic%20reaction%20simulation.ipynb">Simulation basics</a></li>
+<li><a href="https://github.com/geem-lab/overreact-guide/blob/master/notebooks/simulation/2%20basic%20michaelis-menten%20simulation.ipynb">An (artificial) Michaelis-Menten example</a></li>
+<li><a href="https://github.com/geem-lab/overreact-guide/blob/master/notebooks/hydrogen-abstraction/1%20Arrhenius%20plot.ipynb">An automatic, first-principles, Arrhenius plot</a></li>
+<li><a href="https://github.com/geem-lab/overreact-guide/blob/master/notebooks/5%20pH.ipynb">A simple acid-base equilibria</a></li>
+<li><a href="https://github.com/geem-lab/overreact-guide/blob/master/notebooks/hydrogen-abstraction/2%20microkinetics.ipynb">A first-principles, gas phase microkinetic model</a></li>
+<li><a href="https://github.com/geem-lab/overreact-guide/blob/master/notebooks/7%20QRRHO.ipynb">How to access the QRRHO implementation</a></li>
 </ul>
 
                     </main>

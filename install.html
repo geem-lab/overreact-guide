@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html" class="active"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="examples.html"><strong aria-hidden="true">5.</strong> Basic usage examples</a></li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">6.</strong> Tutorials</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">7.</strong> Jupyter notebooks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html" class="active"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">5.</strong> Command-line tutorial</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">6.</strong> Jupyter notebooks</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -154,14 +154,13 @@
 <pre><code class="language-bash">$ pip install overreact
 </code></pre>
 <p>(You may require calling <code>pip3</code> instead of <code>pip</code>.)</p>
-<p>The above command will install a minimal set of features.
-If you plan to use the command-line interface, you have to specify
-the <code>cli</code> extra feature:</p>
+<p>The above command will install a minimal set of features. If you plan to use the
+command-line interface, you have to specify the <code>cli</code> extra feature:</p>
 <pre><code class="language-bash">$ pip install overreact[cli]
 </code></pre>
-<p>If you would like to use automatic differentiation (through Google's <a href="https://github.com/google/jax">JAX library</a>) instead of
-the default numerical differentiation, you have to specify the
-<code>fast</code> extra feature as well:</p>
+<p>If you would like to use automatic differentiation (through Google's
+<a href="https://github.com/google/jax">JAX library</a>) instead of the default numerical
+differentiation, you have to specify the <code>fast</code> extra feature as well:</p>
 <pre><code class="language-bash">$ pip install overreact[cli,fast]
 </code></pre>
 <h2 id="dependencies"><a class="header" href="#dependencies">Dependencies</a></h2>
@@ -174,9 +173,10 @@ optimization, unit conversion and others).</li>
 </ul>
 <p>(Don't worry, these dependencies are automatically installed when you install
 <strong>overreact</strong> using <code>pip</code> as indicated above.)</p>
-<p>Optionally, extra functionality is provided such as a command-line interface
-and solvent properties (<strong>warning</strong>: solvent properties are not yet fully integrated into the package).
-If you would like to install the full set of features, you can specify all extra flags:</p>
+<p>Optionally, extra functionality is provided such as a command-line interface and
+solvent properties (<strong>warning</strong>: solvent properties are not yet fully integrated
+into the package). If you would like to install the full set of features, you
+can specify all extra flags:</p>
 <pre><code class="language-bash">$ pip install overreact[cli,fast,solvents]
 </code></pre>
 <p>This line installs <a href="https://github.com/willmcgugan/rich">Rich</a>,
