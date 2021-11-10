@@ -75,14 +75,64 @@ optional arguments:
                         (default: 1e-11)
 ```
 
-Basically, the command-line tool receives the path to a model source file (`.k`) or
-a compiled one (`.jk`).
-It then compiles the model and calculates all the thermodynamic and kinetic
-quantities of interest:
+Basically, the command-line tool receives the path to a model source file (`.k`)
+or a compiled one (`.jk`). It then compiles the model and calculates all the
+thermodynamic and kinetic quantities of interest. Head over to the
+[tutorial](./tutorials.md) to learn more about how to use the command-line tool.
+Or continue to learn about the [input file format](./input.md).
+
+<!-- ...
+
+Optionally, you can specify initial concentrations of compounds (in moles per
+liter), which will be used to perform a microkinetic simulation.
 
 ...
 
-Optionally, you can specify initial concentrations of compounds (in moles per liter),
-which will be used to perform a microkinetic simulation.
+\textcolor{red}{EXAMPLE NOT COOL! MAYBE THIS SHOULD BE GIVEN IN THE SUPPORTING
+INFORMATION OR SIMPLIFIED. IN ANY CASE, CLEARLY PUT THE NAME AND EXTENSION OF
+THE INPUT FILE. MENTION HOW TO ENTER EACH AVAILABLE OPTION: SOLVATION,
+TUNNELING, TEMPERATURE, ETC...}
 
-...
+Naturally, all outputs should already be optimized in solution.
+
+The paths to logfiles are relative to the path of the input file. As such, it is
+very simple to run **overreact** when in the same directory as
+\texttt{curtin_hammett.k}~(\cref{lst:run-example}). % \begin{lstlisting}[
+caption={Example of running the command-line application of **overreact**.},
+label={lst:run-example}, language={bash}, ]
+
+# only thermodynamics and kinetic data:
+
+$ overreact curtin_hammett.k
+
+# data above plus microkinetics simulation:
+
+$ overreact curtin_hammett.k "A(w):0.1" "B(w):0.05" --plot=active
+\end{lstlisting}
+
+The second line in~\cref{lst:run-example} performs all calculations and also
+propagates a microkinetic simulation with the specified initial concentrations
+given ($[\ce{A(w)}]$ = 0.1~M, $[\ce{B(w)}]$ = 0.05~M and zero for all other
+species).
+
+% Excerpts from the output for the example given above are available (NOT
+REALLY!) in the supporting information. As such, the user specifies a set of
+elementary reactions that are believed to be relevant for the overall chemical
+phenomena. **overreact** offers a hopefully complete but simple environment for
+hypothesis testing in first-principles chemical kinetics. The example above was
+only illustrative. The next section shows example usage and comparisons.
+
+\textcolor{red}{I recognise that this methodology section mixes both parts of
+the theory and how to use it. It is written as if it is a bit theory and a bit
+tutorial. I believe that by having a manual or a HOW-TO list in the SI that
+shows all the options and how to use them in the code, this section should focus
+on the theory and how it was implemented. I believe part of that is already
+covered here, but not everything! I believe that this tutorial information could
+be in another file (Manual or SI) Also, the results discussion section should go
+beyond the "we tested so-and-so's reaction and our results were very close to
+the experimental ones" . We should show the details, and the fact that if
+certain corrections (like tunnelling) are omitted, the result can be worse or
+better, that is, show the real capacity of the code, highlighting its potential,
+and this can only be done with a detailed discussion of the cases studied.}
+
+TODO: add pieces of the output -->
