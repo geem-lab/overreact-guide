@@ -4,7 +4,7 @@
 
 <div style="text-align:center;">
 
-![overreact](https://raw.githubusercontent.com/geem-lab/overreact-docs/master/logo.png)
+![overreact](https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png)
 
 </div>
 
@@ -24,13 +24,14 @@ from computational chemistry data.
 
 ## Installation
 
-**overreact** is a Python package, so you can easily install it with `pip`.
-See the [installation instructions](https://geem-lab.github.io/overreact-docs/install.html).
+**overreact** is a Python package, so you can easily install it with `pip`. See
+the
+[installation instructions](https://geem-lab.github.io/overreact-guide/install.html).
 
 ## License
 
-**overreact** is open-source, released under the permissive **MIT license**.
-See [our LICENSE file](https://github.com/geem-lab/overreact-docs/blob/master/LICENSE).
+**overreact** is open-source, released under the permissive **MIT license**. See
+[our LICENSE file](https://github.com/geem-lab/overreact-guide/blob/master/LICENSE).
 
 ## Citing **overreact**
 
