@@ -152,20 +152,23 @@
 <p>This is a step-by-step guide on using overreact as a command-line tool. It will
 teach you all the basics of overreact through a guided use-case.</p>
 <p>\[\require{mhchem}\]</p>
-<h2 id="a-curtin-hammett-system"><a class="header" href="#a-curtin-hammett-system">A Curtin-Hammett system</a></h2>
+<h2 id="a-simple-curtin-hammett-system"><a class="header" href="#a-simple-curtin-hammett-system">A simple Curtin-Hammett system</a></h2>
 <p>We're going to explore a system that is simple enough to be a tutorial, but also
-interesting enough to show off the capabilities of overreact. The reaction is a
-classical SN\(_2\) reaction on a substituted cyclohexane:</p>
-<p><img src="reaction-tutorial.png" alt="Bromocyclohexane" /></p>
-<p>The steps above were calculated using GFN2-xTB by calling the
+interesting enough to show off most of the capabilities of overreact. The
+reaction is a classical SN\(_2\) reaction on a substituted cyclohexane:</p>
+<div align="center">
+    <img alt="Bromocyclohexane" src="reaction-tutorial.png" width="425" />
+</div>
+<p><strong>The labels above refer to the file names and the labels in the input file
+below.</strong> The steps above were calculated using GFN2-xTB by calling the
 <a href="https://github.com/grimme-lab/xtb">Semiempirical Extended Tight-Binding Program Package</a>
 (XTB) from within <a href="https://orcaforum.kofo.mpg.de/app.php/portal">ORCA 4.2.1</a>.
-Methanol was considered as an implicit solvent. <strong>You can
+Methanol was used as (implicit) solvent. <strong>You can
 <a href="reaction-tutorial.zip">download a zip file of this tutorial</a> to run everything
 yourself.</strong></p>
 <h2 id="step-1-create-the-input-file"><a class="header" href="#step-1-create-the-input-file">Step 1: Create the input file</a></h2>
-<p>After downloading the tutorial, you'll find a file called <code>methoxylation.k</code> in
-the root of the zip file. This is the input file and it contains the following:</p>
+<p><a href="reaction-tutorial.zip">Inside the zip file</a>, you'll find an input file called
+<code>methoxylation.k</code>. It contains the following:</p>
 <pre><code>// methoxylation.k
 
 // This is a comment.
@@ -179,6 +182,7 @@ $scheme
 $end
 
 $compounds
+ // The path to the logfiles go here.
  R1(MeOH):   R1@MeOH/opt+numfreq.out
  R2(MeOH):   R2@MeOH/opt+numfreq.out
  P1(MeOH):   P1@MeOH/opt+numfreq.out
@@ -191,14 +195,16 @@ $end
 </code></pre>
 <p>It describes the reactions and the compounds in the system (take a look at a
 <a href="input.html">more detailed description of the input format here</a>). The reactions
-are almost an exact translation of the diagram above (<strong>the labels in the figure
-are the same ones as in the input file</strong>). After performing the calculations and
-writing the input file, it's time to run overreact.</p>
-<h2 id="step-2-run-overreact-a-tour-over-a-typical-output"><a class="header" href="#step-2-run-overreact-a-tour-over-a-typical-output">Step 2: Run overreact (a tour over a typical output)</a></h2>
+are almost an exact translation of the diagram above (observe the labels in the
+figure are the same as in the input file). After performing the calculations,
+obtaining the logfiles, and writing the input file, <em>it's time to run
+overreact</em>.</p>
+<h2 id="step-2-run-overreact-or-a-tour-over-a-typical-output"><a class="header" href="#step-2-run-overreact-or-a-tour-over-a-typical-output">Step 2: Run overreact (or a tour over a typical output)</a></h2>
 <p>A first run of overreact would look like this:</p>
 <pre><code class="language-bash">$ overreact methoxylation.k
 </code></pre>
-<p>This will produce a lot of output, but let's walk through it one step at a time.</p>
+<p>This will produce quite an amount of output, so let's walk through it one step
+at a time.</p>
 <h3 id="21-the-header"><a class="header" href="#21-the-header">2.1: The header</a></h3>
 <p>The current version v1.0.1 produces a header like this:</p>
 <pre><code>╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗
