@@ -148,66 +148,70 @@
 
                 <div id="content" class="content">
                     <main>
-                        <p><a href="https://zenodo.org/badge/latestdoi/214332027"><img src="https://zenodo.org/badge/214332027.svg" alt="DOI" /></a></p>
+                        <p><a href="https://zenodo.org/badge/latestdoi/214332027"><img src="https://zenodo.org/badge/214332027.svg" alt="DOI" /></a>
+<a href="https://pypi.org/project/overreact/"><img src="https://img.shields.io/pypi/v/overreact" alt="PyPI" /></a>
+<a href="https://github.com/geem-lab/overreact/actions/workflows/python-package.yml"><img src="https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg" alt="build" /></a>
+<a href="https://codecov.io/gh/geem-lab/overreact"><img src="https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8" alt="codecov" /></a>
+<a href="https://github.com/geem-lab/overreact/blob/main/LICENSE"><img src="https://img.shields.io/github/license/geem-lab/overreact" alt="GitHub license" /></a>
+<img src="https://img.shields.io/badge/made%20in-Brazil-009c3b" alt="Made in Brazil 🇧🇷" /></p>
 <h1 id="welcome-to-overreact"><a class="header" href="#welcome-to-overreact">Welcome to <strong>overreact</strong>!</a></h1>
-<div style="text-align:center;">
-<p><img src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" alt="overreact" /></p>
+<div align="center">
+    <img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
 </div>
-<p><strong>overreact</strong> is a <em>library</em> and a <em>command-line tool</em> for creating and
-analyzing microkinetic models<sup class="footnote-reference"><a href="#microkinetic">1</a></sup>.
-Data is parsed directly from computational chemistry output files thanks to
-<a href="https://cclib.github.io/"><code>cclib</code></a> (see the <a href="https://cclib.github.io/#summary">list of supported programs</a>).</p>
-<div class="footnote-definition" id="microkinetic"><sup class="footnote-definition-label">1</sup>
-<p>Microkinetic modeling is a technique used to predict the
-outcome of complex chemical reactions.
-It can be used to investigate the catalytic transformations of
-molecules.
-<strong>overreact</strong> makes it easy to create and analyze microkinetic models built
-from computational chemistry data.</p>
-</div>
+<p><strong>overreact</strong> is a <strong>library</strong> and a <strong>command-line tool</strong> for building and
+analyzing microkinetic models<sup class="footnote-reference"><a href="#microkinetic">1</a></sup>. Data is parsed directly from
+computational chemistry output files thanks to
+<a href="https://cclib.github.io/"><code>cclib</code></a> (see the
+<a href="https://cclib.github.io/#summary">list of supported programs</a>).</p>
 <h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
-<p><strong>overreact</strong> is a Python package, so you can easily install it with <code>pip</code>. See
-the
-<a href="https://geem-lab.github.io/overreact-guide/install.html">installation instructions</a>.</p>
-<h2 id="license"><a class="header" href="#license">License</a></h2>
-<p><strong>overreact</strong> is open-source, released under the permissive <strong>MIT license</strong>. See
-<a href="https://github.com/geem-lab/overreact-guide/blob/master/LICENSE">our LICENSE file</a>.</p>
+<p><strong>overreact</strong> is a Python package, so you can easily install it with
+<a href="https://pypi.org/project/pip/"><code>pip</code></a>:</p>
+<pre><code class="language-bash">$ pip install &quot;overreact[cli,fast]&quot;
+</code></pre>
+<p>See the
+<a href="https://geem-lab.github.io/overreact-guide/install.html">installation guide</a>
+for more details.</p>
 <h2 id="citing-overreact"><a class="header" href="#citing-overreact">Citing <strong>overreact</strong></a></h2>
 <p>If you use <strong>overreact</strong> in your research, please cite:</p>
 <blockquote>
-<p>F. S. S. Schneider and G. F. Caramori. <em><strong>overreact</strong>: a tool for creating and analyzing microkinetic models built from computational chemistry data</em>. <strong>2021</strong>.
-Available at: <a href="https://github.com/geem-lab/overreact">https://github.com/geem-lab/overreact</a>.</p>
+<p>F. S. S. Schneider and G. F. Caramori. <em><strong>geem-lab/overreact</strong>: a tool for
+creating and analyzing microkinetic models built from computational chemistry
+data, v1.0.1</em>. <strong>2021</strong>.
+<a href="https://doi.org/10.5281/ZENODO.5643960">DOI:10.5281/ZENODO.5643960</a>. Freely
+available at: &lt;<a href="https://github.com/geem-lab/overreact">https://github.com/geem-lab/overreact</a>&gt;.</p>
 </blockquote>
 <p>Here's the reference in <a href="http://www.bibtex.org/">BibTeX</a> format:</p>
-<!-- @article{overreact,
-  title = \textbf{overreact}: a tool for creating and analyzing microkinetic models built from computational chemistry data},
-  author = {Schneider, F. S. S. and Caramori, G. F.},
-  journal={J. Chem. Phys.},
-  volume={155},
-  number={1},
-  pages={0},
-  year = {2021},
-  publisher={American Chemical Society (ACS)},
-  doi={10.1063/1.5058983},
-  url={https://doi.org/10.1063/1.5058983}
-} -->
 <pre><code class="language-bibtex">@misc{overreact2021,
-  title        = {
-    \textbf{overreact}: a tool for creating and analyzing microkinetic models
-    built from computational chemistry data, ver. 1.0
-  },
-  author       = {Schneider, F. S. S. and Caramori, G. F.},
-  year         = 2021,
   howpublished = {\url{https://github.com/geem-lab/overreact}}
+  year = {2021},
+  author = {Schneider, F. S. S. and Caramori, G. F.},
+  title = {
+    \textbf{geem-lab/overreact}: a tool for creating and analyzing
+    microkinetic models built from computational chemistry data, v1.0.1
+  },
+  doi = {10.5281/ZENODO.5643960},
+  url = {https://zenodo.org/record/5643960},
+  publisher = {Zenodo},
+  copyright = {Open Access}
 }
 </code></pre>
-<p>A paper describing <strong>overreact</strong> is currently being prepared.
-When it is published, the above BibTeX entry will be updated.</p>
+<p>A paper describing <strong>overreact</strong> is currently being prepared. When it is
+published, the above BibTeX entry will be updated.</p>
+<h2 id="license"><a class="header" href="#license">License</a></h2>
+<p><strong>overreact</strong> is open-source, released under the permissive <strong>MIT license</strong>. See
+<a href="https://github.com/geem-lab/overreact/blob/main/LICENSE">the LICENSE agreement</a>.</p>
 <h2 id="funding"><a class="header" href="#funding">Funding</a></h2>
-<p>This project was developed at the <a href="https://geem-ufsc.org/">GEEM lab</a> (<a href="https://en.ufsc.br/">Federal University of Santa
-Catarina</a>, Brazil), and was partially funded by the
+<p>This project was developed at the <a href="https://geem-ufsc.org/">GEEM lab</a>
+(<a href="https://en.ufsc.br/">Federal University of Santa Catarina</a>, Brazil), and was
+partially funded by the
 <a href="https://cnpq.br/">Brazilian National Council for Scientific and Technological Development (CNPq)</a>,
 grant number 140485/2017-1.</p>
+<div class="footnote-definition" id="microkinetic"><sup class="footnote-definition-label">1</sup>
+<p>Microkinetic modeling is a technique used to predict the outcome of complex
+chemical reactions. It can be used to investigate the catalytic transformations
+of molecules. <strong>overreact</strong> makes it easy to create and analyze microkinetic
+models built from computational chemistry data.</p>
+</div>
 <!-- ## _Ab initio_ thermochemistry
 
 -   Concentration corrections
