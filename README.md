@@ -17,23 +17,18 @@ computational chemistry output files thanks to
 [`cclib`](https://cclib.github.io/) (see the
 [list of supported programs](https://cclib.github.io/#summary)).
 
-[^microkinetic]:
-
-Microkinetic modeling is a technique used to predict the outcome of complex
-chemical reactions. It can be used to investigate the catalytic transformations
-of molecules. **overreact** makes it easy to create and analyze microkinetic
-models built from computational chemistry data.
-
 ## Installation
 
-**overreact** is a Python package, so you can easily install it with `pip`. See
-the
-[installation instructions](https://geem-lab.github.io/overreact-guide/install.html).
+**overreact** is a Python package, so you can easily install it with
+[`pip`](https://pypi.org/project/pip/):
 
-## License
+```bash
+$ pip install "overreact[cli,fast]"
+```
 
-**overreact** is open-source, released under the permissive **MIT license**. See
-[our LICENSE file](https://github.com/geem-lab/overreact-guide/blob/master/LICENSE).
+See the
+[installation guide](https://geem-lab.github.io/overreact-guide/install.html)
+for more details.
 
 ## Citing **overreact**
 
@@ -72,9 +67,21 @@ Here's the reference in [BibTeX](http://www.bibtex.org/) format:
 A paper describing **overreact** is currently being prepared.
 When it is published, the above BibTeX entry will be updated.
 
+## License
+
+**overreact** is open-source, released under the permissive **MIT license**. See
+[our LICENSE file](https://github.com/geem-lab/overreact-guide/blob/master/LICENSE).
+
 ## Funding
 
 This project was developed at the [GEEM lab](https://geem-ufsc.org/) ([Federal University of Santa
 Catarina](https://en.ufsc.br/), Brazil), and was partially funded by the
 [Brazilian National Council for Scientific and Technological Development (CNPq)](https://cnpq.br/),
 grant number 140485/2017-1.
+
+[^microkinetic]:
+
+Microkinetic modeling is a technique used to predict the outcome of complex
+chemical reactions. It can be used to investigate the catalytic transformations
+of molecules. **overreact** makes it easy to create and analyze microkinetic
+models built from computational chemistry data.
