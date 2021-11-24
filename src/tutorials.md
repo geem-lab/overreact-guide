@@ -5,25 +5,28 @@ teach you all the basics of overreact through a guided use-case.
 
 \\[\require{mhchem}\\]
 
-## A Curtin-Hammett system
+## A simple Curtin-Hammett system
 
 We're going to explore a system that is simple enough to be a tutorial, but also
-interesting enough to show off the capabilities of overreact. The reaction is a
-classical SN\\(\_2\\) reaction on a substituted cyclohexane:
+interesting enough to show off most of the capabilities of overreact. The
+reaction is a classical SN\\(\_2\\) reaction on a substituted cyclohexane:
 
-![Bromocyclohexane](reaction-tutorial.png)
+<div align="center">
+    <img alt="Bromocyclohexane" src="reaction-tutorial.png" width="425" />
+</div>
 
-The steps above were calculated using GFN2-xTB by calling the
+**The labels above refer to the file names and the labels in the input file
+below.** The steps above were calculated using GFN2-xTB by calling the
 [Semiempirical Extended Tight-Binding Program Package](https://github.com/grimme-lab/xtb)
 (XTB) from within [ORCA 4.2.1](https://orcaforum.kofo.mpg.de/app.php/portal).
-Methanol was considered as an implicit solvent. **You can
+Methanol was used as (implicit) solvent. **You can
 [download a zip file of this tutorial](reaction-tutorial.zip) to run everything
 yourself.**
 
 ## Step 1: Create the input file
 
-After downloading the tutorial, you'll find a file called `methoxylation.k` in
-the root of the zip file. This is the input file and it contains the following:
+[Inside the zip file](reaction-tutorial.zip), you'll find an input file called
+`methoxylation.k`. It contains the following:
 
 ```
 // methoxylation.k
@@ -39,6 +42,7 @@ $scheme
 $end
 
 $compounds
+ // The path to the logfiles go here.
  R1(MeOH):   R1@MeOH/opt+numfreq.out
  R2(MeOH):   R2@MeOH/opt+numfreq.out
  P1(MeOH):   P1@MeOH/opt+numfreq.out
@@ -52,11 +56,12 @@ $end
 
 It describes the reactions and the compounds in the system (take a look at a
 [more detailed description of the input format here](input.md)). The reactions
-are almost an exact translation of the diagram above (**the labels in the figure
-are the same ones as in the input file**). After performing the calculations and
-writing the input file, it's time to run overreact.
+are almost an exact translation of the diagram above (observe the labels in the
+figure are the same as in the input file). After performing the calculations,
+obtaining the logfiles, and writing the input file, _it's time to run
+overreact_.
 
-## Step 2: Run overreact (a tour over a typical output)
+## Step 2: Run overreact (or a tour over a typical output)
 
 A first run of overreact would look like this:
 
@@ -64,7 +69,8 @@ A first run of overreact would look like this:
 $ overreact methoxylation.k
 ```
 
-This will produce a lot of output, but let's walk through it one step at a time.
+This will produce quite an amount of output, so let's walk through it one step
+at a time.
 
 ### 2.1: The header
 
