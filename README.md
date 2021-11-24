@@ -13,19 +13,18 @@
 
 </div>
 
-**overreact** is a _library_ and a _command-line tool_ for creating and
-analyzing microkinetic models[^microkinetic].
-Data is parsed directly from computational chemistry output files thanks to
-[`cclib`](https://cclib.github.io/) (see the [list of supported programs](https://cclib.github.io/#summary)).
+**overreact** is a **library** and a **command-line tool** for building and
+analyzing microkinetic models[^microkinetic]. Data is parsed directly from
+computational chemistry output files thanks to
+[`cclib`](https://cclib.github.io/) (see the
+[list of supported programs](https://cclib.github.io/#summary)).
 
 [^microkinetic]:
 
-Microkinetic modeling is a technique used to predict the
-outcome of complex chemical reactions.
-It can be used to investigate the catalytic transformations of
-molecules.
-**overreact** makes it easy to create and analyze microkinetic models built
-from computational chemistry data.
+Microkinetic modeling is a technique used to predict the outcome of complex
+chemical reactions. It can be used to investigate the catalytic transformations
+of molecules. **overreact** makes it easy to create and analyze microkinetic
+models built from computational chemistry data.
 
 ## Installation
 
