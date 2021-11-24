@@ -64,12 +64,13 @@ published, the above BibTeX entry will be updated.
 ## License
 
 **overreact** is open-source, released under the permissive **MIT license**. See
-[our LICENSE file](https://github.com/geem-lab/overreact-guide/blob/master/LICENSE).
+[the LICENSE agreement](https://github.com/geem-lab/overreact/blob/main/LICENSE).
 
 ## Funding
 
-This project was developed at the [GEEM lab](https://geem-ufsc.org/) ([Federal University of Santa
-Catarina](https://en.ufsc.br/), Brazil), and was partially funded by the
+This project was developed at the [GEEM lab](https://geem-ufsc.org/)
+([Federal University of Santa Catarina](https://en.ufsc.br/), Brazil), and was
+partially funded by the
 [Brazilian National Council for Scientific and Technological Development (CNPq)](https://cnpq.br/),
 grant number 140485/2017-1.
 
