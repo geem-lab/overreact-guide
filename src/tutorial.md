@@ -3,6 +3,22 @@
 This is a step-by-step guide on using overreact as a command-line tool. It will
 teach you all the basics of overreact through a guided use-case.
 
+TODO:
+
+-   [x] A complete guided example with a simple reaction **including model
+        files** with:
+    -   [ ] an explanation about solvation, should have some stuff solvated
+    -   [x] with biased corrections
+
+<!-- # Usage examples
+
+Some basic examples on how to use the command-line interface to solve simple
+problems.
+
+As an example, we're going to solve a
+[Curtin-Hammett system](https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle),
+step-by-step. -->
+
 \\[\require{mhchem}\\]
 
 ## A simple Curtin-Hammett system
@@ -65,7 +81,7 @@ overreact_.
 
 A first run of overreact would look like this:
 
-```bash
+```console
 $ overreact methoxylation.k
 ```
 
@@ -297,7 +313,7 @@ In order to perform a microkinetic simulation, all we have to do is add an
 initial condition to the command line:
 
 ```
-$ overreact methoxylation.k "R1(MeOH):0.5" "MeO-(MeOH):0.5"
+$ overreact methoxylation.k "R1(MeOH):0.4" "MeO-(MeOH):0.6"
 ```
 
 Initial conditions are given as a list of species and their concentrations
@@ -307,19 +323,19 @@ concentrations are all in molar units.
 A new section at the end of the output then appears:
 
 ```
-    initial and final concentrations
+     initial and final concentrations
                   〈M〉
 
-  no   compound     t = 0 s   t = 0.2 s
- ───────────────────────────────────────
-   0   R1(MeOH)       0.500       0.030
-   1   R2(MeOH)       0.000       0.000
-   2   P1(MeOH)       0.000       0.257
-   3   P2(MeOH)       0.000       0.212
-   4   MeO-(MeOH)     0.500       0.030
-   5   TS1#(MeOH)     0.000       0.000
-   6   Br-(MeOH)      0.000       0.470
-   7   TS2#(MeOH)     0.000       0.000
+  no   compound     t = 0 s   t = 0.05 s
+ ────────────────────────────────────────
+   0   R1(MeOH)       0.400        0.000
+   1   R2(MeOH)       0.000        0.000
+   2   P1(MeOH)       0.000        0.077
+   3   P2(MeOH)       0.000        0.323
+   4   MeO-(MeOH)     0.600        0.200
+   5   TS1#(MeOH)     0.000        0.000
+   6   Br-(MeOH)      0.000        0.400
+   7   TS2#(MeOH)     0.000        0.000
 
 Simulation data was saved to methoxylation.csv
 ```
@@ -337,7 +353,7 @@ the simulation. You can ask overreact to plot them for you with the following
 command:
 
 ```
-$ overreact methoxylation.k "R1(MeOH):0.5" "MeO-(MeOH):0.5" --plot=active
+$ overreact methoxylation.k "R1(MeOH):0.4" "MeO-(MeOH):0.6" --plot=active
 ```
 
 (You can also request a plot of all species with the `--plot=all` option, or of
@@ -346,8 +362,32 @@ immediately in a new window.
 
 ![Active species](reaction-tutorial-active.png)
 
+As we can see, the most abundant reactant at the beginning of the simulation is
+the R1(MeOH). This leads to product P1(MeOH) being formed most of the time. But
+P1(MeOH) rapidly interconverts to P2(MeOH) and then to R2(MeOH) and back
+
 The customizations you can do in the command line are necessarily limited and
 serve mostly to help you through the exploration of the data. Full control over
 the plot, simulation parameters, and other factors can be done by using the
 [overreact API directly](https://geem-lab.github.io/overreact/overreact.html).
 Take a look at some of the [notebooks](notebooks.md).
+
+#### 3.1.1: The effect of a bias
+
+overreact allows one to apply a bias to the Gibbs free energy of all species.
+This provides a way of counterbalancing systematic errors often found in
+computed Gibbs free energies, but is also useful for exploring the sensitivity
+of conclusions with respect to unknown error contributions.
+
+In order to insert a bias, you can use the `--bias` option. The bias is given in
+kcal/mol:
+
+```
+$ overreact methoxylation.k "R1(MeOH):0.4" "MeO-(MeOH):0.6" --plot=active --bias=-4.5
+```
+
+![Active species with bias](reaction-tutorial-active-bias.png)
+
+As we can see from the plot above, a bias of -4.5 kcal/mol makes the reaction
+2000x faster (as expected from \\(\exp(4.5 \text{ kcal$\cdot$mol$^{-1}$} / R T)
+\approx 1989\\) at room temperature).
