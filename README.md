@@ -26,13 +26,19 @@ computational chemistry output files thanks to
 **overreact** is a Python package, so you can easily install it with
 [`pip`](https://pypi.org/project/pip/):
 
-```bash
+```console
 $ pip install "overreact[cli,fast]"
 ```
 
 See the
 [installation guide](https://geem-lab.github.io/overreact-guide/install.html)
 for more details.
+
+> **🚀** **Where to go from here?** Take a look at the
+> [short introduction](https://geem-lab.github.io/overreact-guide/quickstart.html).
+> Or see
+> [here](https://geem-lab.github.io/overreact-guide/intro.html#how-to-read-this-documentation)
+> for more guidance.
 
 ## Citing **overreact**
 
@@ -62,8 +68,8 @@ Here's the reference in [BibTeX](http://www.bibtex.org/) format:
 }
 ```
 
-A paper describing **overreact** is currently being prepared. When it is
-published, the above BibTeX entry will be updated.
+> **✏️** A paper describing **overreact** is currently being prepared. When it
+> is published, the above BibTeX entry will be updated.
 
 ## License
 
