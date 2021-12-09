@@ -8,9 +8,9 @@ title = "overreact documentation"
 
 [output.html]
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
-git-repository-url = "https://github.com/geem-lab/overreact-docs"
+git-repository-url = "https://github.com/geem-lab/overreact-guide"
 mathjax-support = true
-site-url = "/overreact-docs"
+site-url = "/overreact-guide"
 
 [output.linkcheck]
 
