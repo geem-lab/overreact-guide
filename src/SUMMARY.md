@@ -3,17 +3,13 @@
 [Introduction](./intro.md)
 
 -   [Installation](./install.md)
--   [Design](./howitworks.md)
-
-# Getting started
-
--   [In the command-line](./cli.md)
-    -   [Input format reference](./input.md)
--   [As a library](./library.md)
-
-# Examples
-
-<!-- -   [Basic usage examples](./examples.md) -->
-
--   [Command-line tutorial](./tutorials.md)
+-   [Tutorial](./tutorial.md)
 -   [Jupyter notebooks](./notebooks.md)
+
+# Deep dive
+
+-   [Design](./howitworks.md)
+-   [The command-line tool](./cli.md)
+    -   [Input format reference](./input.md)
+-   [The library](./library.md)
+    -   [API reference](https://geem-lab.github.io/overreact/overreact.html)

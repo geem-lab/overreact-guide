@@ -1,7 +1,7 @@
 # Getting started with **overreact** as a library
 
-🎯 **overreact also has a detailed API documentation**, which you can read
-[here](https://geem-lab.github.io/overreact/overreact.html).
+> **🎯** overreact also has a **detailed API documentation**, which you can
+> **read [here](https://geem-lab.github.io/overreact/overreact.html)**.
 
 Here is an overview of **overreact**'s capabilities as a
 [Python](https://www.python.org/) library. **overreact** allows you to build any

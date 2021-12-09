@@ -16,9 +16,21 @@
 </div>
 
 **overreact** is a **library** and a **command-line tool** for building and
-analyzing microkinetic models[^microkinetic]. Data is parsed directly from
-computational chemistry output files thanks to
-[`cclib`](https://cclib.github.io/) (see the
+analyzing homogeneous microkinetic models[^microkinetic] from first-principles
+calculations[^ethane]:
+
+```python
+In [1]: from overreact import api
+
+In [2]: api.get_k("S -> E‡ -> S",
+   ...:           {"S": "data/ethane/B97-3c/staggered.out",
+   ...:            "E‡": "data/ethane/B97-3c/eclipsed.out"})
+Out[2]: array([8.16880917e+10])
+```
+
+It uses **precise thermochemical partition funtions**, **tunneling corrections**
+and data is **parsed directly** from computational chemistry output files thanks
+to [`cclib`](https://cclib.github.io/) (see the
 [list of supported programs](https://cclib.github.io/#summary)).
 
 ## Installation
@@ -90,3 +102,10 @@ Microkinetic modeling is a technique used to predict the outcome of complex
 chemical reactions. It can be used to investigate the catalytic transformations
 of molecules. **overreact** makes it easy to create and analyze microkinetic
 models built from computational chemistry data.
+
+[^ethane]:
+
+The three-line example code calculates the rate of methyl rotation in ethane (at
+[B97-3c](https://doi.org/10.1063/1.5012601)). Surprisingly, the error found is
+less than 2%
+[when compared to available experimental results](http://dx.doi.org/10.1126/science.1132178).

@@ -6,7 +6,7 @@ This is a brief overview of the command-line tool. You can access the full help
 page by running `overreact --help`. Here's its output (as of
 [v1.0.1](https://github.com/geem-lab/overreact/releases/tag/v1.0.1)):
 
-```bash
+```console
 $ overreact --help
 usage: overreact [-h] [--version] [-v] [-c] [--plot PLOT] [-b BIAS]
                  [--tunneling {eckart,wigner,none}]
@@ -78,7 +78,7 @@ optional arguments:
 Basically, the command-line tool receives the path to a model source file (`.k`)
 or a compiled one (`.jk`). It then compiles the model and calculates all the
 thermodynamic and kinetic quantities of interest. Head over to the
-[tutorial](./tutorials.md) to learn more about how to use the command-line tool.
+[tutorial](./tutorial.md) to learn more about how to use the command-line tool.
 Or continue to learn about the [input file format](./input.md).
 
 <!-- ...
