@@ -84,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html" class="active">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">2.</strong> Design</a></li><li class="chapter-item expanded affix "><li class="part-title">Getting started</li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">3.</strong> In the command-line</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">3.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">4.</strong> As a library</a></li><li class="chapter-item expanded affix "><li class="part-title">Examples</li><li class="chapter-item expanded "><a href="tutorials.html"><strong aria-hidden="true">5.</strong> Command-line tutorial</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">6.</strong> Jupyter notebooks</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html" class="active">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Tutorial</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">3.</strong> Jupyter notebooks</a></li><li class="chapter-item expanded affix "><li class="part-title">Deep dive</li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">4.</strong> Design</a></li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">5.</strong> The command-line tool</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">5.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">6.</strong> The library</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://geem-lab.github.io/overreact/overreact.html"><strong aria-hidden="true">6.1.</strong> API reference</a></li></ol></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -119,7 +119,7 @@
                                                 <a href="print.html" title="Print this book" aria-label="Print this book">
                             <i id="print-button" class="fa fa-print"></i>
                         </a>
-                                                                        <a href="https://github.com/geem-lab/overreact-docs" title="Git repository" aria-label="Git repository">
+                                                                        <a href="https://github.com/geem-lab/overreact-guide" title="Git repository" aria-label="Git repository">
                             <i id="git-repository-button" class="fa fa-github"></i>
                         </a>
                                                 
@@ -156,24 +156,40 @@
 <p><a href="https://geem-lab.github.io/overreact/overreact.html"><img src="https://img.shields.io/badge/docs-available-blue" alt="API documentation" /></a>
 <a href="https://github.com/geem-lab/overreact/discussions"><img src="https://img.shields.io/github/discussions/geem-lab/overreact" alt="GitHub Discussions" /></a>
 <a href="https://github.com/geem-lab/overreact/issues"><img src="https://img.shields.io/github/issues-raw/geem-lab/overreact" alt="GitHub issues" /></a>
-<a href="https://pypi.org/project/overreact/"><img src="https://img.shields.io/badge/made%20in-Brazil-009c3b" alt="Made in Brazil 🇧🇷" /></a></p>
+<a href="https://github.com/geem-lab/overreact-guide#funding"><img src="https://img.shields.io/badge/made%20in-Brazil-009c3b" alt="Made in Brazil 🇧🇷" /></a></p>
 <h1 id="welcome-to-overreact"><a class="header" href="#welcome-to-overreact">Welcome to <strong>overreact</strong>!</a></h1>
 <div align="center">
     <img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
 </div>
 <p><strong>overreact</strong> is a <strong>library</strong> and a <strong>command-line tool</strong> for building and
-analyzing microkinetic models<sup class="footnote-reference"><a href="#microkinetic">1</a></sup>. Data is parsed directly from
-computational chemistry output files thanks to
-<a href="https://cclib.github.io/"><code>cclib</code></a> (see the
+analyzing homogeneous microkinetic models<sup class="footnote-reference"><a href="#microkinetic">1</a></sup> from first-principles
+calculations<sup class="footnote-reference"><a href="#ethane">2</a></sup>:</p>
+<pre><code class="language-python">In [1]: from overreact import api
+
+In [2]: api.get_k(&quot;S -&gt; E‡ -&gt; S&quot;,
+   ...:           {&quot;S&quot;: &quot;data/ethane/B97-3c/staggered.out&quot;,
+   ...:            &quot;E‡&quot;: &quot;data/ethane/B97-3c/eclipsed.out&quot;})
+Out[2]: array([8.16880917e+10])
+</code></pre>
+<p>It uses <strong>precise thermochemical partition funtions</strong>, <strong>tunneling corrections</strong>
+and data is <strong>parsed directly</strong> from computational chemistry output files thanks
+to <a href="https://cclib.github.io/"><code>cclib</code></a> (see the
 <a href="https://cclib.github.io/#summary">list of supported programs</a>).</p>
 <h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
 <p><strong>overreact</strong> is a Python package, so you can easily install it with
 <a href="https://pypi.org/project/pip/"><code>pip</code></a>:</p>
-<pre><code class="language-bash">$ pip install &quot;overreact[cli,fast]&quot;
+<pre><code class="language-console">$ pip install &quot;overreact[cli,fast]&quot;
 </code></pre>
 <p>See the
 <a href="https://geem-lab.github.io/overreact-guide/install.html">installation guide</a>
 for more details.</p>
+<blockquote>
+<p><strong>🚀</strong> <strong>Where to go from here?</strong> Take a look at the
+<a href="https://geem-lab.github.io/overreact-guide/quickstart.html">short introduction</a>.
+Or see
+<a href="https://geem-lab.github.io/overreact-guide/intro.html#how-to-read-this-documentation">here</a>
+for more guidance.</p>
+</blockquote>
 <h2 id="citing-overreact"><a class="header" href="#citing-overreact">Citing <strong>overreact</strong></a></h2>
 <p>If you use <strong>overreact</strong> in your research, please cite:</p>
 <blockquote>
@@ -198,8 +214,10 @@ Freely available at: &lt;<a href="https://github.com/geem-lab/overreact">https:/
   copyright = {Open Access}
 }
 </code></pre>
-<p>A paper describing <strong>overreact</strong> is currently being prepared. When it is
-published, the above BibTeX entry will be updated.</p>
+<blockquote>
+<p><strong>✏️</strong> A paper describing <strong>overreact</strong> is currently being prepared. When it
+is published, the above BibTeX entry will be updated.</p>
+</blockquote>
 <h2 id="license"><a class="header" href="#license">License</a></h2>
 <p><strong>overreact</strong> is open-source, released under the permissive <strong>MIT license</strong>. See
 <a href="https://github.com/geem-lab/overreact/blob/main/LICENSE">the LICENSE agreement</a>.</p>
@@ -215,29 +233,29 @@ chemical reactions. It can be used to investigate the catalytic transformations
 of molecules. <strong>overreact</strong> makes it easy to create and analyze microkinetic
 models built from computational chemistry data.</p>
 </div>
-<!-- ## _Ab initio_ thermochemistry
-
--   Concentration corrections
--   Symmetry corrections
-
-## Microkinetic modelling
-
--   Microkinetics simulations
-
-## Degree of rate control
-
--   Degree of rate control
--   Degree of selectivity control -->
-<h2 id="how-to-read-this-documentation"><a class="header" href="#how-to-read-this-documentation">How to read this documentation</a></h2>
-<p>If you want to...</p>
+<div class="footnote-definition" id="ethane"><sup class="footnote-definition-label">2</sup>
+<p>The three-line example code calculates the rate of methyl rotation in ethane (at
+<a href="https://doi.org/10.1063/1.5012601">B97-3c</a>). Surprisingly, the error found is
+less than 2%
+<a href="http://dx.doi.org/10.1126/science.1132178">when compared to available experimental results</a>.</p>
+</div>
+<h2 id="where-to-go-next"><a class="header" href="#where-to-go-next"><em>Where to go next</em></a></h2>
+<blockquote>
+<p><strong>💡</strong> If you want to...</p>
 <ul>
-<li>...<strong>install</strong> the software ➡️ read the <a href="install.html">installation instructions</a>.</li>
-<li>...use it as a <strong>command-line tool</strong> to model a reaction ➡️ read the <a href="cli.html">command-line reference</a>.</li>
-<li>...learn about the command-line <strong>input format</strong> ➡️ read the <a href="input.html">input format reference</a>.</li>
-<li>...use it as a <strong>library</strong> ➡️ take a look at the available <a href="notebooks.html">example Jupyter notebooks</a>.</li>
-<li>...read about <strong>how it works</strong> ➡️ read <a href="howitworks.html">our simple description</a>.</li>
+<li>...<strong>install</strong> the software ➡️ read the
+<a href="install.html">installation instructions</a>.</li>
+<li>...<strong>learn</strong> the basics ➡️ take a look at the <a href="tutorial.html">tutorial</a>.</li>
+<li>...use it as a <strong>command-line tool</strong> to model a reaction ➡️ read the
+<a href="cli.html">command-line reference</a>.</li>
+<li>...learn about the command-line <strong>input format</strong> ➡️ read the
+<a href="input.html">input format reference</a>.</li>
+<li>...use it as a <strong>library</strong> ➡️ take a look at the available
+<a href="notebooks.html">example Jupyter notebooks</a>.</li>
+<li>...read about <strong>how it works</strong> ➡️ read
+<a href="howitworks.html">our simple description</a>.</li>
 </ul>
-<!-- Take a look at the [tutorials](https://geem-lab.github.io/overreact-docs/tutorials.html). -->
+</blockquote>
 
                     </main>
 
