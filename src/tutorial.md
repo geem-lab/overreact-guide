@@ -3,13 +3,6 @@
 This is a step-by-step guide on using overreact as a command-line tool. It will
 teach you all the basics of overreact through a guided use-case.
 
-TODO:
-
--   [x] A complete guided example with a simple reaction **including model
-        files** with:
-    -   [ ] an explanation about solvation, should have some stuff solvated
-    -   [x] with biased corrections
-
 <!-- # Usage examples
 
 Some basic examples on how to use the command-line interface to solve simple
@@ -35,9 +28,10 @@ reaction is a classical SN\\(\_2\\) reaction on a substituted cyclohexane:
 below.** The steps above were calculated using GFN2-xTB by calling the
 [Semiempirical Extended Tight-Binding Program Package](https://github.com/grimme-lab/xtb)
 (XTB) from within [ORCA 4.2.1](https://orcaforum.kofo.mpg.de/app.php/portal).
-Methanol was used as (implicit) solvent. **You can
-[download a zip file of this tutorial](reaction-tutorial.zip) to run everything
-yourself.**
+Methanol was used as (implicit) solvent.
+
+> **💡** You can [download a zip file of this tutorial](reaction-tutorial.zip)
+> to run everything yourself.
 
 ## Step 1: Create the input file
 
@@ -73,9 +67,16 @@ $end
 It describes the reactions and the compounds in the system (take a look at a
 [more detailed description of the input format here](input.md)). The reactions
 are almost an exact translation of the diagram above (observe the labels in the
-figure are the same as in the input file). After performing the calculations,
-obtaining the logfiles, and writing the input file, _it's time to run
-overreact_.
+figure are the same as in the input file).
+
+> **✏️** Solvation is indicated by the parentheses at the end of compound names.
+> As such, overreact adds corrections for solvation standard states to compounds
+> such as `name(solv)`, **where `solv` is any identifier you want to use**. It
+> is good practice to use an identifier that clearly identifies the chemical
+> environment such as `name(MeOH)`.
+
+After performing the calculations, obtaining the logfiles, and writing the input
+file, _it's time to run overreact_.
 
 ## Step 2: Run overreact (or a tour over a typical output)
 
@@ -274,9 +275,10 @@ The first table shows reaction free energies and its components. The second
 table shows the activation energies and its components. Equilibria appear as
 empty lines in the second table.
 
-Also observe that we show the mass variation in each reaction: this column
-should always be zero. It is a sanity check to make sure that the mass balance
-is satisfied and is very useful for catching common mistakes.
+> **✏️** Observe that we show the 'mass variation' for each reaction in a
+> dedicated column: **it should be full of zeroes**. It is a sanity check to
+> make sure that the mass balance is satisfied, which is very useful for
+> catching common mistakes.
 
 Last, we have the kinetic data.
 
@@ -303,9 +305,10 @@ The last table shows the reaction rate constants in three different units. We
 also have tunneling coefficients for convenience, but they are already included
 in the kinetic data.
 
-Bear in mind that the reaction rate constants for equilibrium reactions are not
-"genuine" rate constants. They are calculated such that the equilibrium constant
-is satisfied. This is used during the microkinetic simulations.
+> **⚠️** The reaction rate constants for equilibrium reactions are not "genuine"
+> rate constants: they are calculated such that the equilibrium constant is
+> satisfied. This is used during the microkinetic simulations. **Only their
+> ratios are meaningful**.
 
 ## Section 3: Microkinetic simulations
 
@@ -317,8 +320,10 @@ $ overreact methoxylation.k "R1(MeOH):0.4" "MeO-(MeOH):0.6"
 ```
 
 Initial conditions are given as a list of species and their concentrations
-separated by a colon. The names are the same as in the input file and the
-concentrations are all in molar units.
+separated by a colon.
+
+> **✏️** The names are the same as in the input file and the concentrations are
+> all in molar units.
 
 A new section at the end of the output then appears:
 
@@ -356,9 +361,10 @@ command:
 $ overreact methoxylation.k "R1(MeOH):0.4" "MeO-(MeOH):0.6" --plot=active
 ```
 
-(You can also request a plot of all species with the `--plot=all` option, or of
-a specific species with something like `--plot="P1(MeOH)"`.) The plot is shown
-immediately in a new window.
+> **💡** You can also request a plot of all species with the `--plot=all`
+> option, or of a specific species with something like `--plot="P1(MeOH)"`.
+
+The plot is shown immediately in a new window.
 
 ![Active species](reaction-tutorial-active.png)
 
@@ -366,25 +372,27 @@ As we can see, the most abundant reactant at the beginning of the simulation is
 the R1(MeOH). This leads to product P1(MeOH) being formed most of the time. But
 P1(MeOH) rapidly interconverts to P2(MeOH) and then to R2(MeOH) and back
 
-The customizations you can do in the command line are necessarily limited and
-serve mostly to help you through the exploration of the data. Full control over
-the plot, simulation parameters, and other factors can be done by using the
-[overreact API directly](https://geem-lab.github.io/overreact/overreact.html).
-Take a look at some of the [notebooks](notebooks.md).
+> **✏️** The customizations you can do in the command line are necessarily
+> limited and serve mainly to help you explore the data. You can have full
+> control over the plot, simulation parameters, and other factors by using the
+> [overreact API directly](https://geem-lab.github.io/overreact/overreact.html).
+> **Also, take a look at some of the [example notebooks](notebooks.md).**
 
 #### 3.1.1: The effect of a bias
 
 overreact allows one to apply a bias to the Gibbs free energy of all species.
 This provides a way of counterbalancing systematic errors often found in
 computed Gibbs free energies, but is also useful for exploring the sensitivity
-of conclusions with respect to unknown error contributions.
+of the generated profiles with respect to unknown error contributions.
 
-In order to insert a bias, you can use the `--bias` option. The bias is given in
-kcal/mol:
+In order to insert a bias, you can use the `--bias` option:
 
 ```
 $ overreact methoxylation.k "R1(MeOH):0.4" "MeO-(MeOH):0.6" --plot=active --bias=-4.5
 ```
+
+> **⚠️** Internally, overreact always uses joules/mol, but the bias is always
+> given in kcal/mol for convenience.
 
 ![Active species with bias](reaction-tutorial-active-bias.png)
 
