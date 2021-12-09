@@ -1,13 +1,13 @@
 # Installing **overreact**
 
-You can install the package from the command line using
+The recommended way of installing the package is from the command line using
 [pip](https://pip.pypa.io/en/stable/):
 
 ```console
 $ pip install overreact
 ```
 
-(You may require calling `pip3` instead of `pip`.)
+> **✏️** You may need to call `pip3` instead of `pip`.
 
 The above command will install a minimal set of features. If you plan to use the
 command-line interface, you have to specify the `cli` extra feature:
@@ -16,13 +16,13 @@ command-line interface, you have to specify the `cli` extra feature:
 $ pip install overreact[cli]
 ```
 
-If you would like to use automatic differentiation (through Google's
-[JAX library](https://github.com/google/jax)) instead of the default numerical
-differentiation, you have to specify the `fast` extra feature as well:
-
-```console
-$ pip install overreact[cli,fast]
-```
+> **💡** If you would like to use automatic differentiation (through Google's
+> [JAX library](https://github.com/google/jax)) instead of the default numerical
+> differentiation, you have to specify the `fast` extra feature as well:
+>
+> ```console
+> $ pip install overreact[cli,fast]
+> ```
 
 ## Dependencies
 
@@ -33,39 +33,45 @@ $ pip install overreact[cli,fast]
 -   [SciPy](https://github.com/scipy/scipy/) (numerical integration,
     optimization, unit conversion and others).
 
-(Don't worry, these dependencies are automatically installed when you install
-**overreact** using `pip` as indicated above.)
+> **✏️** Don't worry, these dependencies are automatically installed when you
+> install **overreact** using `pip` as indicated above.
 
-Optionally, extra functionality is provided such as a command-line interface and
-solvent properties (**warning**: solvent properties are not yet fully integrated
-into the package). If you would like to install the full set of features, you
-can specify all extra flags:
+Optionally, extra functionality is provided such as a command-line interface. If
+you would like to install the full set of supported features, you can specify
+the following extra flags:
 
 ```console
 $ pip install overreact[cli,fast]
 ```
 
-The line above installs [Rich](https://github.com/willmcgugan/rich) and
-[JAX](https://github.com/google/jax) as well.
+The line above installs [Rich](https://github.com/willmcgugan/rich) (used in the
+command-line interface) and [JAX](https://github.com/google/jax) (speeds up
+calculations) as well.
 
-<!-- Rich is used in the command-line interface, JAX helps speedup
-calculations, and [thermo](https://github.com/CalebBell/thermo) is used to
-calculate the dynamic viscosity of solvents in the context of the
-:doc:`tutorials/collins-kimball` for diffusion-limited reactions. -->
+> **⚠️** An extra `solvents` flag is available that adds some solvent properties
+> by means of the [thermo](https://github.com/CalebBell/thermo) library. **It is
+> not fully integrated into the package yet**: it is meant to provide, in the
+> future, dynamic viscosities for solvents in the context of the Collins-Kimball
+> theory for diffusion-limited reactions
+> ([_Journal of Colloid Science_, **1949**, 4, 425–437](<https://doi.org/10.1016/0095-8522(49)90023-9>);
+> [_Industrial & Engineering Chemistry_, **1949**, 41, 2551–2553](https://doi.org/10.1021/ie50479a040)).
+> **Stay tuned and, if you are interested,
+> [let's discuss it](https://github.com/geem-lab/overreact/discussions)!**
 
 ## Troubleshooting
 
 ### Can't install overreact: `pip: command not found` or similar
 
 You may need to install [pip](https://pip.pypa.io/en/stable/) on your system.
-_The pip developers have provided an excellent
-[installation guide](https://pip.pypa.io/en/stable/installation/) for you._
+
+> **💡** The pip developers have provided an excellent
+> [installation guide](https://pip.pypa.io/en/stable/installation/) for you.
 
 ### Can't run overreact: `overreact: command not found` or similar
 
 If you get this error, two things could be happening:
 
-1. You haven't properly installed the package.
+#### 1️⃣ You haven't properly installed the package.
 
 To fix this first problem, take a look at
 [a previous section](http://127.0.0.1:3000/install.html#installing-overreact).
@@ -89,7 +95,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 '1.0.2'
 ```
 
-2. You are missing the `overreact` command in your `PATH`.
+#### 2️⃣ You are missing the `overreact` command in your `PATH`.
 
 To fix this, you have to add the pip executable directory (i.e. the place where
 pip puts executables during installation) to your `PATH`. For example, if you
@@ -103,4 +109,27 @@ This can be solved by adding the following line to your `~/.bashrc` file (or
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
-[See this for more about `PATH`](https://unix.stackexchange.com/a/26059/211802).
+> **💡** Read more about
+> [`PATH` on the Unix & Linux Stack Exchange](https://unix.stackexchange.com/a/26059/211802).
+
+## Contributing
+
+If you want to contribute to the development of **overreact**, you can find the
+source code on [GitHub](https://github.com/geem-lab/overreact). The recommended
+way of contributing is by forking the repository and pushing your changes to the
+forked repository.
+
+> **💡** If you're interested in contributing to open-source projects, make sure
+> to read
+> ["How to Contribute to Open Source"](https://opensource.guide/how-to-contribute/)
+> from [Open Source Guides](https://opensource.guide/) They may even have a
+> translation for your native language!
+
+After cloning your fork, we recommend using [Poetry](https://python-poetry.org/)
+for managing your contributions:
+
+```console
+$ git clone git@github.com:your-username/overreact.git  # your-username is your GitHub username
+$ cd overreact
+$ poetry install
+```
