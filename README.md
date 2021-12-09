@@ -7,7 +7,7 @@
 [![API documentation](https://img.shields.io/badge/docs-available-blue)](https://geem-lab.github.io/overreact/overreact.html)
 [![GitHub Discussions](https://img.shields.io/github/discussions/geem-lab/overreact)](https://github.com/geem-lab/overreact/discussions)
 [![GitHub issues](https://img.shields.io/github/issues-raw/geem-lab/overreact)](https://github.com/geem-lab/overreact/issues)
-[![Made in Brazil 🇧🇷](https://img.shields.io/badge/made%20in-Brazil-009c3b)](https://pypi.org/project/overreact/)
+[![Made in Brazil 🇧🇷](https://img.shields.io/badge/made%20in-Brazil-009c3b)](https://github.com/geem-lab/overreact-guide#funding)
 
 # Welcome to **overreact**!
 
