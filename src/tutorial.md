@@ -95,7 +95,7 @@ The current version v1.0.1 produces a header like this:
 
 ```
 ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║                                            overreact 1.0.1                                            ║
+║                                            overreact 1.0.2                                            ║
 ╚═══════════════════════════════════════════════════════════════════════════════════════════════════════╝
 
 📈 Create and analyze chemical microkinetic models built from computational chemistry data.
@@ -111,7 +111,7 @@ doi:10.5281/ZENODO.5643960:
 │   author = {Schneider, F. S. S. and Caramori, G. F.},                                                 │
 │   title = {                                                                                           │
 │     \textbf{geem-lab/overreact}: a tool for creating and analyzing                                    │
-│     microkinetic models built from computational chemistry data, v1.0.1                               │
+│     microkinetic models built from computational chemistry data, v1.0.2                               │
 │   },                                                                                                  │
 │   doi = {10.5281/ZENODO.5643960},                                                                     │
 │   url = {https://zenodo.org/record/5643960},                                                          │
