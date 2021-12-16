@@ -1,7 +1,11 @@
 [![DOI](https://zenodo.org/badge/214332027.svg)](https://zenodo.org/badge/latestdoi/214332027)
+
+[![CI](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg)](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml)
+[![coverage](https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8)](https://codecov.io/gh/geem-lab/overreact)
 [![PyPI](https://img.shields.io/pypi/v/overreact)](https://pypi.org/project/overreact/)
-[![build](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg)](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml)
-[![codecov](https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8)](https://codecov.io/gh/geem-lab/overreact)
+[![total downloads](https://pepy.tech/badge/overreact)](https://pepy.tech/project/overreact)
+[![downloads/month](https://pepy.tech/badge/overreact/month)](https://pepy.tech/project/overreact)
+[![Python Versions](https://img.shields.io/pypi/pyversions/overreact)](https://pypi.org/project/overreact/)
 [![GitHub license](https://img.shields.io/github/license/geem-lab/overreact)](https://github.com/geem-lab/overreact/blob/main/LICENSE)
 
 [![API documentation](https://img.shields.io/badge/docs-available-blue)](https://geem-lab.github.io/overreact/overreact.html)
