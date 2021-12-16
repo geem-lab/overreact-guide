@@ -35,7 +35,7 @@ Out[2]: array([8.16880917e+10])
 It uses **precise thermochemical partition funtions**, **tunneling corrections**
 and data is **parsed directly** from computational chemistry output files thanks
 to [`cclib`](https://cclib.github.io/) (see the
-[list of supported programs](https://cclib.github.io/#summary)).
+[list of its supported programs](https://cclib.github.io/#summary)).
 
 ## Installation
 
