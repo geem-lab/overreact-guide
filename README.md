@@ -53,7 +53,7 @@ for more details.
 > **🚀** **Where to go from here?** Take a look at the
 > [short introduction](https://geem-lab.github.io/overreact-guide/tutorial.html).
 > Or see
-> [below](https://geem-lab.github.io/overreact-guide/intro.html#how-to-read-this-documentation)
+> [below](https://geem-lab.github.io/overreact-guide/intro.html#where-to-go-next)
 > for more guidance.
 
 ## Citing **overreact**
