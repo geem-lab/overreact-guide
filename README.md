@@ -51,7 +51,7 @@ See the
 for more details.
 
 > **🚀** **Where to go from here?** Take a look at the
-> [short introduction](https://geem-lab.github.io/overreact-guide/quickstart.html).
+> [short introduction](https://geem-lab.github.io/overreact-guide/tutorial.html).
 > Or see
 > [below](https://geem-lab.github.io/overreact-guide/intro.html#how-to-read-this-documentation)
 > for more guidance.

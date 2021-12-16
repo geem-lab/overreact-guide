@@ -1,4 +1,4 @@
-# Tutorial
+# Quickstart
 
 This is a step-by-step guide on using overreact as a command-line tool. It will
 teach you all the basics of overreact through a guided use-case.

@@ -9,8 +9,8 @@ $ pip install overreact
 
 > **✏️** You may need to call `pip3` instead of `pip`.
 
-The above command will install a minimal set of features. If you plan to use the
-command-line interface, you have to specify the `cli` extra feature:
+The above command will install a minimal set of features. **If you plan to use
+the command-line interface, you have to specify the `cli` extra feature**:
 
 ```console
 $ pip install overreact[cli]
@@ -36,9 +36,9 @@ $ pip install overreact[cli]
 > **✏️** Don't worry, these dependencies are automatically installed when you
 > install **overreact** using `pip` as indicated above.
 
-Optionally, extra functionality is provided such as a command-line interface. If
-you would like to install the full set of supported features, you can specify
-the following extra flags:
+As stated above, extra functionality is provided such as a command-line
+interface. If you would like to install the full set of supported features, you
+can specify the following extra flags:
 
 ```console
 $ pip install overreact[cli,fast]

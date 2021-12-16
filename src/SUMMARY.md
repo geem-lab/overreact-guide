@@ -3,7 +3,7 @@
 [Introduction](./intro.md)
 
 -   [Installation](./install.md)
--   [Tutorial](./tutorial.md)
+-   [Quickstart](./tutorial.md)
 -   [Jupyter notebooks](./notebooks.md)
 
 # Deep dive
