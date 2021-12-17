@@ -101,7 +101,7 @@ The current version v1.0.2 produces a header like this:
 📈 Create and analyze chemical microkinetic models built from computational chemistry data.
 
 Licensed under the terms of the MIT License. If you publish work using this software, please cite
-doi:10.5281/ZENODO.5643960:
+doi:10.5281/zenodo.5730603:
 
 ┌───────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                                                                                       │
@@ -113,8 +113,8 @@ doi:10.5281/ZENODO.5643960:
 │     \textbf{geem-lab/overreact}: a tool for creating and analyzing                                    │
 │     microkinetic models built from computational chemistry data, v1.0.2                               │
 │   },                                                                                                  │
-│   doi = {10.5281/ZENODO.5643960},                                                                     │
-│   url = {https://zenodo.org/record/5643960},                                                          │
+│   doi = {10.5281/zenodo.5730603},                                                                     │
+│   url = {https://zenodo.org/record/5730603},                                                          │
 │   publisher = {Zenodo},                                                                               │
 │   copyright = {Open Access}                                                                           │
 │ }                                                                                                     │
