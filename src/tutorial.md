@@ -91,7 +91,7 @@ at a time.
 
 ### 2.1: The header
 
-The current version v1.0.1 produces a header like this:
+The current version v1.0.2 produces a header like this:
 
 ```
 ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗

@@ -4,7 +4,7 @@ Most commonly, you'll want to use the command-line tool to generate a project.
 
 This is a brief overview of the command-line tool. You can access the full help
 page by running `overreact --help`. Here's its output (as of
-[v1.0.1](https://github.com/geem-lab/overreact/releases/tag/v1.0.1)):
+[v1.0.2](https://github.com/geem-lab/overreact/releases/tag/v1.0.2)):
 
 ```console
 $ overreact --help
