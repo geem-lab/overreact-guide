@@ -1,6 +1,6 @@
 # How it works
 
-**WARNIG**: This page greatly simplifies things. It is not a complete
+**WARNING**: This page greatly simplifies things. It is not a complete
 description of the system and in no way substitutes the full read of the
 upcoming paper.
 
