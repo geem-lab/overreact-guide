@@ -21,7 +21,7 @@ interesting enough to show off most of the capabilities of overreact. The
 reaction is a classical SN\\(\_2\\) reaction on a substituted cyclohexane:
 
 <div align="center">
-    <img alt="Bromocyclohexane" src="reaction-tutorial.png" width="425" />
+    <img alt="Bromocyclohexane" src="reaction-tutorial-scheme.png" width="470" />
 </div>
 
 **The labels above refer to the file names and the labels in the input file
