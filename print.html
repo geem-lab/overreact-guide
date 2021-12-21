@@ -166,8 +166,8 @@
     <img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
 </div>
 <p><strong>overreact</strong> is a <strong>library</strong> and a <strong>command-line tool</strong> for building and
-analyzing homogeneous microkinetic models<sup class="footnote-reference"><a href="#microkinetic">1</a></sup> from first-principles
-calculations<sup class="footnote-reference"><a href="#ethane">2</a></sup>:</p>
+analyzing homogeneous <strong>microkinetic models</strong> from <strong>first-principles
+calculations</strong>:</p>
 <pre><code class="language-python">In [1]: from overreact import api
 
 In [2]: api.get_k(&quot;S -&gt; E‡ -&gt; S&quot;,
@@ -175,9 +175,41 @@ In [2]: api.get_k(&quot;S -&gt; E‡ -&gt; S&quot;,
    ...:            &quot;E‡&quot;: &quot;data/ethane/B97-3c/eclipsed.out&quot;})
 Out[2]: array([8.16880917e+10])
 </code></pre>
-<p>It uses <strong>precise thermochemical partition funtions</strong>, <strong>tunneling corrections</strong>
-and data is <strong>parsed directly</strong> from computational chemistry output files thanks
-to <a href="https://cclib.github.io/"><code>cclib</code></a> (see the
+<details>
+    <summary style="cursor: pointer;">
+        🤔 What is <strong>microkinetic modeling</strong>?
+    </summary>
+    <p>
+        <strong>Microkinetic modeling</strong> is a technique used to predict the outcome
+        of complex chemical reactions.
+        It can be used
+        to investigate the catalytic transformations
+        of molecules.
+        <strong>overreact</strong> makes it easy to create
+        and analyze microkinetic models built
+        from computational chemistry data.
+    </p>
+</details>
+<details>
+    <summary style="cursor: pointer;">
+        🧐 What do you mean by <strong>first-principles calculations</strong>?
+    </summary>
+    <p>
+        We use the term <strong>first-principles calculations</strong> to refer to
+        calculations performed using quantum chemical modern methods such as
+        <a href="https://en.wikipedia.org/wiki/Hartree%E2%80%93Fock_method">Wavefunction</a>
+        and
+        <a href="https://en.wikipedia.org/wiki/Density_functional_theory">Density Functional</a>
+        theories.
+        For instance, the three-line example code above calculates the rate of methyl rotation in ethane (at
+        <a href="https://doi.org/10.1063/1.5012601">B97-3c</a>).
+        (Rather surprisingly, the error found is less than 2%
+        <a href="http://dx.doi.org/10.1126/science.1132178">when compared to available experimental results</a>.)
+    </p>
+</details>
+<p><strong>overreact</strong> uses <strong>precise thermochemical partition funtions</strong>, <strong>tunneling
+corrections</strong> and data is <strong>parsed directly</strong> from computational chemistry
+output files thanks to <a href="https://cclib.github.io/"><code>cclib</code></a> (see the
 <a href="https://cclib.github.io/#summary">list of its supported programs</a>).</p>
 <h2 id="installation"><a class="header" href="#installation">Installation</a></h2>
 <p><strong>overreact</strong> is a Python package, so you can easily install it with
@@ -231,18 +263,6 @@ is published, the above BibTeX entry will be updated.</p>
 partially funded by the
 <a href="https://cnpq.br/">Brazilian National Council for Scientific and Technological Development (CNPq)</a>,
 grant number 140485/2017-1.</p>
-<div class="footnote-definition" id="microkinetic"><sup class="footnote-definition-label">1</sup>
-<p>Microkinetic modeling is a technique used to predict the outcome of complex
-chemical reactions. It can be used to investigate the catalytic transformations
-of molecules. <strong>overreact</strong> makes it easy to create and analyze microkinetic
-models built from computational chemistry data.</p>
-</div>
-<div class="footnote-definition" id="ethane"><sup class="footnote-definition-label">2</sup>
-<p>The three-line example code calculates the rate of methyl rotation in ethane (at
-<a href="https://doi.org/10.1063/1.5012601">B97-3c</a>). Surprisingly, the error found is
-less than 2%
-<a href="http://dx.doi.org/10.1126/science.1132178">when compared to available experimental results</a>.</p>
-</div>
 <h2 id="where-to-go-next"><a class="header" href="#where-to-go-next"><em>Where to go next</em></a></h2>
 <blockquote>
 <p><strong>💡</strong> If you want to...</p>
