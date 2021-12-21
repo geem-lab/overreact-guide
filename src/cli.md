@@ -13,13 +13,13 @@ usage: overreact [-h] [--version] [-v] [-c] [--plot PLOT] [-b BIAS]
                  [--no-qrrho {both,enthalpy,entropy,none}] [-T TEMPERATURE]
                  [-p PRESSURE] [--method {Radau,BDF,LSODA}]
                  [--max-time MAX_TIME] [--rtol RTOL] [--atol ATOL]
-                 path [concentrations [concentrations ...]]
+                 path [concentrations ...]
 
-Construct precise chemical microkinetic models from first principles.
-Interface for building and modifying models. Read the documentation at
-https://geem-lab.github.io/overreact-guide for more information and usage
-examples. Licensed under the terms of the MIT License. If you publish work
-using this software, please cite https://doi.org/10.5281/zenodo.5154060:
+📈 Create and analyze chemical microkinetic models built from computational
+chemistry data. Read the user guide at https://geem-lab.github.io/overreact-
+guide/ for more information and usage examples. Licensed under the terms of
+the MIT License. If you publish work using this software, please cite
+https://doi.org/10.5281/zenodo.5730603.
 
 positional arguments:
   path                  path to a source (`.k`) or compiled (.jk) model input
