@@ -149,25 +149,21 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="command-line-input-format-specification"><a class="header" href="#command-line-input-format-specification">Command-line input format specification</a></h1>
-<p><strong>overreact</strong> is both a library and a command-line application.
-In this subsection, we briefly describe the minimal input specification for the command-line application for doing first-principles microkinetic simulations.
+<p><strong>overreact</strong> is both a library and a command-line application. In this
+subsection, we briefly describe the minimal input specification for the
+command-line application for doing first-principles microkinetic simulations.
 Don't worry, the input is very simple, yet flexible.</p>
 <!-- TODO: cite this docs in the paper: "Further guidance and advanced usage information is available in the online documentation (\hrefdoc)". -->
-<p>Basically, <strong>overreact</strong> parses complex reaction schemes with the help of a <a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language (DSL)</a> designed to be as flexible and intuitive as possible to any chemist.
-For instance, as a purely illustrative example, the following <a href="https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle">Curtin-Hammett system</a></p>
+<p>Basically, <strong>overreact</strong> parses complex reaction schemes with the help of a
+<a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language (DSL)</a>
+designed to be as flexible and intuitive as possible to any chemist. For
+instance, as a purely illustrative example, the following
+<a href="https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle">Curtin-Hammett system</a></p>
 <!-- CITE 10.1021/jo00404a002 ? -->
-<p>\[
-\require{mhchem}
-\ce{
-P_{A}(w)
-&lt;- [A(w)]^{\ddagger}
-&lt;- A(w)
-&lt;=&gt; B(w)
--&gt; [B(w)]^{\ddagger}
--&gt; P_{B}(w)
-}
-\]</p>
-<p>could be modelled very easily as follows (saved, say, in a <code>curtin_hammett.k</code> file):</p>
+<p>\[ \require{mhchem} \ce{ P_{A}(w) &lt;- [A(w)]^{\ddagger} &lt;- A(w) &lt;=&gt; B(w) -&gt;
+[B(w)]^{\ddagger} -&gt; P_{B}(w) } \]</p>
+<p>could be modelled very easily as follows (saved, say, in a <code>curtin_hammett.k</code>
+file):</p>
 <pre><code>// This is a comment and is ignored by overreact.
 
 $scheme
@@ -189,55 +185,48 @@ $end
 </code></pre>
 <h2 id="some-things-to-note"><a class="header" href="#some-things-to-note">Some things to note</a></h2>
 <ul>
-<li><code>//</code> indicates a <strong>comment</strong>.
-They are ignored until the end of the line.</li>
+<li><code>//</code> indicates a <strong>comment</strong>. They are ignored until the end of the line.</li>
 <li><strong>Blank lines</strong> are also ignored.</li>
-<li>Two <strong>blocks</strong> are required: the <code>$scheme</code> block and the <code>$compounds</code>
-block.</li>
-<li><code>$end</code> indicates the <strong>end of a block</strong>.
-It is optional: opening a new block closes the previous one.</li>
-<li><strong>Compound labels</strong> are case-sensitive.
-They must start with a letter but can contain any character
-except spaces.
-<em>Labels in the <code>$scheme</code> block should match the ones in <code>$compounds</code></em>.</li>
-<li><strong>Stoichiometric coefficients</strong> are specified as multipliers in front of
-the compound labels, e.g. <code>2 * A(w)</code>, <code>3 * A(w)</code>, etc..
-<code>A(w)</code> actually is equivalent to <code>1 * A(w)</code>.</li>
+<li>Two <strong>blocks</strong> are required: the <code>$scheme</code> block and the <code>$compounds</code> block.</li>
+<li><code>$end</code> indicates the <strong>end of a block</strong>. It is optional: opening a new block
+closes the previous one.</li>
+<li><strong>Compound labels</strong> are case-sensitive. They must start with a letter but
+can contain any character except spaces. <em>Labels in the <code>$scheme</code> block
+should match the ones in <code>$compounds</code></em>.</li>
+<li><strong>Stoichiometric coefficients</strong> are specified as multipliers in front of the
+compound labels, e.g. <code>2 * A(w)</code>, <code>3 * A(w)</code>, etc.. <code>A(w)</code> actually is
+equivalent to <code>1 * A(w)</code>.</li>
 <li><code>-&gt;</code> means a <strong>forward reaction</strong> (listing first reactants, then products).</li>
 <li><code>&lt;-</code> means a <strong>backward reaction</strong> (listing first products, then reactants).</li>
-<li><code>&lt;=&gt;</code> means an <strong>equilibrium</strong>.
-They are useful when one does not want separately model both forward and
-backward reactions.
-<em>Equilibria are assumed to be much faster than any other reaction in the
-scheme</em>.</li>
-<li><code>‡</code> indicates a <strong>transition state</strong>.
-<em>It is considered part of the compound label</em>.
-You can also use the easier-to-type <code>#</code> instead.
-That is, <code>A#(w)</code> is means the same thing as <code>A‡(w)</code>.</li>
-<li><code>(w)</code> indicates a <strong>solvated context</strong>.
-<em>It is considered part of the compound label</em>.
-It is used to identify whether a concentration correction should be
-applied.
-The default is <code>(g)</code>, which is understood as gas phase.
+<li><code>&lt;=&gt;</code> means an <strong>equilibrium</strong>. They are useful when one does not want
+separately model both forward and backward reactions. <em>Equilibria are
+assumed to be much faster than any other reaction in the scheme</em>.</li>
+<li><code>‡</code> indicates a <strong>transition state</strong>. <em>It is considered part of the compound
+label</em>. You can also use the easier-to-type <code>#</code> instead. That is, <code>A#(w)</code> is
+means the same thing as <code>A‡(w)</code>.</li>
+<li><code>(w)</code> indicates a <strong>solvated context</strong>. <em>It is considered part of the
+compound label</em>. It is used to identify whether a concentration correction
+should be applied. The default is <code>(g)</code>, which is understood as gas phase.
 <em>The actual string is currently ignored</em>: we could have written <code>A(aq)</code>,
-<code>A(l)</code> or even <code>A(dcm)</code> instead, with the same effect.
-<em>We might use solvent information in the future</em>.</li>
+<code>A(l)</code> or even <code>A(dcm)</code> instead, with the same effect. <em>We might use solvent
+information in the future</em>.</li>
 <li><strong>Paths to files</strong> are relative to the directory where the model file is
 located.</li>
-<li>The <strong>order</strong> of the species in the <code>$compounds</code> block is not important.
-The same applies to the order of the reactions in the <code>$scheme</code> block.</li>
+<li>The <strong>order</strong> of the species in the <code>$compounds</code> block is not important. The
+same applies to the order of the reactions in the <code>$scheme</code> block.</li>
 </ul>
 <h2 id="multiple-reactions-in-a-single-line"><a class="header" href="#multiple-reactions-in-a-single-line">Multiple reactions in a single line</a></h2>
 <p>We can get even closer to the original chemical notation, as <strong>overreact</strong>
-accepts multiple reactions in a single line.
-As such, the following is a <code>$scheme</code> block equivalent to the one above:</p>
+accepts multiple reactions in a single line. As such, the following is a
+<code>$scheme</code> block equivalent to the one above:</p>
 <pre><code>$scheme
  P_A(w) &lt;- A‡(w) &lt;- A(w) &lt;=&gt; B(w) -&gt; B‡(w) -&gt; P_B(w)
 $end
 </code></pre>
 <h2 id="some-ilustrative-examples"><a class="header" href="#some-ilustrative-examples">Some ilustrative examples</a></h2>
 <ol>
-<li>A simple model for the <a href="https://en.wikipedia.org/wiki/Haber_process">synthesis of ammonia</a>:</li>
+<li>A simple model for the
+<a href="https://en.wikipedia.org/wiki/Haber_process">synthesis of ammonia</a>:</li>
 </ol>
 <pre><code>$scheme
  // Synthesis of ammonia (notice how flexible the DSL is)
@@ -253,7 +242,8 @@ $compounds
 <ol start="2">
 <li>A simple
 <a href="https://en.wikipedia.org/wiki/Michaelis%E2%80%93Menten_kinetics">Michaelis-Menten</a>-like
-scheme (with <a href="https://en.wikipedia.org/wiki/Competitive_inhibition">competitive inhibition</a>):</li>
+scheme (with
+<a href="https://en.wikipedia.org/wiki/Competitive_inhibition">competitive inhibition</a>):</li>
 </ol>
 <pre><code>$scheme
  // A simple Michaelis-Menten-like scheme
