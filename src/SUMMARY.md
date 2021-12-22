@@ -13,3 +13,4 @@
     -   [Input format reference](./input.md)
 -   [The library](./library.md)
     -   [API reference](https://geem-lab.github.io/overreact/overreact.html)
+- [Contributing](./contributing.md)
