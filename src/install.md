@@ -111,25 +111,3 @@ export PATH="$HOME/.local/bin:$PATH"
 
 > **💡** Read more about
 > [`PATH` on the Unix & Linux Stack Exchange](https://unix.stackexchange.com/a/26059/211802).
-
-## Contributing
-
-If you want to contribute to the development of **overreact**, you can find the
-source code on [GitHub](https://github.com/geem-lab/overreact). The recommended
-way of contributing is by forking the repository and pushing your changes to the
-forked repository.
-
-> **💡** If you're interested in contributing to open-source projects, make sure
-> to read
-> ["How to Contribute to Open Source"](https://opensource.guide/how-to-contribute/)
-> from [Open Source Guides](https://opensource.guide/) They may even have a
-> translation for your native language!
-
-After cloning your fork, we recommend using [Poetry](https://python-poetry.org/)
-for managing your contributions:
-
-```console
-$ git clone git@github.com:your-username/overreact.git  # your-username is your GitHub username
-$ cd overreact
-$ poetry install
-```
