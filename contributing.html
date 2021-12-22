@@ -3,9 +3,8 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title></title>
-                        <base href="/overreact-guide">
-        
+        <title>Contributing - overreact documentation</title>
+                
 
         <!-- Custom HTML head -->
         
@@ -85,7 +84,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Quickstart</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">3.</strong> Jupyter notebooks</a></li><li class="chapter-item expanded affix "><li class="part-title">Deep dive</li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">4.</strong> Design</a></li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">5.</strong> The command-line tool</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">5.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">6.</strong> The library</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://geem-lab.github.io/overreact/overreact.html"><strong aria-hidden="true">6.1.</strong> API reference</a></li></ol></li><li class="chapter-item expanded "><a href="contributing.html"><strong aria-hidden="true">7.</strong> Contributing</a></li></ol>            </div>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="intro.html">Introduction</a></li><li class="chapter-item expanded "><a href="install.html"><strong aria-hidden="true">1.</strong> Installation</a></li><li class="chapter-item expanded "><a href="tutorial.html"><strong aria-hidden="true">2.</strong> Quickstart</a></li><li class="chapter-item expanded "><a href="notebooks.html"><strong aria-hidden="true">3.</strong> Jupyter notebooks</a></li><li class="chapter-item expanded affix "><li class="part-title">Deep dive</li><li class="chapter-item expanded "><a href="howitworks.html"><strong aria-hidden="true">4.</strong> Design</a></li><li class="chapter-item expanded "><a href="cli.html"><strong aria-hidden="true">5.</strong> The command-line tool</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="input.html"><strong aria-hidden="true">5.1.</strong> Input format reference</a></li></ol></li><li class="chapter-item expanded "><a href="library.html"><strong aria-hidden="true">6.</strong> The library</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="https://geem-lab.github.io/overreact/overreact.html"><strong aria-hidden="true">6.1.</strong> API reference</a></li></ol></li><li class="chapter-item expanded "><a href="contributing.html" class="active"><strong aria-hidden="true">7.</strong> Contributing</a></li></ol>            </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
 
@@ -149,13 +148,70 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="document-not-found-404"><a class="header" href="#document-not-found-404">Document not found (404)</a></h1>
-<p>This URL is invalid, sorry. Please use the navigation bar or search to continue.</p>
+                        <h1 id="contributing"><a class="header" href="#contributing">Contributing</a></h1>
+<p>If you want to contribute to the development of <strong>overreact</strong>, you can find the
+source code on <a href="https://github.com/geem-lab/overreact">GitHub</a>. The recommended
+way of contributing is by forking the repository and pushing your changes to the
+forked repository.</p>
+<blockquote>
+<p><strong>💡</strong> If you're interested in contributing to open-source projects, make sure
+to read
+<a href="https://opensource.guide/how-to-contribute/">&quot;How to Contribute to Open Source&quot;</a>
+from <a href="https://opensource.guide/">Open Source Guides</a> They may even have a
+translation for your native language!
+After cloning your fork, we recommend using <a href="https://python-poetry.org/">Poetry</a>
+for managing your contributions:</p>
+</blockquote>
+<pre><code class="language-console">$ git clone git@github.com:your-username/overreact.git  # your-username is your GitHub username
+$ cd overreact
+$ poetry install
+</code></pre>
+<h2 id="reccomended-practices"><a class="header" href="#reccomended-practices">Reccomended practices</a></h2>
+<h3 id="reporting-issues"><a class="header" href="#reporting-issues">Reporting issues</a></h3>
+<p>The easiest way to report a bug or request a feature is to
+<a href="http://github.com/geem-lab/overreact/issues">create an issue on GitHub</a>. The
+following greatly enhances our ability to solve the issue you are experiencing:</p>
+<ul>
+<li>Before anything, check if your issue is not already fixed in the repository
+by searching for similar issues in the
+<a href="http://github.com/geem-lab/overreact/issues">issue tracker</a>.</li>
+<li>Describe what you were doing when the error occurred, what actually
+happened, and what you expected to see. Also, include the full traceback if
+there was an exception.</li>
+<li>Tell us the Python version you're using, as well as the versions of
+overreact (and other packages you might be using with it).</li>
+<li><strong>Please consider including a
+<a href="https://stackoverflow.com/help/minimal-reproducible-example">minimal reproducible example</a>
+to help us identify the issue.</strong> This also helps check that the issue is not
+with your own code.</li>
+</ul>
+<h3 id="support-questions"><a class="header" href="#support-questions">Support questions</a></h3>
+<p>Use the <a href="https://github.com/geem-lab/overreact/discussions">discussions</a> for
+questions about your own code or on the use of overreact. (Please don't use the
+<a href="https://github.com/geem-lab/overreact/issues">issue tracker</a> for asking
+questions, the discussions are a better place to ask questions 😄.)</p>
+<h3 id="submitting-patches"><a class="header" href="#submitting-patches">Submitting patches</a></h3>
+<ul>
+<li>Include tests if your patch is supposed to solve a bug, and explain clearly
+under which circumstances the bug happens. Make sure the test fails without
+your patch.</li>
+<li>Use <a href="https://black.readthedocs.io/">Black</a> to auto-format your code.</li>
+<li>Use
+<a href="https://numpydoc.readthedocs.io/en/latest/format.html">Numpydoc docstrings</a>
+to document your code.</li>
+<li>Include a string like &quot;fixes #123&quot; in your commit message (where 123 is the
+issue you fixed). See
+<a href="https://help.github.com/articles/creating-a-pull-request/">Closing issues using keywords</a>.</li>
+<li>Bump version according to <a href="https://semver.org/">semantic versioning</a>.</li>
+</ul>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                                                    <a rel="prev" href="https://geem-lab.github.io/overreact/overreact.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
                         
                         
                         <div style="clear: both"></div>
@@ -164,6 +220,9 @@
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                                    <a rel="prev" href="https://geem-lab.github.io/overreact/overreact.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
                 
                             </nav>
 
