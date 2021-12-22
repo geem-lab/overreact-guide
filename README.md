@@ -20,8 +20,8 @@
 </div>
 
 **overreact** is a **library** and a **command-line tool** for building and
-analyzing homogeneous microkinetic models[^microkinetic] from first-principles
-calculations[^ethane]:
+analyzing homogeneous **microkinetic models** from **first-principles
+calculations**:
 
 ```python
 In [1]: from overreact import api
@@ -32,9 +32,43 @@ In [2]: api.get_k("S -> E‡ -> S",
 Out[2]: array([8.16880917e+10])
 ```
 
-It uses **precise thermochemical partition funtions**, **tunneling corrections**
-and data is **parsed directly** from computational chemistry output files thanks
-to [`cclib`](https://cclib.github.io/) (see the
+<details>
+    <summary style="cursor: pointer;">
+        🤔 What is <strong>microkinetic modeling</strong>?
+    </summary>
+    <p>
+        <strong>Microkinetic modeling</strong> is a technique used to predict the outcome
+        of complex chemical reactions.
+        It can be used
+        to investigate the catalytic transformations
+        of molecules.
+        <strong>overreact</strong> makes it easy to create
+        and analyze microkinetic models built
+        from computational chemistry data.
+    </p>
+</details>
+
+<details>
+    <summary style="cursor: pointer;">
+        🧐 What do you mean by <strong>first-principles calculations</strong>?
+    </summary>
+    <p>
+        We use the term <strong>first-principles calculations</strong> to refer to
+        calculations performed using quantum chemical modern methods such as
+        <a href="https://en.wikipedia.org/wiki/Hartree%E2%80%93Fock_method">Wavefunction</a>
+        and
+        <a href="https://en.wikipedia.org/wiki/Density_functional_theory">Density Functional</a>
+        theories.
+        For instance, the three-line example code above calculates the rate of methyl rotation in ethane (at
+        <a href="https://doi.org/10.1063/1.5012601">B97-3c</a>).
+        (Rather surprisingly, the error found is less than 2%
+        <a href="http://dx.doi.org/10.1126/science.1132178">when compared to available experimental results</a>.)
+    </p>
+</details>
+
+**overreact** uses **precise thermochemical partition funtions**, **tunneling
+corrections** and data is **parsed directly** from computational chemistry
+output files thanks to [`cclib`](https://cclib.github.io/) (see the
 [list of its supported programs](https://cclib.github.io/#summary)).
 
 ## Installation
@@ -62,8 +96,8 @@ If you use **overreact** in your research, please cite:
 
 > F. S. S. Schneider and G. F. Caramori. _**geem-lab/overreact**: a tool for
 > creating and analyzing microkinetic models built from computational chemistry
-> data, v1.0.1_. **2021**.
-> [DOI:10.5281/ZENODO.5643960](https://zenodo.org/badge/latestdoi/214332027).
+> data, v1.0.2_. **2021**.
+> [DOI:10.5281/zenodo.5730603](https://zenodo.org/badge/latestdoi/214332027).
 > Freely available at: <<https://github.com/geem-lab/overreact>>.
 
 Here's the reference in [BibTeX](http://www.bibtex.org/) format:
@@ -75,10 +109,10 @@ Here's the reference in [BibTeX](http://www.bibtex.org/) format:
   author = {Schneider, F. S. S. and Caramori, G. F.},
   title = {
     \textbf{geem-lab/overreact}: a tool for creating and analyzing
-    microkinetic models built from computational chemistry data, v1.0.1
+    microkinetic models built from computational chemistry data, v1.0.2
   },
-  doi = {10.5281/ZENODO.5643960},
-  url = {https://zenodo.org/record/5643960},
+  doi = {10.5281/zenodo.5730603},
+  url = {https://zenodo.org/record/5730603},
   publisher = {Zenodo},
   copyright = {Open Access}
 }
@@ -99,17 +133,3 @@ This project was developed at the [GEEM lab](https://geem-ufsc.org/)
 partially funded by the
 [Brazilian National Council for Scientific and Technological Development (CNPq)](https://cnpq.br/),
 grant number 140485/2017-1.
-
-[^microkinetic]:
-
-Microkinetic modeling is a technique used to predict the outcome of complex
-chemical reactions. It can be used to investigate the catalytic transformations
-of molecules. **overreact** makes it easy to create and analyze microkinetic
-models built from computational chemistry data.
-
-[^ethane]:
-
-The three-line example code calculates the rate of methyl rotation in ethane (at
-[B97-3c](https://doi.org/10.1063/1.5012601)). Surprisingly, the error found is
-less than 2%
-[when compared to available experimental results](http://dx.doi.org/10.1126/science.1132178).
