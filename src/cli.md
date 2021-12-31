@@ -1,10 +1,14 @@
 # Using **overreact** as a command-line tool
 
-Most commonly, you'll want to use the command-line tool to generate a project.
+> **✏️** This an overview of the command-line tool. **If you're new to
+> **overreact**, you probably want to [go over the tutorial](./tutorial.md)
+> first.**
 
-This is a brief overview of the command-line tool. You can access the full help
-page by running `overreact --help`. Here's its output (as of
-[v1.0.1](https://github.com/geem-lab/overreact/releases/tag/v1.0.1)):
+Most commonly, you'll use the command-line tool to manage, explore and analyze
+your microkinetic simulations. The following is a brief overview of options
+available in the command-line tool. **You can access the full help page by
+running `overreact --help`**. Here's its output as of
+[version 1.0.2](https://github.com/geem-lab/overreact/releases/tag/v1.0.2):
 
 ```console
 $ overreact --help
@@ -13,13 +17,13 @@ usage: overreact [-h] [--version] [-v] [-c] [--plot PLOT] [-b BIAS]
                  [--no-qrrho {both,enthalpy,entropy,none}] [-T TEMPERATURE]
                  [-p PRESSURE] [--method {Radau,BDF,LSODA}]
                  [--max-time MAX_TIME] [--rtol RTOL] [--atol ATOL]
-                 path [concentrations [concentrations ...]]
+                 path [concentrations ...]
 
-Construct precise chemical microkinetic models from first principles.
-Interface for building and modifying models. Read the documentation at
-https://geem-lab.github.io/overreact-guide for more information and usage
-examples. Licensed under the terms of the MIT License. If you publish work
-using this software, please cite https://doi.org/10.5281/zenodo.5154060:
+📈 Create and analyze chemical microkinetic models built from computational
+chemistry data. Read the user guide at https://geem-lab.github.io/overreact-
+guide/ for more information and usage examples. Licensed under the terms of
+the MIT License. If you publish work using this software, please cite
+https://doi.org/10.5281/zenodo.5730603.
 
 positional arguments:
   path                  path to a source (`.k`) or compiled (.jk) model input
@@ -75,18 +79,69 @@ optional arguments:
                         (default: 1e-11)
 ```
 
-Basically, the command-line tool receives the path to a model source file (`.k`)
-or a compiled one (`.jk`). It then compiles the model and calculates all the
-thermodynamic and kinetic quantities of interest. Head over to the
-[tutorial](./tutorial.md) to learn more about how to use the command-line tool.
-Or continue to learn about the [input file format](./input.md).
+The following is a brief description of the command-line options.
+
+## The path to the model input file
+
+The command-line tool requires the path to either a model source file (`.k`) or
+a compiled one (`.jk`), from which it will read the given logfiles and calculate
+all the thermodynamic and kinetic quantities of interest.
+
+> **💡** [Click here](./input.md) to learn all about the **syntax of the model
+> source file format**.
+
+> **⚠️** **overreact** compiles your model (i.e., generates `.jk` files from the
+> `.k` ones you've written) and tries to use the compiled ones whenever they are
+> available. **If you want to force recompilation of the source file (e.g., your
+> `.k` has changed), you can use the `--compile` or `-c` option (see below).**
+
+## Initial concentrations
+
+All the remaining positional arguments are considered initial concentrations of
+compounds in the model. They are given in the form `name:quantity`, where `name`
+is the name of a compound (defined in the model source file) and `quantity` is
+the number of moles of that compound per liter of the working fluid (i.e.,
+**concentrations are given in moles per liter**).
+
+If at least one initial concentration is given, a microkinetic simulation will
+be performed, and the concentrations of the model species at the end of the
+simulation will be printed to the standard output.
+
+> **⚠️** Kinetic profiles (e.g., plots of concentrations as a function of time)
+> won't be produced by default. **You should use the `--plot` option in order to
+> produce kinetic profiles (see below).**
+
+## Force recompilation of the source file
+
+The `--compile` (or, equivalently, `-c`) option forces the recompilation of the
+source file (`.k`) into a compiled (.jk) model input file. **This is useful if
+you want to make sure you're using the latest version of the source file.**
+
+<details>
+    <summary style="cursor: pointer;">
+        🤔 Why doesn't overreact recompile my model automatically?
+    </summary>
+    <p>
+        This is a design decision. The reason is that overreact is designed
+        to work with <strong>very large models</strong>,
+        and they can be slow to be interpreted
+        (imagine a model with a lot of reactions and a lot of species;
+        <strong>overreact</strong> would have to read every logfile every time you run it,
+        which can easily amount to several megabytes of data).
+    </p>
+</details>
+
+## Produce kinetic profiles 📈
+
+The `--plot` flag can be used to produce kinetic profiles (e.g., plots of
+concentrations as a function of time during the microkinetic simulation).
+
+You can either plot all the species (`--plot=all`) or only the active ones
+(i.e., the ones that actually change concentration during the simulation, up to
+a reasonable threshold, `--plot=active`) or a single compound of interest
+(`--plot="NH3(w)"`).
 
 <!-- ...
-
-Optionally, you can specify initial concentrations of compounds (in moles per
-liter), which will be used to perform a microkinetic simulation.
-
-...
 
 \textcolor{red}{EXAMPLE NOT COOL! MAYBE THIS SHOULD BE GIVEN IN THE SUPPORTING
 INFORMATION OR SIMPLIFIED. IN ANY CASE, CLEARLY PUT THE NAME AND EXTENSION OF
@@ -135,4 +190,4 @@ certain corrections (like tunnelling) are omitted, the result can be worse or
 better, that is, show the real capacity of the code, highlighting its potential,
 and this can only be done with a detailed discussion of the cases studied.}
 
-TODO: add pieces of the output -->
+-->
