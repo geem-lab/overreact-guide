@@ -1,34 +1,31 @@
-name: Publish Document to Release
-
+name: Docs to PDF
 on:
   push:
-  release:
-    types: [published]
-
-env:
-  GITHUB_TOKEN: ${{ github.token }}
-
+    branches:
+      - master
+    # Paths can be used to only trigger actions when you have edited certain files, such as a file within the /docs directory
+    paths:
+      - 'src/**.md'
+      - 'src/**'
+      
+  workflow_dispatch:
+    
 jobs:
-  publish-and-release:
+  converttopdf:
+    name: Build PDF
     runs-on: ubuntu-latest
-    name: Publish Document to Release
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Publish PDF Document
-        uses: shrink/actions-document-publish@v1
-        id: publish-document
+      - uses: actions/checkout@v2
+      - uses: baileyjm02/markdown-to-pdf@v1
         with:
-          sources: 'src/intro.md src/install.md src/notebooks.md src/howitworks.md src/cli.md src/input.md src/library.md src/contributing.md'
-      - if: github.event_name == 'release' && github.event.action == 'published'
-        name: Get Release
-        id: release
-        uses: bruceadams/get-release@v1.2.0
-      - if: github.event_name == 'release' && github.event.action == 'published'
-        name: Attach PDF to Release
-        uses: actions/upload-release-asset@v1
+          input_dir: src
+          output_dir: pdfs
+          images_dir: src/
+          # for example <img src="./images/file-name.png">
+          image_import: ./
+          # Default is true, can set to false to only get PDF files
+          build_html: false
+      - uses: actions/upload-artifact@v1
         with:
-          upload_url: ${{ steps.release.outputs.upload_url }}
-          asset_path: ${{ steps.publish-document.outputs.pdf }}
-          asset_name: 'document.pdf'
-          asset_content_type: application/pdf
+          name: docs
+          path: pdfs
