@@ -19,7 +19,7 @@ jobs:
       - uses: baileyjm02/markdown-to-pdf@v1
         with:
           input_dir: src
-          output_dir: pdfs
+          output_dir: overreact-guide-pdf
           images_dir: src/
           # for example <img src="./images/file-name.png">
           image_import: ./
@@ -27,5 +27,5 @@ jobs:
           build_html: false
       - uses: actions/upload-artifact@v1
         with:
-          name: overreact-guide-pdf
-          path: overreact-guide.pdf
+          name: overreact-guide.pdf
+          path: overreact-guide-pdf
