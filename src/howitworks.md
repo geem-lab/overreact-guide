@@ -1,17 +1,8 @@
 # How it works
 
-**WARNING**: This page greatly simplifies things. It is not a complete
-description of the system and in no way substitutes the full read of the
-upcoming paper.
-
 **overreact** takes computational chemistry outputs as **data sources** and uses
 them to calculate thermodynamic and kinetic properties as shown in the following
 diagram.
-
-<!-- \\[ \mu = \frac{1}{N} \sum_{i=0} x_i \\] -->
-
-<!-- Currently, **overreact** only supports quantum chemistry outputs.
-In the future we might get data from actual experiments, databases or using machine learning. -->
 
 ```mermaid
 graph TD;
@@ -54,3 +45,7 @@ graph TD;
         pred
     end
 ```
+
+**WARNING**: This above diagram greatly simplifies things. It is not a complete
+description of the system and in no way substitutes the full read of the
+upcoming paper.
