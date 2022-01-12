@@ -730,15 +730,9 @@ The following notebooks are available:</p>
 <a href="https://github.com/geem-lab/overreact/discussions">open a discussion about it in the overreact GitHub repository</a>.</p>
 </blockquote>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h1>
-<p><strong>WARNING</strong>: This page greatly simplifies things. It is not a complete
-description of the system and in no way substitutes the full read of the
-upcoming paper.</p>
 <p><strong>overreact</strong> takes computational chemistry outputs as <strong>data sources</strong> and uses
 them to calculate thermodynamic and kinetic properties as shown in the following
 diagram.</p>
-<!-- \\[ \mu = \frac{1}{N} \sum_{i=0} x_i \\] -->
-<!-- Currently, **overreact** only supports quantum chemistry outputs.
-In the future we might get data from actual experiments, databases or using machine learning. -->
 <pre class="mermaid">graph TD;
     classDef normal font-variant:small-caps;
     classDef valuable font-variant:small-caps,fill:#9AC4F8;
@@ -779,6 +773,9 @@ In the future we might get data from actual experiments, databases or using mach
         pred
     end
 </pre>
+<p><strong>WARNING</strong>: This above diagram greatly simplifies things. It is not a complete
+description of the system and in no way substitutes the full read of the
+upcoming paper.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="using-overreact-as-a-command-line-tool"><a class="header" href="#using-overreact-as-a-command-line-tool">Using <strong>overreact</strong> as a command-line tool</a></h1>
 <blockquote>
 <p><strong>✏️</strong> This an overview of the command-line tool. <strong>If you're new to
@@ -805,7 +802,7 @@ the MIT License. If you publish work using this software, please cite
 https://doi.org/10.5281/zenodo.5730603.
 
 positional arguments:
-  path                  path to a source (`.k`) or compiled (.jk) model input
+  path                  path to a source (`.k`) or compiled (`.jk`) model input
                         file (if a source input file is given, but there is a
                         compiled file available, the compiled file will be
                         used; use --compile|-c to force recompilation of the
@@ -821,7 +818,7 @@ optional arguments:
   -v, --verbose         increase output verbosity (can be given many times,
                         each time the amount of logged data is increased)
                         (default: 0)
-  -c, --compile         force recompile a source (`.k`) into a compiled (.jk)
+  -c, --compile         force recompile a source (`.k`) into a compiled (`.jk`)
                         model input file (default: False)
   --plot PLOT           plot the concentrations as a function of time from the
                         performed microkinetics simulation: can be either
@@ -857,7 +854,7 @@ optional arguments:
   --atol ATOL           absolute local error of the ODE system integrator
                         (default: 1e-11)
 </code></pre>
-<p>The following is a brief description of the command-line options.</p>
+<p>The following is a brief description of the most commonly used options:</p>
 <h2 id="the-path-to-the-model-input-file"><a class="header" href="#the-path-to-the-model-input-file">The path to the model input file</a></h2>
 <p>The command-line tool requires the path to either a model source file (<code>.k</code>) or
 a compiled one (<code>.jk</code>), from which it will read the given logfiles and calculate
@@ -886,9 +883,42 @@ simulation will be printed to the standard output.</p>
 won't be produced by default. <strong>You should use the <code>--plot</code> option in order to
 produce kinetic profiles (see below).</strong></p>
 </blockquote>
+<h2 id="produce-kinetic-profiles-"><a class="header" href="#produce-kinetic-profiles-">Produce kinetic profiles 📈</a></h2>
+<p>The <code>--plot</code> flag can be used to produce kinetic profiles (e.g., plots of
+concentrations as a function of time during the microkinetic simulation).</p>
+<p>You can either plot <strong>all the species</strong> (<code>--plot=all</code>) or only the <strong>active
+ones</strong> (i.e., the ones that actually change concentration during the simulation,
+up to a reasonable threshold, <code>--plot=active</code>) or a <strong>single compound</strong> of
+interest (<code>--plot=&quot;NH3(w)&quot;</code>).</p>
+<h2 id="energetics-kinetics-and-bias-correction"><a class="header" href="#energetics-kinetics-and-bias-correction">Energetics, kinetics and bias correction</a></h2>
+<p>The flags <code>--temperature</code> (or <code>-T</code>) and <code>--pressure</code> can be used to set the
+working <strong>temperature and pressure</strong>, respectively, to be used in all
+thermodynamic and kinetic calculations. Units are in kelvins and pascals,
+respectively, and the default values are 298.15 K and 101.325 kPa.</p>
+<p>The <code>--qrrho</code> flag can be used to enable or disable the <strong>quasi-rigid rotor
+harmonic oscillator</strong> (QRRHO) approximations for entropies
+(<a href="https://doi.org/10.1002/chem.201200497"><em>Theory. Chem. Eur. J.</em>, <strong>2012</strong>, 18: 9955-9964</a>))
+and enthalpies
+(<a href="http://dx.doi.org/10.1021/jp509921r"><em>J. Phys. Chem. C</em> <strong>2015</strong>, 119, 4, 1840–1850</a>)).
+The default value is <code>both</code>, which means that both entropies and enthalpies will
+be corrected, but you can also choose to only enable the correction for
+entropies (<code>--qrrho=entropy</code>) or only for enthalpies (<code>--qrrho=enthalpy</code>), or to
+disable the correction altogether (<code>--qrrho=none</code>).</p>
+<p><strong>Quantum tunneling approximations</strong> can be selected or disabled with the
+<code>--tunneling</code> flag. The default value is <code>eckart</code> (for the Eckart model), and
+other valid options are <code>--tunneling=wigner</code> (Wigner model) and
+<code>--tunneling=none</code> (no tunneling correction).</p>
+<p>A <strong>bias energy</strong> (in kilocalories per mole) can be added to the model to
+mitigate eventual systematic errors by using <code>--bias</code> (or <code>-b</code>). This will add a
+constant energy value to each individual compound in the model. This is zero by
+default.</p>
+<blockquote>
+<p><strong>⚠️</strong> You should probably have a good reason to add a bias energy correction
+to your model.</p>
+</blockquote>
 <h2 id="force-recompilation-of-the-source-file"><a class="header" href="#force-recompilation-of-the-source-file">Force recompilation of the source file</a></h2>
 <p>The <code>--compile</code> (or, equivalently, <code>-c</code>) option forces the recompilation of the
-source file (<code>.k</code>) into a compiled (.jk) model input file. <strong>This is useful if
+source file (<code>.k</code>) into a compiled (<code>.jk</code>) model input file. <strong>This is useful if
 you want to make sure you're using the latest version of the source file.</strong></p>
 <details>
     <summary style="cursor: pointer;">
@@ -897,69 +927,29 @@ you want to make sure you're using the latest version of the source file.</stron
     <p>
         This is a design decision. The reason is that overreact is designed
         to work with <strong>very large models</strong>,
-        and they can be slow to be interpreted
+        and they can be slow interpret
         (imagine a model with a lot of reactions and a lot of species;
         <strong>overreact</strong> would have to read every logfile every time you run it,
-        which can easily amount to several megabytes of data).
+        which can be quite slow).
     </p>
 </details>
-<h2 id="produce-kinetic-profiles-"><a class="header" href="#produce-kinetic-profiles-">Produce kinetic profiles 📈</a></h2>
-<p>The <code>--plot</code> flag can be used to produce kinetic profiles (e.g., plots of
-concentrations as a function of time during the microkinetic simulation).</p>
-<p>You can either plot all the species (<code>--plot=all</code>) or only the active ones
-(i.e., the ones that actually change concentration during the simulation, up to
-a reasonable threshold, <code>--plot=active</code>) or a single compound of interest
-(<code>--plot=&quot;NH3(w)&quot;</code>).</p>
-<!-- ...
-
-\textcolor{red}{EXAMPLE NOT COOL! MAYBE THIS SHOULD BE GIVEN IN THE SUPPORTING
-INFORMATION OR SIMPLIFIED. IN ANY CASE, CLEARLY PUT THE NAME AND EXTENSION OF
-THE INPUT FILE. MENTION HOW TO ENTER EACH AVAILABLE OPTION: SOLVATION,
-TUNNELING, TEMPERATURE, ETC...}
-
-Naturally, all outputs should already be optimized in solution.
-
-The paths to logfiles are relative to the path of the input file. As such, it is
-very simple to run **overreact** when in the same directory as
-\texttt{curtin_hammett.k}~(\cref{lst:run-example}). % \begin{lstlisting}[
-caption={Example of running the command-line application of **overreact**.},
-label={lst:run-example}, language={bash}, ]
-
-# only thermodynamics and kinetic data:
-
-$ overreact curtin_hammett.k
-
-# data above plus microkinetics simulation:
-
-$ overreact curtin_hammett.k "A(w):0.1" "B(w):0.05" --plot=active
-\end{lstlisting}
-
-The second line in~\cref{lst:run-example} performs all calculations and also
-propagates a microkinetic simulation with the specified initial concentrations
-given ($[\ce{A(w)}]$ = 0.1~M, $[\ce{B(w)}]$ = 0.05~M and zero for all other
-species).
-
-% Excerpts from the output for the example given above are available (NOT
-REALLY!) in the supporting information. As such, the user specifies a set of
-elementary reactions that are believed to be relevant for the overall chemical
-phenomena. **overreact** offers a hopefully complete but simple environment for
-hypothesis testing in first-principles chemical kinetics. The example above was
-only illustrative. The next section shows example usage and comparisons.
-
-\textcolor{red}{I recognise that this methodology section mixes both parts of
-the theory and how to use it. It is written as if it is a bit theory and a bit
-tutorial. I believe that by having a manual or a HOW-TO list in the SI that
-shows all the options and how to use them in the code, this section should focus
-on the theory and how it was implemented. I believe part of that is already
-covered here, but not everything! I believe that this tutorial information could
-be in another file (Manual or SI) Also, the results discussion section should go
-beyond the "we tested so-and-so's reaction and our results were very close to
-the experimental ones" . We should show the details, and the fact that if
-certain corrections (like tunnelling) are omitted, the result can be worse or
-better, that is, show the real capacity of the code, highlighting its potential,
-and this can only be done with a detailed discussion of the cases studied.}
-
--->
+<h2 id="tuning-the-integrator"><a class="header" href="#tuning-the-integrator">Tuning the integrator</a></h2>
+<p>Some options are available to tune the integrator used in solving the
+microkinetic ODE system:</p>
+<ul>
+<li>The <code>--method</code> flag can be used to specify the <strong>integrator</strong> to be used
+(possible values are <code>Radau</code>, <code>BDF</code> and <code>LSODA</code>). The default is <code>Radau</code>.</li>
+<li>The <code>--rtol</code> and <code>--atol</code> flags can be used to override the default
+<strong>relative and absolute local errors</strong> of the ODE system integrator (the
+default values are \(10^{-5}\) and \(10^{-11}\), respectively, which can
+be given in scientific notation as <code>--rtol=1e-5</code> and <code>--atol=1e-11</code>).</li>
+<li>The <code>--max-time</code> flag can be used to specify the <strong>maximum microkinetic
+simulation time</strong> (in seconds) allowed (the default is 86400 seconds, or one
+day)</li>
+</ul>
+<p>Take a look at the
+<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html">documentation of the <code>scipy.integrate.solve_ivp</code> function</a>
+for low-level details on the integrator options.</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="command-line-input-format-specification"><a class="header" href="#command-line-input-format-specification">Command-line input format specification</a></h1>
 <p><strong>overreact</strong> is both a library and a command-line application. In this
 subsection, we briefly describe the minimal input specification for the
