@@ -26,7 +26,7 @@ the MIT License. If you publish work using this software, please cite
 https://doi.org/10.5281/zenodo.5730603.
 
 positional arguments:
-  path                  path to a source (`.k`) or compiled (.jk) model input
+  path                  path to a source (`.k`) or compiled (`.jk`) model input
                         file (if a source input file is given, but there is a
                         compiled file available, the compiled file will be
                         used; use --compile|-c to force recompilation of the
@@ -42,7 +42,7 @@ optional arguments:
   -v, --verbose         increase output verbosity (can be given many times,
                         each time the amount of logged data is increased)
                         (default: 0)
-  -c, --compile         force recompile a source (`.k`) into a compiled (.jk)
+  -c, --compile         force recompile a source (`.k`) into a compiled (`.jk`)
                         model input file (default: False)
   --plot PLOT           plot the concentrations as a function of time from the
                         performed microkinetics simulation: can be either
@@ -79,7 +79,7 @@ optional arguments:
                         (default: 1e-11)
 ```
 
-The following is a brief description of the command-line options.
+The following is a brief description of the most commonly used options:
 
 ## The path to the model input file
 
@@ -114,7 +114,7 @@ simulation will be printed to the standard output.
 ## Force recompilation of the source file
 
 The `--compile` (or, equivalently, `-c`) option forces the recompilation of the
-source file (`.k`) into a compiled (.jk) model input file. **This is useful if
+source file (`.k`) into a compiled (`.jk`) model input file. **This is useful if
 you want to make sure you're using the latest version of the source file.**
 
 <details>
@@ -124,14 +124,14 @@ you want to make sure you're using the latest version of the source file.**
     <p>
         This is a design decision. The reason is that overreact is designed
         to work with <strong>very large models</strong>,
-        and they can be slow to be interpreted
+        and they can be slow interpret
         (imagine a model with a lot of reactions and a lot of species;
         <strong>overreact</strong> would have to read every logfile every time you run it,
-        which can easily amount to several megabytes of data).
+        which can be quite slow).
     </p>
 </details>
 
-## Produce kinetic profiles 📈
+## Tuning the integrator
 
 The `--plot` flag can be used to produce kinetic profiles (e.g., plots of
 concentrations as a function of time during the microkinetic simulation).
