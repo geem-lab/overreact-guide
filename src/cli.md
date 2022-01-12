@@ -111,6 +111,46 @@ simulation will be printed to the standard output.
 > won't be produced by default. **You should use the `--plot` option in order to
 > produce kinetic profiles (see below).**
 
+## Produce kinetic profiles 📈
+
+The `--plot` flag can be used to produce kinetic profiles (e.g., plots of
+concentrations as a function of time during the microkinetic simulation).
+
+You can either plot **all the species** (`--plot=all`) or only the **active
+ones** (i.e., the ones that actually change concentration during the simulation,
+up to a reasonable threshold, `--plot=active`) or a **single compound** of
+interest (`--plot="NH3(w)"`).
+
+## Energetics, kinetics and bias correction
+
+The flags `--temperature` (or `-T`) and `--pressure` can be used to set the
+working **temperature and pressure**, respectively, to be used in all
+thermodynamic and kinetic calculations. Units are in kelvins and pascals,
+respectively, and the default values are 298.15 K and 101.325 kPa.
+
+The `--qrrho` flag can be used to enable or disable the **quasi-rigid rotor
+harmonic oscillator** (QRRHO) approximations for entropies
+([_Theory. Chem. Eur. J._, **2012**, 18: 9955-9964](https://doi.org/10.1002/chem.201200497)))
+and enthalpies
+([_J. Phys. Chem. C_ **2015**, 119, 4, 1840–1850](http://dx.doi.org/10.1021/jp509921r))).
+The default value is `both`, which means that both entropies and enthalpies will
+be corrected, but you can also choose to only enable the correction for
+entropies (`--qrrho=entropy`) or only for enthalpies (`--qrrho=enthalpy`), or to
+disable the correction altogether (`--qrrho=none`).
+
+**Quantum tunneling approximations** can be selected or disabled with the
+`--tunneling` flag. The default value is `eckart` (for the Eckart model), and
+other valid options are `--tunneling=wigner` (Wigner model) and
+`--tunneling=none` (no tunneling correction).
+
+A **bias energy** (in kilocalories per mole) can be added to the model to
+mitigate eventual systematic errors by using `--bias` (or `-b`). This will add a
+constant energy value to each individual compound in the model. This is zero by
+default.
+
+> **⚠️** You should probably have a good reason to add a bias energy correction
+> to your model.
+
 ## Force recompilation of the source file
 
 The `--compile` (or, equivalently, `-c`) option forces the recompilation of the
@@ -133,61 +173,19 @@ you want to make sure you're using the latest version of the source file.**
 
 ## Tuning the integrator
 
-The `--plot` flag can be used to produce kinetic profiles (e.g., plots of
-concentrations as a function of time during the microkinetic simulation).
+Some options are available to tune the integrator used in solving the
+microkinetic ODE system:
 
-You can either plot all the species (`--plot=all`) or only the active ones
-(i.e., the ones that actually change concentration during the simulation, up to
-a reasonable threshold, `--plot=active`) or a single compound of interest
-(`--plot="NH3(w)"`).
+-   The `--method` flag can be used to specify the **integrator** to be used
+    (possible values are `Radau`, `BDF` and `LSODA`). The default is `Radau`.
+-   The `--rtol` and `--atol` flags can be used to override the default
+    **relative and absolute local errors** of the ODE system integrator (the
+    default values are \\(10^{-5}\\) and \\(10^{-11}\\), respectively, which can
+    be given in scientific notation as `--rtol=1e-5` and `--atol=1e-11`).
+-   The `--max-time` flag can be used to specify the **maximum microkinetic
+    simulation time** (in seconds) allowed (the default is 86400 seconds, or one
+    day)
 
-<!-- ...
-
-\textcolor{red}{EXAMPLE NOT COOL! MAYBE THIS SHOULD BE GIVEN IN THE SUPPORTING
-INFORMATION OR SIMPLIFIED. IN ANY CASE, CLEARLY PUT THE NAME AND EXTENSION OF
-THE INPUT FILE. MENTION HOW TO ENTER EACH AVAILABLE OPTION: SOLVATION,
-TUNNELING, TEMPERATURE, ETC...}
-
-Naturally, all outputs should already be optimized in solution.
-
-The paths to logfiles are relative to the path of the input file. As such, it is
-very simple to run **overreact** when in the same directory as
-\texttt{curtin_hammett.k}~(\cref{lst:run-example}). % \begin{lstlisting}[
-caption={Example of running the command-line application of **overreact**.},
-label={lst:run-example}, language={bash}, ]
-
-# only thermodynamics and kinetic data:
-
-$ overreact curtin_hammett.k
-
-# data above plus microkinetics simulation:
-
-$ overreact curtin_hammett.k "A(w):0.1" "B(w):0.05" --plot=active
-\end{lstlisting}
-
-The second line in~\cref{lst:run-example} performs all calculations and also
-propagates a microkinetic simulation with the specified initial concentrations
-given ($[\ce{A(w)}]$ = 0.1~M, $[\ce{B(w)}]$ = 0.05~M and zero for all other
-species).
-
-% Excerpts from the output for the example given above are available (NOT
-REALLY!) in the supporting information. As such, the user specifies a set of
-elementary reactions that are believed to be relevant for the overall chemical
-phenomena. **overreact** offers a hopefully complete but simple environment for
-hypothesis testing in first-principles chemical kinetics. The example above was
-only illustrative. The next section shows example usage and comparisons.
-
-\textcolor{red}{I recognise that this methodology section mixes both parts of
-the theory and how to use it. It is written as if it is a bit theory and a bit
-tutorial. I believe that by having a manual or a HOW-TO list in the SI that
-shows all the options and how to use them in the code, this section should focus
-on the theory and how it was implemented. I believe part of that is already
-covered here, but not everything! I believe that this tutorial information could
-be in another file (Manual or SI) Also, the results discussion section should go
-beyond the "we tested so-and-so's reaction and our results were very close to
-the experimental ones" . We should show the details, and the fact that if
-certain corrections (like tunnelling) are omitted, the result can be worse or
-better, that is, show the real capacity of the code, highlighting its potential,
-and this can only be done with a detailed discussion of the cases studied.}
-
--->
+Take a look at the
+[documentation of the `scipy.integrate.solve_ivp` function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html)
+for low-level details on the integrator options.
