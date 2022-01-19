@@ -1,23 +1,31 @@
-[![DOI](https://zenodo.org/badge/214332027.svg)](https://zenodo.org/badge/latestdoi/214332027)
+##
 
-[![CI](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg)](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml)
-[![coverage](https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8)](https://codecov.io/gh/geem-lab/overreact)
+<div align="center">
+
 [![PyPI](https://img.shields.io/pypi/v/overreact)](https://pypi.org/project/overreact/)
-[![total downloads](https://pepy.tech/badge/overreact)](https://pepy.tech/project/overreact)
-[![downloads/month](https://pepy.tech/badge/overreact/month)](https://pepy.tech/project/overreact)
 [![Python Versions](https://img.shields.io/pypi/pyversions/overreact)](https://pypi.org/project/overreact/)
-[![GitHub license](https://img.shields.io/github/license/geem-lab/overreact)](https://github.com/geem-lab/overreact/blob/main/LICENSE)
+[![CI](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg)](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml)
+[![Coverage](https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8)](https://codecov.io/gh/geem-lab/overreact)
+[![License](https://img.shields.io/github/license/geem-lab/overreact)](https://github.com/geem-lab/overreact/blob/main/LICENSE)
 
-[![API documentation](https://img.shields.io/badge/docs-available-blue)](https://geem-lab.github.io/overreact/overreact.html)
+[![API documentation](https://img.shields.io/badge/documentation-available-blue)](https://geem-lab.github.io/overreact/overreact.html)
 [![GitHub Discussions](https://img.shields.io/github/discussions/geem-lab/overreact)](https://github.com/geem-lab/overreact/discussions)
 [![GitHub issues](https://img.shields.io/github/issues-raw/geem-lab/overreact)](https://github.com/geem-lab/overreact/issues)
+
+[![downloads/month](https://pepy.tech/badge/overreact/month)](https://pepy.tech/project/overreact)
+[![total downloads](https://pepy.tech/badge/overreact)](https://pepy.tech/project/overreact)
+
+[![DOI](https://zenodo.org/badge/214332027.svg)](https://zenodo.org/badge/latestdoi/214332027)
+
 [![Made in Brazil 🇧🇷](https://img.shields.io/badge/made%20in-Brazil-009c3b)](https://github.com/geem-lab/overreact-guide#funding)
 
-# Welcome to **overreact**!
+</div>
 
 <div align="center">
     <img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
 </div>
+
+##
 
 **overreact** is a **library** and a **command-line tool** for building and
 analyzing homogeneous **microkinetic models** from **first-principles
@@ -48,6 +56,8 @@ Out[2]: array([8.16880917e+10])
     </p>
 </details>
 
+<br/>
+
 <details>
     <summary style="cursor: pointer;">
         🧐 What do you mean by <strong>first-principles calculations</strong>?
@@ -65,6 +75,8 @@ Out[2]: array([8.16880917e+10])
         <a href="http://dx.doi.org/10.1126/science.1132178">when compared to available experimental results</a>.)
     </p>
 </details>
+
+<br/>
 
 **overreact** uses **precise thermochemical partition funtions**, **tunneling
 corrections** and data is **parsed directly** from computational chemistry
