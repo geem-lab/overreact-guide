@@ -1,4 +1,4 @@
-##
+---
 
 <div align="center">
 
@@ -25,7 +25,7 @@
     <img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
 </div>
 
-##
+---
 
 **overreact** is a **library** and a **command-line tool** for building and
 analyzing homogeneous **microkinetic models** from **first-principles
