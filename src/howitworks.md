@@ -8,11 +8,13 @@ diagram.
 ```mermaid
 graph TD
     class A,B,C,D,E,F,G,H,data,cond,hypo,init,pred normal
+
     data[/Data sources/] -.-> A[Free energy data <br> for all species];
     cond[/Conditions/] -.-> E;
     hypo[/Reaction hypotheses/] -.->|parser| G[Reaction network];
     init[/Initial concentrations/] -.-> D;
     cond -.-> A;
+
     subgraph inputs
         data
         cond
