@@ -2,7 +2,7 @@
 
 **overreact** takes computational chemistry outputs as **data sources** and uses
 them to calculate thermodynamic and kinetic properties as shown in the following
-diagram.
+diagram below.
 
 
 ```mermaid
