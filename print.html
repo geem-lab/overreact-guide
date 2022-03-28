@@ -737,16 +737,14 @@ The following notebooks are available:</p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="how-it-works"><a class="header" href="#how-it-works">How it works</a></h1>
 <p><strong>overreact</strong> takes computational chemistry outputs as <strong>data sources</strong> and uses
 them to calculate thermodynamic and kinetic properties as shown in the following
-diagram.</p>
-<pre class="mermaid">graph TD;
-    classDef normal font-variant:small-caps;
-    classDef valuable font-variant:small-caps,fill:#9AC4F8;
-    class A,B,C,D,E,F,G,H,data,cond,hypo,init,pred normal;
+diagram below.</p>
+<pre class="mermaid">graph TD
+    class A,B,C,D,E,F,G,H,data,cond,hypo,init,pred normal
 
-    data[/Data sources/]:::normal -.-&gt; A[Free energy data &lt;br&gt; for all species]:::normal;
-    cond[/Conditions/]:::normal -.-&gt; E;
-    hypo[/Reaction hypotheses/]:::normal -.-&gt; G[Reaction network]:::normal;
-    init[/Initial concentrations/]:::normal -.-&gt; D;
+    data[/Data sources/] -.-&gt; A[Free energy data &lt;br&gt; for all species];
+    cond[/Conditions/] -.-&gt; E;
+    hypo[/Reaction hypotheses/] -.-&gt;|parser| G[Reaction network];
+    init[/Initial concentrations/] -.-&gt; D;
     cond -.-&gt; A;
 
     subgraph inputs
@@ -756,9 +754,9 @@ diagram.</p>
         init
     end
 
-    G --&gt; F[Reaction rate laws]:::normal --&gt; C[Reaction rate equations]:::normal;
-    A --&gt; B[Free energy data &lt;br&gt; for reactions]:::valuable;
-    B --&gt; E[Reaction rate constants]:::valuable --&gt; C --&gt; D((ODE solver)):::normal;
+    G --&gt; F[Reaction rate laws] --&gt; C[Reaction rate equations];
+    A --&gt; B[Free energy data for reactions];
+    B --&gt; E[Reaction rate constants] --&gt; C --&gt; D((ODE solver));
     G --&gt; B;
 
     subgraph overreact
@@ -771,12 +769,11 @@ diagram.</p>
         G
     end
 
-    D -.-&gt; pred[\Concentrations for all species &lt;br&gt; as a function of time\]:::normal;
-    pred ==&gt; H[Kinetic predictions]:::normal;
+    D -.-&gt;|scipy| pred;
+    pred --&gt;|outputs| H[Kinetic predictions];
 
-    subgraph outputs
-        pred
-    end
+
+    pred[\Concentrations for all species as a function of time\]
 </pre>
 <p><strong>WARNING</strong>: This above diagram greatly simplifies things. It is not a complete
 description of the system and in no way substitutes the full read of the
