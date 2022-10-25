@@ -11,7 +11,7 @@ Basically, **overreact** parses complex reaction schemes with the help of a
 [domain-specific language (DSL)](https://en.wikipedia.org/wiki/Domain-specific_language)
 designed to be as flexible and intuitive as possible to any chemist. For
 instance, as a purely illustrative example, the following
-[Curtin-Hammett system](https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle)
+[Curtin-Hammett system](https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle),
 
 <!-- CITE 10.1021/jo00404a002 ? -->
 
@@ -53,8 +53,8 @@ $end
     can contain any character except spaces. _Labels in the `$scheme` block
     should match the ones in `$compounds`_.
 -   **Stoichiometric coefficients** are specified as multipliers in front of the
-    compound labels, e.g. `2 * A(w)`, `3 * A(w)`, etc.. `A(w)` actually is
-    equivalent to `1 * A(w)`.
+    compound labels, e.g., `2 * A(w)`, `3 * A(w)`, etc.
+    `A(w)` equivalent to `1 * A(w)`.
 -   `->` means a **forward reaction** (listing first reactants, then products).
 -   `<-` means a **backward reaction** (listing first products, then reactants).
 -   `<=>` means an **equilibrium**. They are useful when one does not want
@@ -86,7 +86,45 @@ $scheme
 $end
 ```
 
-## Some ilustrative examples
+## Multiple logfiles for a single compound
+
+You can provide multiple logfiles for a single compound.
+This will read the files one by one, updating the data of the previous one
+with the next.
+As such, data present on the first file only (e.g., harmonic frequencies) will
+be preserved, while data shared between files will be overridden by the subsequent files
+(e.g., electronic energies).
+This way **overreact** allows for mixed levels of theory in a very simple way:
+
+```
+$compounds
+$compounds
+ AcOH(g):  // acetic acid in gas phase
+  logfile=UM06-2X/6-311++G(d,p)/acetic_acid.out
+  logfile=DLPNO-CCSD(T)/cc-pVTZ/acetic_acid.out 
+$end
+```
+
+## Extra symmetries
+
+You can provide extra information about the symmetry of a compound to **overreact** with the `symmetry` keyword.
+This is useful in cases such as
+extra degrees of freedom in weakly-bound complexes
+or unusually degenerate reaction paths (e.g., a nucleophile being able to attack from both faces of a functional group).
+
+```
+$compounds
+ H3CHCl‡:
+  logfile=H3CHCl‡.out
+  symmetry=4
+$end
+```
+
+Observe that this value will *multiply* the symmetry number found
+by **overreact**.
+You can use floating-point numbers to express fractions too!
+
+## Some illustrative examples
 
 1. A simple model for the
    [synthesis of ammonia](https://en.wikipedia.org/wiki/Haber_process):
