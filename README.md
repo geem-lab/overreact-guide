@@ -1,28 +1,58 @@
 ---
-
 <div align="center">
-
-[![PyPI](https://img.shields.io/pypi/v/overreact)](https://pypi.org/project/overreact/)
-[![Python Versions](https://img.shields.io/pypi/pyversions/overreact)](https://pypi.org/project/overreact/)
-[![CI](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg)](https://github.com/geem-lab/overreact/actions/workflows/python-package.yml)
-[![Coverage](https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8)](https://codecov.io/gh/geem-lab/overreact)
-[![License](https://img.shields.io/github/license/geem-lab/overreact)](https://github.com/geem-lab/overreact/blob/main/LICENSE)
-
-[![API documentation](https://img.shields.io/badge/documentation-available-blue)](https://geem-lab.github.io/overreact/overreact.html)
-[![GitHub Discussions](https://img.shields.io/github/discussions/geem-lab/overreact)](https://github.com/geem-lab/overreact/discussions)
-[![GitHub issues](https://img.shields.io/github/issues-raw/geem-lab/overreact)](https://github.com/geem-lab/overreact/issues)
-
-[![downloads/month](https://pepy.tech/badge/overreact/month)](https://pepy.tech/project/overreact)
-[![total downloads](https://pepy.tech/badge/overreact)](https://pepy.tech/project/overreact)
-
-[![DOI](https://zenodo.org/badge/214332027.svg)](https://zenodo.org/badge/latestdoi/214332027)
-
-[![Made in Brazil 🇧🇷](https://img.shields.io/badge/made%20in-Brazil-009c3b)](https://github.com/geem-lab/overreact-guide#funding)
-
+<p>
+<a href="https://pypi.org/project/overreact/" >
+<img src="https://img.shields.io/pypi/v/overreact" alt="PyPI" />
+</a>
+<a href="https://pypi.org/project/overreact/" >
+<img src="https://img.shields.io/pypi/pyversions/overreact" alt="Python Versions" />
+</a>
+<a href="https://github.com/geem-lab/overreact/actions/workflows/python-package.yml" />
+<img src="https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg" alt="CI" />
+</a>
+<a href="https://codecov.io/gh/geem-lab/overreact" >
+<img src="https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8" alt="Coverage" />
+</a>
+<a href="https://github.com/geem-lab/overreact/blob/main/LICENSE">
+<img src="https://img.shields.io/github/license/geem-lab/overreact" alt="License" />
+</a>
+</p>
+<p>
+<a href="https://geem-lab.github.io/overreact-guide/">
+<img src="https://img.shields.io/badge/user%20guide-available-blue" alt="User guide" />
+</a>
+<a href="https://github.com/geem-lab/overreact/discussions">
+<img src="https://img.shields.io/github/discussions/geem-lab/overreact" alt="GitHub Discussions" />
+</a>
+<a href="https://github.com/geem-lab/overreact/issues">
+<img src="https://img.shields.io/github/issues-raw/geem-lab/overreact" alt="GitHub issues" />
+</a>
+</p>
+<p>
+<a href="https://pepy.tech/project/overreact" >
+<img src="https://pepy.tech/badge/overreact/month" alt="downloads/month" />
+</a>
+<a href="https://pepy.tech/project/overreact" >
+<img src="https://pepy.tech/badge/overreact" alt="total downloads" />
+</a>
+</p>
+<p>
+<a href="https://doi.org/10.1002/jcc.26861" >
+<img src="https://img.shields.io/badge/DOI-10.1002%2Fjcc.26861-blue" alt="DOI" />
+</a>
+<a href="https://doi.org/10.5281/zenodo.5730603">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5730603.svg" alt="DOI" />
+</a>
+</p>
+<p>
+<a href="https://github.com/geem-lab/overreact#funding" >
+<img src="https://img.shields.io/badge/made%20in-Brazil-009c3b" alt="Made in Brazil 🇧🇷" />
+</a>
+</p>
 </div>
 
 <div align="center">
-    <img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
+<img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
 </div>
 
 ---
@@ -32,13 +62,18 @@ analyzing homogeneous **microkinetic models** from **first-principles
 calculations**:
 
 ```python
-In [1]: from overreact import api
+In [1]: from overreact import api  # the api
 
-In [2]: api.get_k("S -> E‡ -> S",
-   ...:           {"S": "data/ethane/B97-3c/staggered.out",
+In [2]: api.get_k("S -> E‡ -> S",  # your model
+   ...:           {"S": "data/ethane/B97-3c/staggered.out",  # your data
    ...:            "E‡": "data/ethane/B97-3c/eclipsed.out"})
-Out[2]: array([8.16880917e+10])
+Out[2]: array([8.16880917e+10])  # your results
 ```
+
+The user specifies a set of
+elementary reactions that are believed to be relevant for the overall chemical
+phenomena. **overreact** offers a hopefully complete but simple environment for
+hypothesis testing in first-principles chemical kinetics.
 
 <details>
     <summary style="cursor: pointer;">
@@ -109,29 +144,24 @@ If you use **overreact** in your research, please cite:
 > F. S. S. Schneider and G. F. Caramori. _**geem-lab/overreact**: a tool for
 > creating and analyzing microkinetic models built from computational chemistry
 > data, v1.0.2_. **2021**.
-> [DOI:10.5281/zenodo.5730603](https://zenodo.org/badge/latestdoi/214332027).
+> [doi:10.1002/jcc.26861](https://doi.org/10.1002/jcc.26861).
 > Freely available at: <<https://github.com/geem-lab/overreact>>.
 
 Here's the reference in [BibTeX](http://www.bibtex.org/) format:
 
 ```bibtex
-@misc{overreact2021,
-  howpublished = {\url{https://github.com/geem-lab/overreact}}
-  year = {2021},
-  author = {Schneider, F. S. S. and Caramori, G. F.},
-  title = {
-    \textbf{geem-lab/overreact}: a tool for creating and analyzing
-    microkinetic models built from computational chemistry data, v1.0.2
-  },
-  doi = {10.5281/zenodo.5730603},
-  url = {https://zenodo.org/record/5730603},
-  publisher = {Zenodo},
-  copyright = {Open Access}
+@article{2022,
+  title={Overreact, an in silico lab: Automative quantum chemical microkinetic simulations for complex chemical reactions},
+  ISSN={1096-987X},
+  url={http://dx.doi.org/10.1002/jcc.26861},
+  DOI={10.1002/jcc.26861},
+  journal={Journal of Computational Chemistry},
+  publisher={Wiley},
+  author={Schneider, Felipe S. S. and Caramori, Giovanni F.},
+  year={2022},
+  month={Apr}
 }
 ```
-
-> **✏️** A paper describing **overreact** is currently being prepared. When it
-> is published, the above BibTeX entry will be updated.
 
 ## License
 
