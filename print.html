@@ -151,33 +151,74 @@
                     <main>
                         <hr />
 <div align="center">
-<p><a href="https://pypi.org/project/overreact/"><img src="https://img.shields.io/pypi/v/overreact" alt="PyPI" /></a>
-<a href="https://pypi.org/project/overreact/"><img src="https://img.shields.io/pypi/pyversions/overreact" alt="Python Versions" /></a>
-<a href="https://github.com/geem-lab/overreact/actions/workflows/python-package.yml"><img src="https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg" alt="CI" /></a>
-<a href="https://codecov.io/gh/geem-lab/overreact"><img src="https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8" alt="Coverage" /></a>
-<a href="https://github.com/geem-lab/overreact/blob/main/LICENSE"><img src="https://img.shields.io/github/license/geem-lab/overreact" alt="License" /></a></p>
-<p><a href="https://geem-lab.github.io/overreact/overreact.html"><img src="https://img.shields.io/badge/documentation-available-blue" alt="API documentation" /></a>
-<a href="https://github.com/geem-lab/overreact/discussions"><img src="https://img.shields.io/github/discussions/geem-lab/overreact" alt="GitHub Discussions" /></a>
-<a href="https://github.com/geem-lab/overreact/issues"><img src="https://img.shields.io/github/issues-raw/geem-lab/overreact" alt="GitHub issues" /></a></p>
-<p><a href="https://pepy.tech/project/overreact"><img src="https://pepy.tech/badge/overreact/month" alt="downloads/month" /></a>
-<a href="https://pepy.tech/project/overreact"><img src="https://pepy.tech/badge/overreact" alt="total downloads" /></a></p>
-<p><a href="https://zenodo.org/badge/latestdoi/214332027"><img src="https://zenodo.org/badge/214332027.svg" alt="DOI" /></a></p>
-<p><a href="https://github.com/geem-lab/overreact-guide#funding"><img src="https://img.shields.io/badge/made%20in-Brazil-009c3b" alt="Made in Brazil 🇧🇷" /></a></p>
+<p>
+<a href="https://pypi.org/project/overreact/" >
+<img src="https://img.shields.io/pypi/v/overreact" alt="PyPI" />
+</a>
+<a href="https://pypi.org/project/overreact/" >
+<img src="https://img.shields.io/pypi/pyversions/overreact" alt="Python Versions" />
+</a>
+<a href="https://github.com/geem-lab/overreact/actions/workflows/python-package.yml" />
+<img src="https://github.com/geem-lab/overreact/actions/workflows/python-package.yml/badge.svg" alt="CI" />
+</a>
+<a href="https://codecov.io/gh/geem-lab/overreact" >
+<img src="https://codecov.io/gh/geem-lab/overreact/branch/main/graph/badge.svg?token=4WAVXCRXY8" alt="Coverage" />
+</a>
+<a href="https://github.com/geem-lab/overreact/blob/main/LICENSE">
+<img src="https://img.shields.io/github/license/geem-lab/overreact" alt="License" />
+</a>
+</p>
+<p>
+<a href="https://geem-lab.github.io/overreact-guide/">
+<img src="https://img.shields.io/badge/user%20guide-available-blue" alt="User guide" />
+</a>
+<a href="https://github.com/geem-lab/overreact/discussions">
+<img src="https://img.shields.io/github/discussions/geem-lab/overreact" alt="GitHub Discussions" />
+</a>
+<a href="https://github.com/geem-lab/overreact/issues">
+<img src="https://img.shields.io/github/issues-raw/geem-lab/overreact" alt="GitHub issues" />
+</a>
+</p>
+<p>
+<a href="https://pepy.tech/project/overreact" >
+<img src="https://pepy.tech/badge/overreact/month" alt="downloads/month" />
+</a>
+<a href="https://pepy.tech/project/overreact" >
+<img src="https://pepy.tech/badge/overreact" alt="total downloads" />
+</a>
+</p>
+<p>
+<a href="https://doi.org/10.1002/jcc.26861" >
+<img src="https://img.shields.io/badge/DOI-10.1002%2Fjcc.26861-blue" alt="DOI" />
+</a>
+<a href="https://doi.org/10.5281/zenodo.5730603">
+<img src="https://zenodo.org/badge/DOI/10.5281/zenodo.5730603.svg" alt="DOI" />
+</a>
+</p>
+<p>
+<a href="https://github.com/geem-lab/overreact#funding" >
+<img src="https://img.shields.io/badge/made%20in-Brazil-009c3b" alt="Made in Brazil 🇧🇷" />
+</a>
+</p>
 </div>
 <div align="center">
-    <img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
+<img alt="overreact" src="https://raw.githubusercontent.com/geem-lab/overreact-guide/master/logo.png" />
 </div>
 <hr />
 <p><strong>overreact</strong> is a <strong>library</strong> and a <strong>command-line tool</strong> for building and
 analyzing homogeneous <strong>microkinetic models</strong> from <strong>first-principles
 calculations</strong>:</p>
-<pre><code class="language-python">In [1]: from overreact import api
+<pre><code class="language-python">In [1]: from overreact import api  # the api
 
-In [2]: api.get_k(&quot;S -&gt; E‡ -&gt; S&quot;,
-   ...:           {&quot;S&quot;: &quot;data/ethane/B97-3c/staggered.out&quot;,
+In [2]: api.get_k(&quot;S -&gt; E‡ -&gt; S&quot;,  # your model
+   ...:           {&quot;S&quot;: &quot;data/ethane/B97-3c/staggered.out&quot;,  # your data
    ...:            &quot;E‡&quot;: &quot;data/ethane/B97-3c/eclipsed.out&quot;})
-Out[2]: array([8.16880917e+10])
+Out[2]: array([8.16880917e+10])  # your results
 </code></pre>
+<p>The user specifies a set of
+elementary reactions that are believed to be relevant for the overall chemical
+phenomena. <strong>overreact</strong> offers a hopefully complete but simple environment for
+hypothesis testing in first-principles chemical kinetics.</p>
 <details>
     <summary style="cursor: pointer;">
         🤔 What is <strong>microkinetic modeling</strong>?
@@ -237,28 +278,22 @@ for more guidance.</p>
 <p>F. S. S. Schneider and G. F. Caramori. <em><strong>geem-lab/overreact</strong>: a tool for
 creating and analyzing microkinetic models built from computational chemistry
 data, v1.0.2</em>. <strong>2021</strong>.
-<a href="https://zenodo.org/badge/latestdoi/214332027">DOI:10.5281/zenodo.5730603</a>.
+<a href="https://doi.org/10.1002/jcc.26861">doi:10.1002/jcc.26861</a>.
 Freely available at: &lt;<a href="https://github.com/geem-lab/overreact">https://github.com/geem-lab/overreact</a>&gt;.</p>
 </blockquote>
 <p>Here's the reference in <a href="http://www.bibtex.org/">BibTeX</a> format:</p>
-<pre><code class="language-bibtex">@misc{overreact2021,
-  howpublished = {\url{https://github.com/geem-lab/overreact}}
-  year = {2021},
-  author = {Schneider, F. S. S. and Caramori, G. F.},
-  title = {
-    \textbf{geem-lab/overreact}: a tool for creating and analyzing
-    microkinetic models built from computational chemistry data, v1.0.2
-  },
-  doi = {10.5281/zenodo.5730603},
-  url = {https://zenodo.org/record/5730603},
-  publisher = {Zenodo},
-  copyright = {Open Access}
+<pre><code class="language-bibtex">@article{2022,
+  title={Overreact, an in silico lab: Automative quantum chemical microkinetic simulations for complex chemical reactions},
+  ISSN={1096-987X},
+  url={http://dx.doi.org/10.1002/jcc.26861},
+  DOI={10.1002/jcc.26861},
+  journal={Journal of Computational Chemistry},
+  publisher={Wiley},
+  author={Schneider, Felipe S. S. and Caramori, Giovanni F.},
+  year={2022},
+  month={Apr}
 }
 </code></pre>
-<blockquote>
-<p><strong>✏️</strong> A paper describing <strong>overreact</strong> is currently being prepared. When it
-is published, the above BibTeX entry will be updated.</p>
-</blockquote>
 <h2 id="license"><a class="header" href="#license">License</a></h2>
 <p><strong>overreact</strong> is open-source, released under the permissive <strong>MIT license</strong>. See
 <a href="https://github.com/geem-lab/overreact/blob/main/LICENSE">the LICENSE agreement</a>.</p>
@@ -962,7 +997,7 @@ Don't worry, the input is very simple, yet flexible.</p>
 <a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language (DSL)</a>
 designed to be as flexible and intuitive as possible to any chemist. For
 instance, as a purely illustrative example, the following
-<a href="https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle">Curtin-Hammett system</a></p>
+<a href="https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle">Curtin-Hammett system</a>,</p>
 <!-- CITE 10.1021/jo00404a002 ? -->
 <p>\[ \require{mhchem} \ce{ P_{A}(w) &lt;- [A(w)]^{\ddagger} &lt;- A(w) &lt;=&gt; B(w) -&gt;
 [B(w)]^{\ddagger} -&gt; P_{B}(w) } \]</p>
@@ -998,8 +1033,8 @@ closes the previous one.</li>
 can contain any character except spaces. <em>Labels in the <code>$scheme</code> block
 should match the ones in <code>$compounds</code></em>.</li>
 <li><strong>Stoichiometric coefficients</strong> are specified as multipliers in front of the
-compound labels, e.g. <code>2 * A(w)</code>, <code>3 * A(w)</code>, etc.. <code>A(w)</code> actually is
-equivalent to <code>1 * A(w)</code>.</li>
+compound labels, e.g., <code>2 * A(w)</code>, <code>3 * A(w)</code>, etc.
+<code>A(w)</code> equivalent to <code>1 * A(w)</code>.</li>
 <li><code>-&gt;</code> means a <strong>forward reaction</strong> (listing first reactants, then products).</li>
 <li><code>&lt;-</code> means a <strong>backward reaction</strong> (listing first products, then reactants).</li>
 <li><code>&lt;=&gt;</code> means an <strong>equilibrium</strong>. They are useful when one does not want
@@ -1027,7 +1062,36 @@ accepts multiple reactions in a single line. As such, the following is a
  P_A(w) &lt;- A‡(w) &lt;- A(w) &lt;=&gt; B(w) -&gt; B‡(w) -&gt; P_B(w)
 $end
 </code></pre>
-<h2 id="some-ilustrative-examples"><a class="header" href="#some-ilustrative-examples">Some ilustrative examples</a></h2>
+<h2 id="multiple-logfiles-for-a-single-compound"><a class="header" href="#multiple-logfiles-for-a-single-compound">Multiple logfiles for a single compound</a></h2>
+<p>You can provide multiple logfiles for a single compound.
+This will read the files one by one, updating the data of the previous one
+with the next.
+As such, data present on the first file only (e.g., harmonic frequencies) will
+be preserved, while data shared between files will be overridden by the subsequent files
+(e.g., electronic energies).
+This way <strong>overreact</strong> allows for mixed levels of theory in a very simple way:</p>
+<pre><code>$compounds
+$compounds
+ AcOH(g):  // acetic acid in gas phase
+  logfile=UM06-2X/6-311++G(d,p)/acetic_acid.out
+  logfile=DLPNO-CCSD(T)/cc-pVTZ/acetic_acid.out 
+$end
+</code></pre>
+<h2 id="extra-symmetries"><a class="header" href="#extra-symmetries">Extra symmetries</a></h2>
+<p>You can provide extra information about the symmetry of a compound to <strong>overreact</strong> with the <code>symmetry</code> keyword.
+This is useful in cases such as
+extra degrees of freedom in weakly-bound complexes
+or unusually degenerate reaction paths (e.g., a nucleophile being able to attack from both faces of a functional group).</p>
+<pre><code>$compounds
+ H3CHCl‡:
+  logfile=H3CHCl‡.out
+  symmetry=4
+$end
+</code></pre>
+<p>Observe that this value will <em>multiply</em> the symmetry number found
+by <strong>overreact</strong>.
+You can use floating-point numbers to express fractions too!</p>
+<h2 id="some-illustrative-examples"><a class="header" href="#some-illustrative-examples">Some illustrative examples</a></h2>
 <ol>
 <li>A simple model for the
 <a href="https://en.wikipedia.org/wiki/Haber_process">synthesis of ammonia</a>:</li>

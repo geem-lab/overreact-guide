@@ -158,7 +158,7 @@ Don't worry, the input is very simple, yet flexible.</p>
 <a href="https://en.wikipedia.org/wiki/Domain-specific_language">domain-specific language (DSL)</a>
 designed to be as flexible and intuitive as possible to any chemist. For
 instance, as a purely illustrative example, the following
-<a href="https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle">Curtin-Hammett system</a></p>
+<a href="https://en.wikipedia.org/wiki/Curtin%E2%80%93Hammett_principle">Curtin-Hammett system</a>,</p>
 <!-- CITE 10.1021/jo00404a002 ? -->
 <p>\[ \require{mhchem} \ce{ P_{A}(w) &lt;- [A(w)]^{\ddagger} &lt;- A(w) &lt;=&gt; B(w) -&gt;
 [B(w)]^{\ddagger} -&gt; P_{B}(w) } \]</p>
@@ -194,8 +194,8 @@ closes the previous one.</li>
 can contain any character except spaces. <em>Labels in the <code>$scheme</code> block
 should match the ones in <code>$compounds</code></em>.</li>
 <li><strong>Stoichiometric coefficients</strong> are specified as multipliers in front of the
-compound labels, e.g. <code>2 * A(w)</code>, <code>3 * A(w)</code>, etc.. <code>A(w)</code> actually is
-equivalent to <code>1 * A(w)</code>.</li>
+compound labels, e.g., <code>2 * A(w)</code>, <code>3 * A(w)</code>, etc.
+<code>A(w)</code> equivalent to <code>1 * A(w)</code>.</li>
 <li><code>-&gt;</code> means a <strong>forward reaction</strong> (listing first reactants, then products).</li>
 <li><code>&lt;-</code> means a <strong>backward reaction</strong> (listing first products, then reactants).</li>
 <li><code>&lt;=&gt;</code> means an <strong>equilibrium</strong>. They are useful when one does not want
@@ -223,7 +223,36 @@ accepts multiple reactions in a single line. As such, the following is a
  P_A(w) &lt;- A‡(w) &lt;- A(w) &lt;=&gt; B(w) -&gt; B‡(w) -&gt; P_B(w)
 $end
 </code></pre>
-<h2 id="some-ilustrative-examples"><a class="header" href="#some-ilustrative-examples">Some ilustrative examples</a></h2>
+<h2 id="multiple-logfiles-for-a-single-compound"><a class="header" href="#multiple-logfiles-for-a-single-compound">Multiple logfiles for a single compound</a></h2>
+<p>You can provide multiple logfiles for a single compound.
+This will read the files one by one, updating the data of the previous one
+with the next.
+As such, data present on the first file only (e.g., harmonic frequencies) will
+be preserved, while data shared between files will be overridden by the subsequent files
+(e.g., electronic energies).
+This way <strong>overreact</strong> allows for mixed levels of theory in a very simple way:</p>
+<pre><code>$compounds
+$compounds
+ AcOH(g):  // acetic acid in gas phase
+  logfile=UM06-2X/6-311++G(d,p)/acetic_acid.out
+  logfile=DLPNO-CCSD(T)/cc-pVTZ/acetic_acid.out 
+$end
+</code></pre>
+<h2 id="extra-symmetries"><a class="header" href="#extra-symmetries">Extra symmetries</a></h2>
+<p>You can provide extra information about the symmetry of a compound to <strong>overreact</strong> with the <code>symmetry</code> keyword.
+This is useful in cases such as
+extra degrees of freedom in weakly-bound complexes
+or unusually degenerate reaction paths (e.g., a nucleophile being able to attack from both faces of a functional group).</p>
+<pre><code>$compounds
+ H3CHCl‡:
+  logfile=H3CHCl‡.out
+  symmetry=4
+$end
+</code></pre>
+<p>Observe that this value will <em>multiply</em> the symmetry number found
+by <strong>overreact</strong>.
+You can use floating-point numbers to express fractions too!</p>
+<h2 id="some-illustrative-examples"><a class="header" href="#some-illustrative-examples">Some illustrative examples</a></h2>
 <ol>
 <li>A simple model for the
 <a href="https://en.wikipedia.org/wiki/Haber_process">synthesis of ammonia</a>:</li>
