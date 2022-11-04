@@ -397,5 +397,6 @@ $ overreact methoxylation.k "R1(MeOH):0.4" "MeO-(MeOH):0.6" --plot=active --bias
 ![Active species with bias](reaction-tutorial-active-bias.png)
 
 As we can see from the plot above, a bias of -4.5 kcal/mol makes the reaction
-2000x faster (as expected from \\(\exp(4.5 \text{ kcal$\cdot$mol$^{-1}$} / R T)
-\approx 1989\\) at room temperature).
+2000x _slower_ (as expected from
+\\(\exp(4.5 \text{ kcal$\cdot$mol$^{-1}$} / R T) \approx 1989\\)
+at room temperature for a bimolecular reaction).
