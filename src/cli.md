@@ -8,7 +8,7 @@ Most commonly, you'll use the command-line tool to manage, explore and analyze
 your microkinetic simulations. The following is a brief overview of options
 available in the command-line tool. **You can access the full help page by
 running `overreact --help`**. Here's its output as of
-[version 1.0.2](https://github.com/geem-lab/overreact/releases/tag/v1.0.2):
+[version 1.1.0](https://github.com/geem-lab/overreact/releases/tag/v1.1.0):
 
 ```console
 $ overreact --help
@@ -176,15 +176,15 @@ you want to make sure you're using the latest version of the source file.**
 Some options are available to tune the integrator used in solving the
 microkinetic ODE system:
 
--   The `--method` flag can be used to specify the **integrator** to be used
-    (possible values are `Radau`, `BDF` and `LSODA`). The default is `Radau`.
--   The `--rtol` and `--atol` flags can be used to override the default
-    **relative and absolute local errors** of the ODE system integrator (the
-    default values are \\(10^{-5}\\) and \\(10^{-11}\\), respectively, which can
-    be given in scientific notation as `--rtol=1e-5` and `--atol=1e-11`).
--   The `--max-time` flag can be used to specify the **maximum microkinetic
-    simulation time** (in seconds) allowed (the default is 86400 seconds, or one
-    day)
+- The `--method` flag can be used to specify the **integrator** to be used
+  (possible values are `Radau`, `BDF` and `LSODA`). The default is `Radau`.
+- The `--rtol` and `--atol` flags can be used to override the default
+  **relative and absolute local errors** of the ODE system integrator (the
+  default values are \\(10^{-5}\\) and \\(10^{-11}\\), respectively, which can
+  be given in scientific notation as `--rtol=1e-5` and `--atol=1e-11`).
+- The `--max-time` flag can be used to specify the **maximum microkinetic
+  simulation time** (in seconds) allowed (the default is 86400 seconds, or one
+  day)
 
 Take a look at the
 [documentation of the `scipy.integrate.solve_ivp` function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.integrate.solve_ivp.html)

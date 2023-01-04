@@ -28,10 +28,10 @@ $ pip install overreact[cli]
 
 **overreact** depends on:
 
--   [`cclib`](https://github.com/cclib/cclib/) (parser for computational
-    chemistry logfiles).
--   [SciPy](https://github.com/scipy/scipy/) (numerical integration,
-    optimization, unit conversion and others).
+- [`cclib`](https://github.com/cclib/cclib/) (parser for computational
+  chemistry logfiles).
+- [SciPy](https://github.com/scipy/scipy/) (numerical integration,
+  optimization, unit conversion and others).
 
 > **✏️** Don't worry, these dependencies are automatically installed when you
 > install **overreact** using `pip` as indicated above.
@@ -80,7 +80,7 @@ If you're running a Unix, you can check if the package is installed by running
 
 ```console
 $ pip list | grep overreact
-overreact             1.0.2
+overreact 1.1.0
 ```
 
 Alternatively, you can try to import the package directly from Python:
@@ -92,7 +92,7 @@ Python 3.9.7 (default, Sep 10 2021, 14:59:43)
 Type "help", "copyright", "credits" or "license" for more information.
 >>> import overreact
 >>> overreact.__version__
-'1.0.2'
+'1.1.0'
 ```
 
 #### 2️⃣ You are missing the `overreact` command in your `PATH`.
