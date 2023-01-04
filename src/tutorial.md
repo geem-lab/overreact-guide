@@ -91,7 +91,7 @@ at a time.
 
 ### 2.1: The header
 
-The current version v1.1.0 produces a header like this:
+The current version v1.1.0 produces a header similar to the following one:
 
 ```
 ╔═══════════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -101,7 +101,7 @@ The current version v1.1.0 produces a header like this:
 📈 Create and analyze chemical microkinetic models built from computational chemistry data.
 
 Licensed under the terms of the MIT License. If you publish work using this software, please cite
-doi:10.5281/zenodo.5730603:
+doi:10.5281/zenodo.7504800:
 
 ┌───────────────────────────────────────────────────────────────────────────────────────────────────────┐
 │                                                                                                       │
@@ -113,8 +113,8 @@ doi:10.5281/zenodo.5730603:
 │     \textbf{geem-lab/overreact}: a tool for creating and analyzing                                    │
 │     microkinetic models built from computational chemistry data, v1.1.0                               │
 │   },                                                                                                  │
-│   doi = {10.5281/zenodo.5730603},                                                                     │
-│   url = {https://zenodo.org/record/5730603},                                                          │
+│   doi = {10.5281/zenodo.7504800},                                                                     │
+│   url = {https://zenodo.org/record/7504800},                                                          │
 │   publisher = {Zenodo},                                                                               │
 │   copyright = {Open Access}                                                                           │
 │ }                                                                                                     │

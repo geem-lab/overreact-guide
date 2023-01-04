@@ -7,8 +7,9 @@
 Most commonly, you'll use the command-line tool to manage, explore and analyze
 your microkinetic simulations. The following is a brief overview of options
 available in the command-line tool. **You can access the full help page by
-running `overreact --help`**. Here's its output as of
-[version 1.1.0](https://github.com/geem-lab/overreact/releases/tag/v1.1.0):
+running `overreact --help`**. The output as of
+[version 1.1.0](https://github.com/geem-lab/overreact/releases/tag/v1.1.0)
+will be something similar to the following:
 
 ```console
 $ overreact --help
@@ -20,10 +21,10 @@ usage: overreact [-h] [--version] [-v] [-c] [--plot PLOT] [-b BIAS]
                  path [concentrations ...]
 
 📈 Create and analyze chemical microkinetic models built from computational
-chemistry data. Read the user guide at https://geem-lab.github.io/overreact-
-guide/ for more information and usage examples. Licensed under the terms of
+chemistry data. Read the user guide at https://geem-lab.github.io/overreact-guide/
+for more information and usage examples. Licensed under the terms of
 the MIT License. If you publish work using this software, please cite
-https://doi.org/10.5281/zenodo.5730603.
+https://doi.org/10.5281/zenodo.7504800.
 
 positional arguments:
   path                  path to a source (`.k`) or compiled (`.jk`) model input
